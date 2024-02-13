@@ -1,4 +1,5 @@
 import {MagnifyingGlassIcon} from "@radix-ui/react-icons";
+import Link from "next/link";
 
 import {DarkModeToggle} from "./dark-mode-toggle";
 import {Input} from "./ui/input";
@@ -7,8 +8,10 @@ import {Button} from "./ui/button";
 
 export function Navbar() {
   return (
-    <header className="flex h-16 w-full items-center justify-between border-b-2 border-border px-3">
-      <h2 className="text-2xl font-semibold">Movies DBX</h2>
+    <header className="sticky left-0 top-0 z-50 flex h-16 w-full items-center justify-between border-b-2 border-border bg-background/85 px-3 backdrop-blur-sm">
+      <Link href="/">
+        <h2 className="text-2xl font-semibold">Movies DBX</h2>
+      </Link>
 
       <div className="flex items-center gap-3">
         <form action="" className="w-[max-content]">
