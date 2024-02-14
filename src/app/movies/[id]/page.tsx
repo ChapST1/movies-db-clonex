@@ -18,8 +18,9 @@ export default async function MovieDetail({params: {id}}: {params: {id: MovieDet
   return (
     <div>
       <MovieDetailHero movieDetail={movie} />
-      <section className="grid grid-cols-[1fr,300px] gap-4">
+      <section className="grid gap-4 md:grid-cols-[1fr,300px]">
         <div>
+          {/* error key */}
           <Suspense fallback={<p className="text-center">Loading...</p>}>
             <MovieCharacters id={id} />
           </Suspense>
@@ -32,7 +33,7 @@ export default async function MovieDetail({params: {id}}: {params: {id: MovieDet
             <MovieRecomendations id={id} />
           </Suspense>
         </div>
-        <nav className="sticky top-16 my-5 flex h-[max-content] flex-col px-5 py-3 ">
+        <nav className="top-16 order-[-1] my-5 flex h-[max-content] flex-col md:sticky md:order-none md:px-5 md:py-3 ">
           <p className="my-3 flex flex-col ">
             <span className="font-bold">Status</span>
             {status}
