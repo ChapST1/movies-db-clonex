@@ -39,7 +39,7 @@ type ProfileSizes = "w45" | "w185" | "h632" | "original";
 type LogoSizes = "w45" | "w92" | "w154" | "w185" | "w300" | "w500" | "original";
 type StillSizes = "w92" | "w185" | "w300" | "original";
 
-const {base_url} = images;
+const {secure_base_url} = images;
 const DEFAULT_IMAGE =
   "https://1.bp.blogspot.com/-WvpVOfQURGI/VY4dAcL4YgI/AAAAAAAADqw/BHCEc_1H5Fw/s1600/How%2Bto%2BPlay%2BOptimally%2BAgainst%2BUnknown%2BOpponents.jpg";
 
@@ -69,7 +69,7 @@ function createPath<T>(typeSize: T) {
   const {path, size} = typeSize as {path: string; size: string};
 
   if (!path) return DEFAULT_IMAGE;
-  const fullPath = `${base_url}${size}/${path}`;
+  const fullPath = `${secure_base_url}${size}/${path}`;
 
   return fullPath;
 }
