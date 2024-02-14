@@ -7,10 +7,13 @@ import {generateFullPath} from "@/lib/create-full-path";
 import {MovieBookmark} from "./movie-bookmark";
 import {MovieOptions} from "./movie-options";
 
-export function MoviesGrid({movies}: {movies: Movie[]}) {
+export function MoviesGrid({movies}: {movies: Movie[] | undefined}) {
   return (
-    <section className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
-      {movies.map((item) => {
+    <section
+      className="grid grid-cols-2
+      gap-4 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]"
+    >
+      {movies?.map((item) => {
         const {id, poster_path, title} = item;
 
         return (
@@ -18,7 +21,7 @@ export function MoviesGrid({movies}: {movies: Movie[]}) {
             <Link className="group block p-2 pb-0" href={`/movies/${id}`}>
               <picture className="relative block overflow-hidden rounded-sm">
                 <img
-                  alt=""
+                  alt={title}
                   className="w-full duration-300 group-hover:scale-105"
                   loading="lazy"
                   src={generateFullPath({poster: {path: poster_path, size: "w154"}})}
@@ -36,14 +39,6 @@ export function MoviesGrid({movies}: {movies: Movie[]}) {
           </article>
         );
       })}
-
-      {/* Dicover more */}
-      <Link
-        className="flex items-center justify-center rounded-md border-2 border-accent/80 text-2xl"
-        href="/movies/trending"
-      >
-        see more
-      </Link>
     </section>
   );
 }

@@ -29,7 +29,7 @@ export function MovieOptions({overviewInfo}: {overviewInfo: Movie}) {
   const backdropPath = generateFullPath({backdrop: {path: backdrop_path, size: "w300"}});
 
   return (
-    <footer className="invisible absolute bottom-12 left-[50%] flex w-[max-content]  translate-x-[-50%] items-center justify-center gap-3  opacity-0 duration-200 group-hover:visible group-hover:bottom-14 group-hover:opacity-100 group-hover:*:*:*:*:*:opacity-100  ">
+    <footer className="absolute bottom-14 left-[50%] flex w-[max-content] translate-x-[-50%] items-center  justify-center gap-3 duration-200 group-hover:visible  group-hover:bottom-14 group-hover:opacity-100 md:invisible md:bottom-12 md:opacity-0  ">
       <Tooltip tooltipContent="Read Overview" tooltipPosition="top">
         <Sheet>
           <SheetTrigger>
@@ -48,7 +48,7 @@ export function MovieOptions({overviewInfo}: {overviewInfo: Movie}) {
               >
                 <img alt={title} className="w-24 rounded-sm" src={posterPath} />
               </picture>
-              <SheetTitle>{title}</SheetTitle>
+              <SheetTitle className="text-start">{title}</SheetTitle>
               <SheetDescription className=" text-pretty text-left">{overview}</SheetDescription>
 
               <time className="block text-right text-xs text-muted-foreground">{release_date}</time>
