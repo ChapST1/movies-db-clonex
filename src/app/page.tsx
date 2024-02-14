@@ -1,5 +1,8 @@
 import type {DbResponse, MovieTrend} from "@/types";
 
+import {ChevronRightIcon} from "@radix-ui/react-icons";
+import Link from "next/link";
+
 import {Title} from "@/components/ui/title";
 import {getTrendingMovies} from "@/lib/services/get-trending-movies";
 import {MoviesGrid} from "@/components/movie/movies-grid";
@@ -9,7 +12,13 @@ export default async function HomePage() {
 
   return (
     <section>
-      <Title>Trending Movies</Title>
+      <Title className="flex items-center justify-between">
+        Trending Movies
+        <Link className="flex items-center gap-1 text-base" href="/">
+          See All
+          <ChevronRightIcon className="size-5" />
+        </Link>
+      </Title>
       <MoviesGrid movies={movies.results} />
     </section>
   );
