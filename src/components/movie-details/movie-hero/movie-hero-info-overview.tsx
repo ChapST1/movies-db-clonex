@@ -9,8 +9,8 @@ export function MovieHeroInfoOverview({
 }) {
   return (
     <div>
-      <h5 className="w-2/3 italic opacity-75">{tagline}</h5>
-      <p className="mt-5 w-2/3">{overview}</p>
+      <h5 className="italic opacity-75 md:w-2/3">{tagline}</h5>
+      <p className="mt-5 md:w-2/3">{overview}</p>
     </div>
   );
 }

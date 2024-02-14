@@ -18,7 +18,7 @@ export function MovieHeroInfoFooter({adult}: {adult: MovieDetail["adult"]}) {
 
         <MovieBookmark className="block" />
       </div>
-      <Button className="w-[max-content]">Watch triller</Button>
+      <Button className="w-full md:w-[max-content]">Watch triller</Button>
     </footer>
   );
 }

@@ -15,7 +15,7 @@ export function MovieHeroInfoHeader({
 }) {
   return (
     <header>
-      <div className="flex items-center justify-start gap-2">
+      <div className="flex flex-col justify-start gap-2 md:flex-row md:items-center">
         <h1 className="text-3xl font-bold">
           {original_title} <span className="font-light opacity-55">{`(${year})`}</span>
         </h1>
