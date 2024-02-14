@@ -13,14 +13,14 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
   return (
     <section>
       <article>
-        <Title className="my-5 text-2xl backdrop-blur-sm">Top Backdrops</Title>
+        <Title className="my-5 text-2xl">Top Backdrops</Title>
         <MediaContainer mediaLength={backdrops.length}>
-          <MovieImagesGrid>
-            {backdrops.map(({file_path}, index) => {
+          <MovieImagesGrid className="grid-cols-2">
+            {backdrops.map(({file_path}) => {
               const image = generateFullPath({backdrop: {path: file_path, size: "w300"}});
 
               return (
-                <picture key={file_path + index}>
+                <picture key={file_path}>
                   <img alt={file_path} className="w-full rounded-md" loading="lazy" src={image} />
                 </picture>
               );
@@ -30,7 +30,7 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
       </article>
 
       <article>
-        <Title className="my-5 text-2xl backdrop-blur-sm">Top Posters</Title>
+        <Title className="my-5 text-2xl">Top Posters</Title>
         <MediaContainer mediaLength={posters.length}>
           <MovieImagesGrid>
             {posters.map(({file_path}, index) => {

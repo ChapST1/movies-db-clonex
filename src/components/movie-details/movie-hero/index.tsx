@@ -32,7 +32,7 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
 
   return (
     <section
-      className="mt-4 grid w-full grid-cols-[400px,1fr] py-7"
+      className="mt-4 grid w-full px-2 py-7 md:grid-cols-[400px,1fr] md:px-0"
       style={{
         backgroundImage: `linear-gradient(to right, rgb(0, 0, 0), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
         backgroundSize: "cover",
