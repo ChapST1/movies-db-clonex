@@ -38,3 +38,7 @@ export const generateMoviesKeywordsApiUrl = (id: number) => {
 export const generateMovieRecomendationsApiUrl = (id: number) => {
   return `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`;
 };
+
+export const generateSearchMovieApiUrl = ({query}: {query: string}) => {
+  return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=a56f4ed8bf269b887680f1f6075ba204`;
+};
