@@ -50,3 +50,9 @@
   }
 }
 
+@layer components {
+  .search-results-container:hover .search-results-item:not(:hover){
+    opacity: .5;
+    transform: scale(0.98);
+  }
+}
