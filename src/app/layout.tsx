@@ -1,6 +1,5 @@
 import type {Metadata} from "next";
 
-import {ThemeProvider} from "@/components/theme-provider";
 import "./globals.css";
 import {Navbar} from "@/components/navbar";
 
@@ -13,10 +12,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body className="m-auto max-w-screen-2xl overflow-x-hidden bg-background">
-        <ThemeProvider attribute="class" defaultTheme="system">
-          <Navbar />
-          <main className="px-3">{children}</main>
-        </ThemeProvider>
+        <Navbar />
+        <main className="px-3">{children}</main>
       </body>
     </html>
   );
