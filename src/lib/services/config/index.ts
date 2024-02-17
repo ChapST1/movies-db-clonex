@@ -1,10 +1,8 @@
 export const API_KEY = process.env.MOVIE_DB_API_KEY;
 
-export const DISCOVER_MOVIE_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+export const CLIENT_API_KEY = process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY;
 
-/**
- * Generate Trending movies api url
- */
+export const DISCOVER_MOVIE_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 
 export interface GenerateTrendingMoviesApiUrlProps {
   time?: "day" | "week";
@@ -40,5 +38,5 @@ export const generateMovieRecomendationsApiUrl = (id: number) => {
 };
 
 export const generateSearchMovieApiUrl = ({query}: {query: string}) => {
-  return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=a56f4ed8bf269b887680f1f6075ba204`;
+  return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${CLIENT_API_KEY}`;
 };
