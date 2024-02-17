@@ -17,12 +17,12 @@ export function MoviesGrid({movies}: {movies: Movie[] | undefined}) {
         const {id, poster_path, title} = item;
 
         return (
-          <article key={id} className="group relative z-0  rounded-md border-2 border-accent/80">
-            <Link className="group flex h-full flex-col" href={`/movies/${id}`}>
+          <article key={id} className="group relative z-0 rounded-md border-2 border-accent/80">
+            <Link className="group flex h-full flex-col p-1" href={`/movies/${id}`}>
               <picture className="relative block flex-grow overflow-hidden rounded-sm">
                 <img
                   alt={title}
-                  className="h-full w-full object-cover duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover  duration-300 group-hover:scale-105"
                   loading="lazy"
                   src={generateFullPath({poster: {path: poster_path, size: "w154"}})}
                 />
