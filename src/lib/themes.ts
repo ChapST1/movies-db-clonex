@@ -6,19 +6,19 @@
 export const themes = [
   {
     hex: "#00F5A0",
-    cssClass: "green-theme",
+    cssClass: "theme-00F5A0",
   },
   {
     hex: "#F7941E",
-    cssClass: "orange-theme",
+    cssClass: "theme-F7941E",
   },
   {
     hex: "#9400D3",
-    cssClass: "purple-theme",
+    cssClass: "theme-9400D3",
   },
   {
     hex: "#EC6F66",
-    cssClass: "pink-theme",
+    cssClass: "theme-EC6F66",
   },
   {
     hex: "#9EFBD3",
