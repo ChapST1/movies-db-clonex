@@ -11,7 +11,9 @@ export async function MovieSidebarKeywords({id}: {id: Movie["id"]}) {
       <h2 className="font-bold">Keywords</h2>
       <aside className="flex flex-wrap justify-start gap-2 py-2">
         {keywords.map(({id, name}) => (
-          <Badge key={id}>{name}</Badge>
+          <Badge key={id} variant="secondary">
+            {name}
+          </Badge>
         ))}
       </aside>
     </div>
