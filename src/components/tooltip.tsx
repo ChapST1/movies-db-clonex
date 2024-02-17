@@ -23,7 +23,7 @@ export function Tooltip({
     <div className={twMerge("group/tooltip relative", className)} {...props}>
       {children}
       <span
-        className={`invisible absolute left-[50%]  z-30 hidden w-[max-content]  translate-x-[-50%] rounded-md border border-accent bg-background px-2 py-1 text-xs  opacity-0 delay-200 duration-300 group-hover/tooltip:visible group-hover/tooltip:opacity-100  md:block ${position}`}
+        className={`invisible absolute left-[50%]  z-30 hidden w-[max-content]  translate-x-[-50%] rounded-md border border-border bg-background px-2 py-1 text-xs  opacity-0 delay-200 duration-300 group-hover/tooltip:visible group-hover/tooltip:opacity-100  md:block ${position}`}
       >
         {tooltipContent}
       </span>
