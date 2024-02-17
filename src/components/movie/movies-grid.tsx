@@ -18,17 +18,17 @@ export function MoviesGrid({movies}: {movies: Movie[] | undefined}) {
 
         return (
           <article key={id} className="group relative z-0  rounded-md border-2 border-accent/80">
-            <Link className="group block p-2 pb-0" href={`/movies/${id}`}>
-              <picture className="relative block overflow-hidden rounded-sm">
+            <Link className="group flex h-full flex-col" href={`/movies/${id}`}>
+              <picture className="relative block flex-grow overflow-hidden rounded-sm">
                 <img
                   alt={title}
-                  className="w-full duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover duration-300 group-hover:scale-105"
                   loading="lazy"
                   src={generateFullPath({poster: {path: poster_path, size: "w154"}})}
                 />
               </picture>
 
-              <footer className="w-full bg-background/80 py-3 ">
+              <footer className="w-full bg-background/80 p-3 ">
                 <h3 className="line-clamp-1" title={title}>
                   {title}
                 </h3>
