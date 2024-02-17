@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import {DarkModeToggle} from "./dark-mode-toggle";
-import {SearchMovie} from "./search-movie";
+import {NavbarSearchMovie} from "./navbar-search-movie";
 
 export function Navbar() {
   return (
@@ -11,7 +11,7 @@ export function Navbar() {
       </Link>
 
       <div className="flex items-center gap-3">
-        <SearchMovie />
+        <NavbarSearchMovie />
         <DarkModeToggle />
       </div>
     </header>
