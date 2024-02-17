@@ -4,7 +4,7 @@ export function MovieButton({children, className, ...props}: React.ComponentProp
   return (
     <div
       className={twMerge(
-        "flex size-10 cursor-pointer items-center justify-center rounded-md border-2 border-accent/40 bg-background/80  md:bg-background/40 md:backdrop-blur-sm",
+        "flex size-10 cursor-pointer items-center justify-center rounded-md border-2 border-border/40 bg-background/60   md:backdrop-blur-sm",
         className,
       )}
       {...props}
