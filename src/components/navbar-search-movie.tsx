@@ -52,7 +52,7 @@ export function NavbarSearchMovie() {
     <>
       {!isInSearchPage && (
         <div className="group relative rounded-md border border-border bg-background">
-          <form className="w-[max-content]" onSubmit={handleSubmit}>
+          <form className="w-[max-content] p-1" onSubmit={handleSubmit}>
             <Label className="flex items-center gap-2">
               <Input
                 className="border-none"
@@ -74,7 +74,7 @@ export function NavbarSearchMovie() {
 
             {/*  */}
           </form>
-          <div className="search-results-container invisible absolute top-12 flex h-96 w-full flex-col gap-2 overflow-y-auto rounded-md border border-accent bg-background p-2 opacity-0 duration-300 group-hover:visible group-hover:opacity-100">
+          <div className="search-results-container invisible absolute top-14 flex h-96 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-2 opacity-0 duration-300 group-hover:visible group-hover:opacity-100">
             {movieResults?.results.slice(0, 10).map(({id, poster_path, title, overview}) => {
               // eslint-disable-line
               const posterPath = generateFullPath({poster: {path: poster_path, size: "w92"}});
@@ -83,7 +83,7 @@ export function NavbarSearchMovie() {
                 <Link
                   key={id}
                   className="search-results-item grid grid-cols-[60px,1fr] gap-3 duration-500"
-                  href={`movies/${id}`}
+                  href={`/movies/${id}`}
                 >
                   <picture className="overflow-hidden rounded-md">
                     <img alt={title} className="h-full w-full" src={posterPath} />
