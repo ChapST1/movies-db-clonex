@@ -4,10 +4,13 @@
 
 
 @layer base {
-  html{
-    color-scheme: dark;
+  *{
     scrollbar-width: thin; /* Can be "auto", "thin", or "none" */
     scrollbar-color: var(--gradient) transparent; /* Thumb and track color */
+  }
+  
+  html{
+    color-scheme: dark;
     --radius: 0.5rem;
     /* overflow-x: hidden; */
   }
