@@ -2,6 +2,8 @@
  * Movies Response
  */
 
+import type {GENDERS} from "@/lib/services/config";
+
 export interface DbResponse<T> {
   page: number;
   results: T[];
@@ -181,4 +183,53 @@ export interface Recomendations {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+/**
+ * Person Response
+ */
+export interface Person {
+  adult: boolean;
+  also_known_as: string[] | undefined;
+  biography: string;
+  birthday: string;
+  deathday: null | string;
+  gender: keyof typeof GENDERS;
+  homepage: null;
+  id: number;
+  imdb_id: string;
+  known_for_department: string;
+  name: string;
+  place_of_birth: string;
+  popularity: number;
+  profile_path: string;
+}
+
+/**
+ * Percon movie Credits
+ */
+
+export interface PersonMovieCredits {
+  cast: Movie[];
+  crew: Movie[];
+  id: number;
+}
+
+/**
+ * Person Images
+ */
+
+export interface PersonProfiles {
+  id: number;
+  profiles: Profile[];
+}
+
+export interface Profile {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: null;
+  file_path: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
 }
