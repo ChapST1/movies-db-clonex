@@ -1,3 +1,5 @@
+import type {Person} from "@/types";
+
 export const API_KEY = process.env.MOVIE_DB_API_KEY;
 
 export const CLIENT_API_KEY = process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY;
@@ -39,4 +41,27 @@ export const generateMovieRecomendationsApiUrl = (id: number) => {
 
 export const generateSearchMovieApiUrl = ({query}: {query: string}) => {
   return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${CLIENT_API_KEY}`;
+};
+
+export const generatePersonByIdApiUrl = ({id}: {id: Person["id"]}) => {
+  return `https://api.themoviedb.org/3/person/${id}?api_key=${API_KEY}`;
+};
+
+export const generatePersonMovieCreditsApiUrl = ({id}: {id: Person["id"]}) => {
+  return `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${API_KEY}`;
+};
+
+export const generatePersonImagesApiUrl = ({id}: {id: Person["id"]}) => {
+  return `https://api.themoviedb.org/3/person/${id}/images?api_key=${API_KEY}`;
+};
+
+/**
+ * GENDERS
+ */
+
+export const GENDERS = {
+  "0": "No set / not specified",
+  "1": "Female",
+  "2": "Male",
+  "3": "Non-binary",
 };
