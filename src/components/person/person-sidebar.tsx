@@ -12,7 +12,7 @@ export default function PersonSidebar({person}: {person: Person}) {
   const newGender = formatPersonGender(gender);
 
   return (
-    <nav className=" sticky top-[120px] h-[calc(100dvh-120px)] overflow-hidden overflow-y-auto border-r border-border md:top-16 md:h-[calc(100dvh-64px)]">
+    <nav className=" static overflow-hidden border-border md:sticky md:top-16 md:h-[calc(100dvh-64px)] md:overflow-y-auto md:border-r">
       <picture className="m-auto my-4 block w-[max-content] rounded-md bg-accent p-2">
         <img alt={name} className="rounded-sm" src={profilePath} />
       </picture>
