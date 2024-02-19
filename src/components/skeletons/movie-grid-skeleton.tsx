@@ -1,7 +1,15 @@
-export function MovieGridSkeleton() {
+import {twMerge} from "tailwind-merge";
+
+export function MovieGridSkeleton({className, ...props}: React.ComponentProps<"div">) {
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
-      {Array(10)
+    <div
+      className={twMerge(
+        "grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]",
+        className,
+      )}
+      {...props}
+    >
+      {Array(20)
         .fill(null)
         .map((item, index) => {
           return (
