@@ -54,6 +54,4 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
     </section>
   );
 }
-
-// MMmmmmm http://localhost:3000/movies/63770
-//https://tmdb-clone-react.netlify.app/movie/63770
+//124972
