@@ -13,7 +13,7 @@ export async function PersonContentImages({id, owner}: {id: Person["id"]; owner:
       <Title>Profiles</Title>
 
       <MediaContainer mediaLength={profiles.length}>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
           {profiles.map(({file_path}, index) => {
             const path = generateFullPath({profile: {path: file_path, size: "w185"}});
 
