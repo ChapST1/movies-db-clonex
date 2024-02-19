@@ -42,7 +42,7 @@ export function MovieOptions({overviewInfo}: {overviewInfo: Movie}) {
               <picture
                 className="relative flex h-52 items-end overflow-hidden rounded-sm border-2 border-border p-1 "
                 style={{
-                  backgroundImage: `linear-gradient(to right, rgb(0, 0, 0), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
+                  backgroundImage: `linear-gradient(to right, hsl(var(--secondary)), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
                   backgroundSize: "cover",
                 }}
               >
