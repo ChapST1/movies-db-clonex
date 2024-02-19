@@ -6,57 +6,31 @@ import {getMovieById} from "@/lib/services/get-movie-by-id";
 import {MovieDetailHero} from "@/components/movie-details/movie-hero";
 import {MovieCharacters} from "@/components/movie-details/movie-characters";
 import {MovieImages} from "@/components/movie-details/movie-images";
-import {formatPrice} from "@/lib/format-price";
-import {MovieSidebarKeywords} from "@/components/movie-details/movie-sidebar/movie-sidebar-keywords";
 import {MovieRecomendations} from "@/components/movie-details/movie-recomendations";
+import {MoviesMediaSkeleton} from "@/components/skeletons/movies-media-skeleton";
+import {MovieDetailSidebar} from "@/components/movie-details/movie-sidebar";
 
 export default async function MovieDetail({params: {id}}: {params: {id: MovieDetail["id"]}}) {
   const movie = (await getMovieById(id)) as MovieDetail;
-
-  const {status, budget, revenue, original_language} = movie;
 
   return (
     <div>
       <MovieDetailHero movieDetail={movie} />
       <section className="grid gap-4 md:grid-cols-[1fr,300px]">
         <div>
-          {/* error key */}
-          <Suspense fallback={<p className="text-center">Loading...</p>}>
+          <Suspense fallback={<MoviesMediaSkeleton />}>
             <MovieCharacters id={id} />
           </Suspense>
 
-          <Suspense fallback={<p className="text-center">Loading...</p>}>
+          <Suspense fallback={<MoviesMediaSkeleton />}>
             <MovieImages id={id} />
           </Suspense>
 
-          <Suspense fallback={<p className="text-center">Loading...</p>}>
+          <Suspense fallback={<MoviesMediaSkeleton />}>
             <MovieRecomendations id={id} />
           </Suspense>
         </div>
-        <nav className="top-16 order-[-1] my-5 flex h-[max-content] flex-col md:sticky md:order-none md:px-5 md:py-3 ">
-          <p className="my-3 flex flex-col ">
-            <span className="font-bold">Status</span>
-            {status}
-          </p>
-
-          <p className="my-3 flex flex-col ">
-            <span className="font-bold">Original Language</span>
-            {original_language}
-          </p>
-
-          <p className="my-3 flex flex-col ">
-            <span className="font-bold">Budget</span>
-            {formatPrice({value: budget})}
-          </p>
-
-          <p className="my-3 flex flex-col ">
-            <span className="font-bold">Revenue</span>
-            {formatPrice({value: revenue})}
-          </p>
-          <Suspense fallback={<span>loading...</span>}>
-            <MovieSidebarKeywords id={id} />
-          </Suspense>
-        </nav>
+        <MovieDetailSidebar info={movie} />
       </section>
     </div>
   );
