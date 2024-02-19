@@ -32,9 +32,8 @@ export function MediaContainer({children, className, mediaLength, ...props}: Med
         <footer
           className={`sticky bottom-[-1px] left-0 z-30 flex w-full items-end justify-center  py-4 ${footerHeight} `}
           style={{
-            backgroundImage: expand
-              ? ""
-              : "linear-gradient(to top, rgb(10 10 10), 80%, rgba(0, 0, 255, 0)) ",
+            backgroundImage:
+              "linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0)) ",
           }}
         >
           <Button onClick={handleClick}>{expand ? "Show less" : "Show more"}</Button>
