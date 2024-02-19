@@ -17,7 +17,7 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
     <div>
       <Title className="my-5 text-2xl">Top Billed Cast</Title>
       <MediaContainer mediaLength={cast.length}>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
           {cast.map((item) => { // eslint-disable-line
             const {id, cast_id, profile_path, name} = item;
             const profilePath = profile_path ?? "";
