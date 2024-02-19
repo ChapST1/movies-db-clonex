@@ -11,7 +11,7 @@ export function PersonContent({person}: {person: Person}) {
   return (
     <div>
       <h1 className="py-2 text-4xl font-semibold">{name}</h1>
-      <p className="w-[70%] text-pretty">{biography}</p>
+      <p className="w-[80%] text-pretty">{biography}</p>
 
       <Suspense fallback={<p>Loading...</p>}>
         <PersonContentMovies id={id} />
