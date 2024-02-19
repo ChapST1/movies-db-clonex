@@ -20,7 +20,9 @@ export function MovieHeroInfoHeader({
         <h1 className="text-3xl font-bold">
           {original_title} <span className="font-light opacity-55">{`(${year})`}</span>
         </h1>
-        <Badge variant="outline">{status}</Badge>
+        <Badge className="w-[max-content]" variant="outline">
+          {status}
+        </Badge>
       </div>
       <time className="italic opacity-80">{formatMediaRuntime(runtime)}</time>
     </header>
