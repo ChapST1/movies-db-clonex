@@ -4,7 +4,8 @@
  * use the multi - search endpoint
  * conditional rendering  movie.mediatype = "movie" | "person" | "tv"
  */
-import type {DbResponse, Movie} from "@/types";
+
+import type {DbResponse, Movie, Person, Tv} from "@/types";
 
 import {ReloadIcon} from "@radix-ui/react-icons";
 import {MagnifyingGlassIcon} from "@radix-ui/react-icons";
@@ -13,17 +14,20 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 
 import {useDebounce} from "@/hooks/use-debounce";
-import {searchMovies} from "@/lib/services/search-movies";
-import {generateFullPath} from "@/lib/create-full-path";
+import {searchMultiMedia} from "@/lib/services/search-multi-media";
 
-import {Input} from "./ui/input";
-import {Label} from "./ui/label";
-import {Button} from "./ui/button";
+import {Input} from "../ui/input";
+import {Label} from "../ui/label";
+import {Button} from "../ui/button";
+
+import {NavbarSearchResultMovie} from "./navbar-search-result-movie";
+import {NavbarSearchResultPerson} from "./navbar-search-result-person";
+import {NavbarSearchResultTv} from "./navbar-search-result-tv";
 
 const PATH_MOVIE_SEARCH_PAGE = "/search";
 
 export function NavbarSearchMovie() {
-  const [movieResults, setMovieResults] = useState<DbResponse<Movie>>();
+  const [movieResults, setMovieResults] = useState<DbResponse<Movie | Person | Tv>>();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const debounceValue = useDebounce(query, 2000);
@@ -39,8 +43,8 @@ export function NavbarSearchMovie() {
   useEffect(() => {
     if (debounceValue.trim() !== "") {
       // get results
-      searchMovies({query: debounceValue})
-        .then((data) => setMovieResults(data as DbResponse<Movie>))
+      searchMultiMedia({query: debounceValue})
+        .then((data) => setMovieResults(data as DbResponse<Movie | Person | Tv>))
         .finally(() => setLoading(false));
     }
   }, [debounceValue]);
@@ -79,25 +83,15 @@ export function NavbarSearchMovie() {
             {/*  */}
           </form>
           <div className="search-results-container invisible absolute top-14 flex h-96 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-2 opacity-0 duration-300 group-hover:visible group-hover:opacity-100">
-            {movieResults?.results.slice(0, 10).map(({id, poster_path, title, overview}) => {
-              // eslint-disable-line
-              const posterPath = generateFullPath({poster: {path: poster_path, size: "w92"}});
+            {movieResults?.results.slice(0, 10).map((item) => {
+              const {media_type} = item;
 
               return (
-                <Link
-                  key={id}
-                  className="search-results-item grid grid-cols-[60px,1fr] gap-3 duration-500"
-                  href={`/movies/${id}`}
-                >
-                  <picture className="overflow-hidden rounded-md">
-                    <img alt={title} className="h-full w-full" src={posterPath} />
-                  </picture>
-
-                  <div className="flex flex-col gap-2">
-                    <h3 className="line-clamp-1 text-base font-bold">{title}</h3>
-                    <p className="line-clamp-2 text-xs">{overview}</p>
-                  </div>
-                </Link>
+                <>
+                  {media_type === "movie" && <NavbarSearchResultMovie movie={item as Movie} />}
+                  {media_type === "person" && <NavbarSearchResultPerson person={item as Person} />}
+                  {media_type === "tv" && <NavbarSearchResultTv tv={item as Tv} />}
+                </>
               );
             })}
 
