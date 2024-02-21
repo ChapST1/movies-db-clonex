@@ -26,10 +26,11 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  media_type: "movie" | "person" | "tv";
 }
 
 export interface MovieTrend extends Movie {
-  media_type: string;
+  media_type: "movie" | "person" | "tv";
 }
 
 /**
@@ -176,7 +177,7 @@ export interface Recomendations {
   original_title: string;
   overview: string;
   poster_path: string;
-  media_type: string;
+  media_type: "movie" | "person" | "tv";
   genre_ids: number[];
   popularity: number;
   release_date: string;
@@ -203,6 +204,7 @@ export interface Person {
   place_of_birth: string;
   popularity: number;
   profile_path: string;
+  media_type: "movie" | "person" | "tv";
 }
 
 /**
@@ -232,4 +234,28 @@ export interface Profile {
   vote_average: number;
   vote_count: number;
   width: number;
+}
+
+export enum MediaType {
+  Movie = "movie",
+  Person = "person",
+  Tv = "tv",
+}
+
+export interface Tv {
+  adult: boolean;
+  backdrop_path: string;
+  id: number;
+  name: string;
+  original_language: string;
+  original_name: string;
+  overview: string;
+  poster_path: string;
+  media_type: "movie" | "person" | "tv";
+  genre_ids: number[];
+  popularity: number;
+  first_air_date: string;
+  vote_average: number;
+  vote_count: number;
+  origin_country: string[];
 }
