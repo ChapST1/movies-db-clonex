@@ -4,7 +4,7 @@ import {useState} from "react";
 
 import {Tooltip} from "../tooltip";
 
-import {MovieButton} from "./movie-button";
+import {MediaButton} from "../media-button";
 
 export function MovieBookmark({...props}: React.ComponentProps<"div">) {
   const [active, setActive] = useState(false);
@@ -13,9 +13,9 @@ export function MovieBookmark({...props}: React.ComponentProps<"div">) {
 
   return (
     <Tooltip tooltipContent="add to bookmark" tooltipPosition="bottom" {...props}>
-      <MovieButton className=" *:scale-125" onClick={handleClick}>
+      <MediaButton className=" *:scale-125" onClick={handleClick}>
         {active ? <BookmarkFilledIcon /> : <BookmarkIcon />}
-      </MovieButton>
+      </MediaButton>
     </Tooltip>
   );
 }
