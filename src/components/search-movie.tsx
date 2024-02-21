@@ -25,7 +25,7 @@ export function SearchMovie() {
   useEffect(() => {
     if (debounceValue.trim() !== "") {
       setLoading(false);
-      router.push(`/movies/search?q=${debounceValue}`);
+      router.push(`/search?q=${debounceValue}`);
     }
   }, [debounceValue, router]);
 

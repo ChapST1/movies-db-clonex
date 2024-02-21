@@ -25,7 +25,7 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
 
             return (
               <article key={cast_id} className="relative">
-                <Link href={`/movies/people/${id}`}>
+                <Link href={`/people/${id}`}>
                   <picture className="block h-full overflow-hidden rounded-md">
                     <img
                       alt={image}

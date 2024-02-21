@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * use the multi - search endpoint
+ * conditional rendering  movie.mediatype = "movie" | "person" | "tv"
+ */
 import type {DbResponse, Movie} from "@/types";
 
 import {ReloadIcon} from "@radix-ui/react-icons";
@@ -16,7 +20,7 @@ import {Input} from "./ui/input";
 import {Label} from "./ui/label";
 import {Button} from "./ui/button";
 
-const PATH_MOVIE_SEARCH_PAGE = "/movies/search";
+const PATH_MOVIE_SEARCH_PAGE = "/search";
 
 export function NavbarSearchMovie() {
   const [movieResults, setMovieResults] = useState<DbResponse<Movie>>();
@@ -98,7 +102,7 @@ export function NavbarSearchMovie() {
             })}
 
             {(movieResults?.results.length ?? 0) > 10 && (
-              <Link href={`/movies/search?q=${debounceValue}`}>
+              <Link href={`/search?q=${debounceValue}`}>
                 <Button className="m-auto my-3 block text-xs" size="sm" variant="outline">
                   Show more results
                 </Button>
