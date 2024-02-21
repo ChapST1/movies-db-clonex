@@ -16,7 +16,7 @@ import {generateFullPath} from "@/lib/create-full-path";
 import {Tooltip} from "../tooltip";
 import {Button} from "../ui/button";
 
-import {MovieButton} from "./movie-button";
+import {MediaButton} from "../media-button";
 
 export function MovieOptions({overviewInfo}: {overviewInfo: Movie}) {
   const {poster_path, backdrop_path, title, overview, id, release_date} = overviewInfo;
@@ -33,9 +33,9 @@ export function MovieOptions({overviewInfo}: {overviewInfo: Movie}) {
       <Tooltip tooltipContent="Read Overview" tooltipPosition="top">
         <Sheet>
           <SheetTrigger>
-            <MovieButton>
+            <MediaButton>
               <ReaderIcon />
-            </MovieButton>
+            </MediaButton>
           </SheetTrigger>
           <SheetContent className="border-border p-0" side="left">
             <SheetHeader className="m-auto my-6 w-[90%]">
@@ -61,9 +61,9 @@ export function MovieOptions({overviewInfo}: {overviewInfo: Movie}) {
       </Tooltip>
 
       <Tooltip tooltipContent="Watch triller" tooltipPosition="top">
-        <MovieButton>
+        <MediaButton>
           <VideoIcon />
-        </MovieButton>
+        </MediaButton>
       </Tooltip>
     </footer>
   );
