@@ -1,9 +1,9 @@
 import type {MovieDetail} from "@/types";
 
 import {MovieBookmark} from "@/components/movie/movie-bookmark";
-import {MovieButton} from "@/components/movie/movie-button";
 import {Tooltip} from "@/components/tooltip";
 import {Button} from "@/components/ui/button";
+import {MediaButton} from "@/components/media-button";
 
 export function MovieHeroInfoFooter({adult}: {adult: MovieDetail["adult"]}) {
   return (
@@ -13,7 +13,7 @@ export function MovieHeroInfoFooter({adult}: {adult: MovieDetail["adult"]}) {
           tooltipContent={adult ? "Content +18" : "content for everyone"}
           tooltipPosition="bottom"
         >
-          <MovieButton>{adult ? "+18" : ":)"}</MovieButton>
+          <MediaButton>{adult ? "+18" : ":)"}</MediaButton>
         </Tooltip>
 
         <MovieBookmark className="block" />

@@ -7,7 +7,7 @@ import {getMovieCast} from "@/lib/services/get-movie-cast";
 import {Title} from "@/components/ui/title";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
-import {MovieButton} from "@/components/movie/movie-button";
+import {MediaButton} from "@/components/media-button";
 
 export async function MovieCharacters({id}: {id: Movie["id"]}) {
   const movie = (await getMovieCast(id)) as MovieCast;
@@ -39,9 +39,9 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
                   </footer>
                 </Link>
 
-                <MovieButton className="absolute right-2 top-2">
+                <MediaButton className="absolute right-2 top-2">
                   <CornersIcon />
-                </MovieButton>
+                </MediaButton>
               </article>
             );
           })}
