@@ -1,17 +1,29 @@
 import type {Movie} from "@/types";
 
 import Link from "next/link";
+import clsx from "clsx";
 
 import {generateFullPath} from "@/lib/create-full-path";
 
 import {MovieBookmark} from "./movie-bookmark";
 import {MovieOptions} from "./movie-options";
 
-export function MovieItem({movie}: {movie: Movie}) {
+export interface IsFilterProps {
+  enable: boolean;
+}
+
+export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterProps}) {
   const {id, poster_path, title} = movie;
 
+  const isFilterMedia = clsx({
+    hidden: isFilter && !isFilter.enable,
+    block: isFilter && isFilter.enable,
+  });
+
   return (
-    <article className="group relative z-0 h-[300px] min-h-[300px] overflow-hidden rounded-md">
+    <article
+      className={`group relative z-0 h-[300px] min-h-[300px] overflow-hidden rounded-md ${isFilterMedia}`}
+    >
       <Link className="group flex h-full flex-col gap-1 bg-accent p-1" href={`/movies/${id}`}>
         <picture className="relative block flex-grow overflow-hidden rounded-sm">
           <img

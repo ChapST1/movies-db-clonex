@@ -1,9 +1,10 @@
-import {NavbarSearchMovie} from "@/components/navbar/navbar-search-movie";
+import {SearchNavbar} from "@/components/search/search-navbar";
 
 export default function SearchLayout({children}: {children: React.ReactNode}) {
   return (
     <section>
-      <NavbarSearchMovie />
+      <SearchNavbar />
+
       {children}
     </section>
   );

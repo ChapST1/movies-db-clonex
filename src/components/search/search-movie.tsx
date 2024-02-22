@@ -2,17 +2,18 @@
 
 import {useEffect, useState} from "react";
 import {MagnifyingGlassIcon, ReloadIcon} from "@radix-ui/react-icons";
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 
 import {useDebounce} from "@/hooks/use-debounce";
 
-import {Button} from "./ui/button";
-import {Input} from "./ui/input";
-import {Label} from "./ui/label";
+import {Button} from "../ui/button";
+import {Input} from "../ui/input";
+import {Label} from "../ui/label";
 
 export function SearchMovie() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
+  const params = useSearchParams();
   const debounceValue = useDebounce(query, 2000);
   const router = useRouter();
 
@@ -24,10 +25,16 @@ export function SearchMovie() {
 
   useEffect(() => {
     if (debounceValue.trim() !== "") {
+      const newParams = new URLSearchParams(params.toString());
+
+      newParams.set("q", debounceValue);
       setLoading(false);
-      router.push(`/search?q=${debounceValue}`);
+      router.push(`/search?${newParams.toString()}`);
     }
-  }, [debounceValue, router]);
+    /**
+     * Don't add the dependency "params"  in the effect: BADD
+     */
+  }, [debounceValue, router]);// eslint-disable-line
 
   useEffect(() => {
     if (query.trim() === "") setLoading(false);
@@ -35,7 +42,7 @@ export function SearchMovie() {
 
   return (
     <form
-      className="sticky top-[144px] z-30 m-auto w-[max-content] rounded-md bg-background/80 p-2 backdrop-blur-sm md:top-[68px]"
+      className="sticky top-[144px] z-30 w-[max-content] rounded-md bg-background/80 p-2 backdrop-blur-sm md:top-[68px]"
       onSubmit={handleSubmit}
     >
       <Label className="flex items-center gap-2">
