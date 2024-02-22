@@ -259,3 +259,9 @@ export interface Tv {
   vote_count: number;
   origin_country: string[];
 }
+
+/**
+ * Search filters
+ */
+
+export type SearchFilters = "movie" | "tv" | "people";
