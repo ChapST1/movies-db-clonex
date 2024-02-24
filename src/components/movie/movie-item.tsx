@@ -13,12 +13,15 @@ export interface IsFilterProps {
 }
 
 export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterProps}) {
-  const {id, poster_path, title} = movie;
+  const {id, poster_path, title, backdrop_path, overview, release_date} = movie;
 
   const isFilterMedia = clsx({
     hidden: isFilter && !isFilter.enable,
     block: isFilter && isFilter.enable,
   });
+
+  const poster = generateFullPath({poster: {path: poster_path, size: "w154"}});
+  const backdrop = generateFullPath({backdrop: {path: backdrop_path, size: "w300"}});
 
   return (
     <article
@@ -30,7 +33,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
             alt={title}
             className="h-full w-full object-cover  duration-300 group-hover:scale-105"
             loading="lazy"
-            src={generateFullPath({poster: {path: poster_path, size: "w154"}})}
+            src={poster}
           />
         </picture>
 
@@ -40,8 +43,17 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
           </h3>
         </footer>
       </Link>
-      <MovieBookmark className="absolute right-3 top-3" />
-      <MovieOptions overviewInfo={movie} />
+      <MovieBookmark />
+      <MovieOptions
+        overviewInfo={{
+          backdrop: `${backdrop}`,
+          poster: `${poster}`,
+          date: release_date,
+          id,
+          info: overview,
+          title,
+        }}
+      />
     </article>
   );
 }
