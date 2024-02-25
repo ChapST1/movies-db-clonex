@@ -4,7 +4,7 @@
 
 export function createPagination(current: number, total: number) {
   const center = [current - 2, current - 1, current, current + 1, current + 2],
-    filteredCenter = center.filter((p) => p > 1 && p < total),
+    filteredCenter: (number | string)[] = center.filter((p) => p > 1 && p < total),
     includeThreeLeft = current === 5,
     includeThreeRight = current === total - 4,
     includeLeftDots = current > 5,
