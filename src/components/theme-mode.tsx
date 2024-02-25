@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import {useEffect} from "react";
 
 import {Button} from "@/components/ui/button";
 import {
@@ -10,8 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {themes} from "@/lib/themes";
+import {useTheme} from "@/store/theme";
 
-export function DarkModeToggle() {
+export function ThemeMode() {
+  const {theme, updateTheme} = useTheme();
+
   const handleClick = (cssClass: string) => {
     const isEmpty = document.documentElement.classList.toString().trim() === "";
 
@@ -21,8 +24,12 @@ export function DarkModeToggle() {
       document.documentElement.classList.remove(...classNames);
     }
 
-    document.documentElement.classList.add(cssClass);
+    updateTheme(cssClass);
   };
+
+  useEffect(() => {
+    document.documentElement.classList.add(theme);
+  }, [theme]);
 
   return (
     <DropdownMenu>

@@ -1,6 +1,8 @@
 import Link from "next/link";
+import {BookmarkIcon} from "@radix-ui/react-icons";
 
-import {DarkModeToggle} from "../dark-mode-toggle";
+import {ThemeMode} from "../theme-mode";
+import {MediaButton} from "../media-button";
 
 import {NavbarSearchMovie} from "./navbar-search-movie";
 
@@ -15,7 +17,7 @@ export function Navbar() {
 
       <div className="flex items-center gap-3">
         <NavbarSearchMovie />
-        <DarkModeToggle />
+        <ThemeMode />
       </div>
     </header>
   );
