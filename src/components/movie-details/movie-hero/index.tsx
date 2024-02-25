@@ -32,7 +32,7 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
 
   return (
     <section
-      className="mt-4 grid w-full px-2 py-7 md:grid-cols-[400px,1fr] md:px-0"
+      className="relative mt-4 grid w-full px-2 py-7 pb-16 md:grid-cols-[400px,1fr] md:px-0"
       style={{
         backgroundImage: `linear-gradient(to right, hsl(var(--secondary)), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
         backgroundSize: "cover",
@@ -51,6 +51,14 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
         <MovieHeroInfoOverview overview={overview} tagline={tagline} />
         <MovieHeroInfoFooter adult={adult} />
       </MovieHeroInfo>
+
+      <footer
+        className="absolute bottom-0 left-0 h-16 w-full"
+        style={{
+          backgroundImage:
+            "linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0)) ",
+        }}
+      />
     </section>
   );
 }
