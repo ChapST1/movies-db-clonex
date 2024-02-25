@@ -7,7 +7,7 @@ import clsx from "clsx";
 import {generateFullPath} from "@/lib/create-full-path";
 
 import {MovieBookmark} from "../movie/movie-bookmark";
-import {MovieOptions} from "../movie/movie-options";
+import {MediaOptions} from "../media-options";
 
 export function TvItem({tv, isFilter}: {tv: Tv; isFilter?: IsFilterProps}) {
   const {backdrop_path, poster_path, name, id, overview} = tv;
@@ -40,7 +40,7 @@ export function TvItem({tv, isFilter}: {tv: Tv; isFilter?: IsFilterProps}) {
         </footer>
       </Link>
       <MovieBookmark />
-      <MovieOptions
+      <MediaOptions
         overviewInfo={{
           backdrop: `${backdrop}`,
           poster: `${poster}`,

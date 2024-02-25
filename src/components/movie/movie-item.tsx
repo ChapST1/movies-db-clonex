@@ -5,8 +5,9 @@ import clsx from "clsx";
 
 import {generateFullPath} from "@/lib/create-full-path";
 
+import {MediaOptions} from "../media-options";
+
 import {MovieBookmark} from "./movie-bookmark";
-import {MovieOptions} from "./movie-options";
 
 export interface IsFilterProps {
   enable: boolean;
@@ -44,7 +45,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
         </footer>
       </Link>
       <MovieBookmark />
-      <MovieOptions
+      <MediaOptions
         overviewInfo={{
           backdrop: `${backdrop}`,
           poster: `${poster}`,

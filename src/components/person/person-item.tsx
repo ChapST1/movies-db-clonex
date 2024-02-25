@@ -7,7 +7,7 @@ import clsx from "clsx";
 import {generateFullPath} from "@/lib/create-full-path";
 
 import {MovieBookmark} from "../movie/movie-bookmark";
-import {MovieOptions} from "../movie/movie-options";
+import {MediaOptions} from "../media-options";
 
 export function PersonItem({person, isFilter}: {person: Person; isFilter?: IsFilterProps}) {
   const {profile_path, name, id} = person;
@@ -39,7 +39,7 @@ export function PersonItem({person, isFilter}: {person: Person; isFilter?: IsFil
         </footer>
       </Link>
       <MovieBookmark />
-      <MovieOptions options={{isPerson: true}} />
+      <MediaOptions options={{isPerson: true}} />
       {/* add ts problem */}
     </article>
   );

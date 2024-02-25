@@ -10,11 +10,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import {Tooltip} from "../tooltip";
-import {Button} from "../ui/button";
-import {MediaButton} from "../media-button";
+import {Tooltip} from "./tooltip";
+import {Button} from "./ui/button";
+import {MediaButton} from "./media-button";
 
-interface MovieOptionsProps {
+interface MediaOptionsProps {
   overviewInfo?: {
     poster: string;
     backdrop: string;
@@ -28,7 +28,7 @@ interface MovieOptionsProps {
   };
 }
 
-export function MovieOptions({overviewInfo, options}: MovieOptionsProps) {
+export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
   if (options?.isPerson) {
     return null;
   }
@@ -53,7 +53,7 @@ export function MovieOptions({overviewInfo, options}: MovieOptionsProps) {
               >
                 <img
                   alt={overviewInfo?.title}
-                  className="w-24 rounded-sm"
+                  className="w-24 rounded-sm mix-blend-luminosity"
                   src={overviewInfo?.poster}
                 />
               </picture>
