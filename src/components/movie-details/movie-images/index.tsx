@@ -16,11 +16,11 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
         <Title className="my-5 text-2xl">Top Backdrops</Title>
         <MediaContainer mediaLength={backdrops.length}>
           <MovieImagesGrid className="grid-cols-2">
-            {backdrops.map(({file_path}) => {
+            {backdrops.map(({file_path, aspect_ratio}) => {
               const image = generateFullPath({backdrop: {path: file_path, size: "w300"}});
 
               return (
-                <picture key={file_path}>
+                <picture key={file_path} style={{aspectRatio: aspect_ratio}}>
                   <img alt={file_path} className="w-full rounded-md" loading="lazy" src={image} />
                 </picture>
               );
@@ -33,11 +33,11 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
         <Title className="my-5 text-2xl">Top Posters</Title>
         <MediaContainer mediaLength={posters.length}>
           <MovieImagesGrid>
-            {posters.map(({file_path}, index) => {
+            {posters.map(({file_path, aspect_ratio}, index) => {
               const image = generateFullPath({poster: {path: file_path, size: "w500"}});
 
               return (
-                <picture key={file_path + index}>
+                <picture key={file_path + index} style={{aspectRatio: aspect_ratio}}>
                   <img alt={file_path} className="w-full rounded-md" loading="lazy" src={image} />
                 </picture>
               );

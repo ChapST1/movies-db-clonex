@@ -1,12 +1,20 @@
 import type {Movie} from "@/types";
 
+import {twMerge} from "tailwind-merge";
+
 import {MovieItem} from "./movie-item";
 
-export function MoviesGrid({movies}: {movies: Movie[] | undefined}) {
+interface MovieGridProps extends React.ComponentProps<"section"> {
+  movies: Movie[] | undefined;
+}
+
+export function MoviesGrid({movies, className, ...props}: MovieGridProps) {
   return (
     <section
-      className="grid grid-cols-2
-      gap-4 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]"
+      className={twMerge(
+        "grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]",
+        className,
+      )}
     >
       {movies?.map((item) => {
         const {id} = item;

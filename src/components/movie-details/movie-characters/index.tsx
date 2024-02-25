@@ -24,7 +24,7 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
             const image = generateFullPath({profile: {path: profilePath, size: "w185"}});
 
             return (
-              <article key={cast_id} className="relative">
+              <article key={cast_id} className="relative aspect-[185/278]">
                 <Link href={`/people/${id}`}>
                   <picture className="block h-full overflow-hidden rounded-md">
                     <img

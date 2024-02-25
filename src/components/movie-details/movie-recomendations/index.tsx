@@ -10,7 +10,7 @@ export async function MovieRecomendations({id}: {id: Movie["id"]}) {
   return (
     <MediaContainer mediaLength={results.length}>
       <h2 className="my-5 py-3 text-2xl">Recomendations</h2>
-      <MoviesGrid movies={results} />
+      <MoviesGrid className="md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]" movies={results} />
     </MediaContainer>
   );
 }

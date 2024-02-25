@@ -11,7 +11,7 @@ export function MovieHeroPicture({
     <picture className="relative flex items-center justify-center">
       <img
         alt={title}
-        className="w-44 pb-5 mix-blend-luminosity md:w-auto md:pb-0"
+        className="w-44 pb-5 md:w-auto md:pb-0 md:mix-blend-luminosity"
         src={posterPath}
       />
     </picture>
