@@ -43,8 +43,8 @@ export const generateSearchMovieApiUrl = ({query}: {query: string}) => {
   return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${CLIENT_API_KEY}`;
 };
 
-export const generateSearchMultiMediaApiUrl = ({query}: {query: string}) => {
-  return `https://api.themoviedb.org/3/search/multi?query=${query}&api_key=${CLIENT_API_KEY}`;
+export const generateSearchMultiMediaApiUrl = ({query, page}: {query: string; page: string}) => {
+  return `https://api.themoviedb.org/3/search/multi?query=${query}&page=${page}&api_key=${CLIENT_API_KEY}`;
 };
 
 export const generatePersonByIdApiUrl = ({id}: {id: Person["id"]}) => {
