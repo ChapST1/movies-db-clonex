@@ -6,8 +6,7 @@ import clsx from "clsx";
 import {generateFullPath} from "@/lib/create-full-path";
 
 import {MediaOptions} from "../media-options";
-
-import {MovieBookmark} from "./movie-bookmark";
+import {MediaBookmark} from "../media-bookmark";
 
 export interface IsFilterProps {
   enable: boolean;
@@ -26,10 +25,10 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
 
   return (
     <article
-      className={`group relative z-0 h-[300px] min-h-[300px] overflow-hidden rounded-md ${isFilterMedia}`}
+      className={`group relative z-0 min-h-[200px] min-w-[150px] overflow-hidden ${isFilterMedia}`}
     >
-      <Link className="group flex h-full flex-col gap-1 bg-accent p-1" href={`/movies/${id}`}>
-        <picture className="relative block flex-grow overflow-hidden rounded-sm">
+      <Link className="group" href={`/movies/${id}`}>
+        <picture className="relative block flex-grow overflow-hidden rounded-xl">
           <img
             alt={title}
             className="h-full w-full object-cover  duration-300 group-hover:scale-105"
@@ -38,13 +37,13 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
           />
         </picture>
 
-        <footer className="w-full rounded-sm  bg-background p-3">
+        <footer className="w-full rounded-sm bg-background p-2">
           <h3 className="line-clamp-1" title={title}>
             {title}
           </h3>
         </footer>
       </Link>
-      <MovieBookmark />
+      <MediaBookmark mediaId={id} />
       <MediaOptions
         overviewInfo={{
           backdrop: `${backdrop}`,
