@@ -3,6 +3,8 @@ import {twMerge} from "tailwind-merge";
 import {useState} from "react";
 import clsx from "clsx";
 
+import {ShadowEffect} from "../shadow-effect";
+
 import {Button} from "./button";
 
 interface MediaContainerProps extends React.ComponentProps<"section"> {
@@ -20,8 +22,8 @@ export function MediaContainer({children, className, mediaLength, ...props}: Med
   });
 
   const footerHeight = clsx({
-    "h-[80px]": !expand,
-    "h-[100px]": expand,
+    "h-[60px]": !expand,
+    "h-[70px]": expand,
   });
 
   return (
@@ -29,15 +31,9 @@ export function MediaContainer({children, className, mediaLength, ...props}: Med
       {children}
 
       {mediaLength > 10 && (
-        <footer
-          className={`sticky bottom-[-1px] left-0 z-30 flex w-full items-end justify-center  py-4 ${footerHeight} `}
-          style={{
-            backgroundImage:
-              "linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0)) ",
-          }}
-        >
+        <ShadowEffect className={`flex items-center justify-center ${footerHeight}`}>
           <Button onClick={handleClick}>{expand ? "Show less" : "Show more"}</Button>
-        </footer>
+        </ShadowEffect>
       )}
     </section>
   );
