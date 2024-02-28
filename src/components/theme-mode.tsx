@@ -43,7 +43,7 @@ export function ThemeMode() {
           <BlendingModeIcon className="size-5 fill-accent " />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent>
         {themes.map(({hex, cssClass}) => {
           return (
             <DropdownMenuItem
@@ -51,8 +51,7 @@ export function ThemeMode() {
               className="flex items-center justify-between"
               onClick={() => handleClick(cssClass)}
             >
-              {hex}
-              <span className="size-5 rounded-md" style={{background: hex}} />
+              <span className="size-5 rounded-full" style={{background: hex}} />
             </DropdownMenuItem>
           );
         })}
