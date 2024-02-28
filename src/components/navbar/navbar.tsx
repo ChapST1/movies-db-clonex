@@ -1,8 +1,7 @@
 import Link from "next/link";
-import {BookmarkIcon} from "@radix-ui/react-icons";
 
 import {ThemeMode} from "../theme-mode";
-import {MediaButton} from "../media-button";
+import {Bookmark} from "../bookmark";
 
 import {NavbarSearchMovie} from "./navbar-search-movie";
 
@@ -17,6 +16,7 @@ export function Navbar() {
 
       <div className="flex items-center gap-3">
         <NavbarSearchMovie />
+        <Bookmark />
         <ThemeMode />
       </div>
     </header>
