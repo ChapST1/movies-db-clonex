@@ -40,7 +40,7 @@ export function ThemeMode() {
           size="icon"
           variant="outline"
         >
-          <BlendingModeIcon className="size-11 fill-accent " />
+          <BlendingModeIcon className="size-5 fill-accent " />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
