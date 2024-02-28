@@ -1,6 +1,7 @@
 "use client";
 
 import {useEffect} from "react";
+import {BlendingModeIcon} from "@radix-ui/react-icons";
 
 import {Button} from "@/components/ui/button";
 import {
@@ -34,7 +35,13 @@ export function ThemeMode() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="bg-gradient" size="icon" variant="outline" />
+        <Button
+          className="rounded-full border-2 border-border bg-gradient p-1 hover:border-border"
+          size="icon"
+          variant="outline"
+        >
+          <BlendingModeIcon className="size-11 fill-accent " />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {themes.map(({hex, cssClass}) => {
