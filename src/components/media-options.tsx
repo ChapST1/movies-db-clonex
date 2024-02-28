@@ -34,7 +34,7 @@ export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
   }
 
   return (
-    <footer className="absolute bottom-16 left-[50%] flex w-[max-content] translate-x-[-50%] items-center  justify-center gap-3 duration-200  group-hover:visible group-hover:bottom-16 group-hover:opacity-100 md:invisible md:bottom-12 md:opacity-0  ">
+    <footer className="absolute bottom-12 left-[50%] flex w-[max-content] translate-x-[-50%] items-center  justify-center gap-3 duration-200  group-hover:visible group-hover:opacity-100 md:invisible md:bottom-10 md:opacity-0 md:group-hover:bottom-14  ">
       <Tooltip tooltipContent="Read Overview" tooltipPosition="top">
         <Sheet>
           <SheetTrigger>
@@ -45,15 +45,15 @@ export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
           <SheetContent className="border-border p-0" side="right">
             <SheetHeader className="m-auto my-6 w-[90%]">
               <picture
-                className="relative flex h-52 items-end overflow-hidden rounded-sm border-2 border-border p-1 "
+                className="relative flex h-52 items-end overflow-hidden rounded-sm p-1"
                 style={{
-                  backgroundImage: `linear-gradient(to right, hsl(var(--secondary)), 80%, rgba(0, 0, 255, 0.057)), url("${overviewInfo?.backdrop}")`,
+                  backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${overviewInfo?.backdrop}")`,
                   backgroundSize: "cover",
                 }}
               >
                 <img
                   alt={overviewInfo?.title}
-                  className="w-24 rounded-sm mix-blend-luminosity"
+                  className="w-24 rounded-sm"
                   src={overviewInfo?.poster}
                 />
               </picture>

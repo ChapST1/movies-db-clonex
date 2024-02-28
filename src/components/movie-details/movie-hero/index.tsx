@@ -24,6 +24,7 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
     vote_average,
     status,
     tagline,
+    id,
   } = movieDetail;
 
   const backdropPath = generateFullPath({backdrop: {path: backdrop_path, size: "w1280"}});
@@ -32,9 +33,9 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
 
   return (
     <section
-      className="relative mt-4 grid w-full px-2 py-7 pb-16 md:grid-cols-[400px,1fr] md:px-0"
+      className="relative mt-4 grid w-full px-2 py-7 md:grid-cols-[400px,1fr] md:px-0"
       style={{
-        backgroundImage: `linear-gradient(to right, hsl(var(--secondary)), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
+        backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
         backgroundSize: "cover",
       }}
     >
@@ -49,16 +50,8 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
         <MovieHeroInfoGenders genres={genres} />
         <MovieHeroUserScore vote_average={vote_average} />
         <MovieHeroInfoOverview overview={overview} tagline={tagline} />
-        <MovieHeroInfoFooter adult={adult} />
+        <MovieHeroInfoFooter adult={adult} id={id} />
       </MovieHeroInfo>
-
-      <footer
-        className="absolute bottom-0 left-0 h-16 w-full"
-        style={{
-          backgroundImage:
-            "linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0)) ",
-        }}
-      />
     </section>
   );
 }
