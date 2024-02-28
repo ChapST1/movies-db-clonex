@@ -6,6 +6,7 @@ import Link from "next/link";
 import {Title} from "@/components/ui/title";
 import {getTrendingMovies} from "@/lib/services/get-trending-movies";
 import {MoviesGrid} from "@/components/movie/movies-grid";
+import {ShadowEffect} from "@/components/shadow-effect";
 
 export default async function HomePage() {
   const movies = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
@@ -20,6 +21,7 @@ export default async function HomePage() {
         </Link>
       </Title>
       <MoviesGrid movies={movies.results} />
+      <ShadowEffect />
     </section>
   );
 }
