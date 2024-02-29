@@ -59,8 +59,8 @@ export function NavbarSearchMovie() {
   return (
     <>
       {!isInSearchPage && (
-        <div className="group relative rounded-md border border-border bg-background">
-          <form className="w-[max-content] p-1" onSubmit={handleSubmit}>
+        <div className="group relative m-auto w-[max-content] rounded-md border border-border bg-background">
+          <form className="m-auto w-[max-content] p-1 " onSubmit={handleSubmit}>
             <Label className="flex items-center gap-2">
               <Input
                 className="border-none"

@@ -43,7 +43,7 @@ export function SearchMovie() {
 
   return (
     <form
-      className="sticky top-[120px] z-30 w-[max-content] rounded-md border border-border bg-background/80 p-2 backdrop-blur-sm md:top-[68px]"
+      className="sticky  top-[68px] z-30 w-[max-content] rounded-md border border-border bg-background/80 p-2 backdrop-blur-sm"
       onSubmit={handleSubmit}
     >
       <Label className="flex items-center gap-2">
