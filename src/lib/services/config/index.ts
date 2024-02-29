@@ -59,6 +59,10 @@ export const generatePersonImagesApiUrl = ({id}: {id: Person["id"]}) => {
   return `https://api.themoviedb.org/3/person/${id}/images?api_key=${API_KEY}`;
 };
 
+export const generateGetAllMediaTrending = ({page = 1}: {page?: number}) => {
+  return `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&page=${page}`;
+};
+
 /**
  * GENDERS
  */
