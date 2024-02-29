@@ -9,11 +9,7 @@ export function MovieHeroPicture({
 }) {
   return (
     <picture className="relative flex items-center justify-center">
-      <img
-        alt={title}
-        className="w-44 pb-5 md:w-auto md:pb-0 md:mix-blend-luminosity"
-        src={posterPath}
-      />
+      <img alt={title} className="w-44 pb-5 md:w-auto md:pb-0" src={posterPath} />
     </picture>
   );
 }

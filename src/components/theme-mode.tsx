@@ -36,11 +36,11 @@ export function ThemeMode() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          className="rounded-full border-2 border-border bg-gradient p-1 hover:border-border"
+          className="rounded-full border-2 border-gradient bg-background p-1 hover:border-border"
           size="icon"
           variant="outline"
         >
-          <BlendingModeIcon className="size-5 fill-accent " />
+          <BlendingModeIcon className="size-5 fill-none stroke-gradient " />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
