@@ -22,7 +22,7 @@ export function MovieHeroInfoFooter({
           <MediaButton>{adult ? "+18" : ":)"}</MediaButton>
         </Tooltip>
 
-        <MediaBookmark className="block" movieId={id} />
+        <MediaBookmark className="block" mediaId={id} />
       </div>
       <Button className="w-full md:w-[max-content]">Watch triller</Button>
     </footer>
