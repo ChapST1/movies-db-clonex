@@ -265,3 +265,18 @@ export interface Tv {
  */
 
 export type SearchFilters = "movie" | "tv" | "people";
+
+/**
+ *
+ * CATEGORIES
+ *
+ */
+
+export interface MovieCategories {
+  genres: Genre[];
+}
+
+export interface Genre {
+  id: number;
+  name: string;
+}

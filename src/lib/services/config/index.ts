@@ -64,8 +64,13 @@ export const generateGetAllMediaTrending = ({page = 1}: {page?: number}) => {
 };
 
 /**
- * GENDERS
+ *
+ * CATEGORIES
+ *
  */
+export const generateGetMovieCategoriesApiUrl = ({language = "en"}: {language: string}) => {
+  return `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=${language}`;
+};
 
 export const GENDERS = {
   "0": "No set / not specified",
