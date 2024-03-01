@@ -1,10 +1,5 @@
 "use client";
 
-/**
- * use the multi - search endpoint
- * conditional rendering  movie.mediatype = "movie" | "person" | "tv"
- */
-
 import type {DbResponse, Movie, Person, Tv} from "@/types";
 
 import {ReloadIcon} from "@radix-ui/react-icons";
@@ -60,7 +55,7 @@ export function NavbarSearchMovie() {
     <>
       {!isInSearchPage && (
         <div className="group relative m-auto w-[max-content] rounded-md border border-border bg-background">
-          <form className="m-auto w-[max-content] p-1 " onSubmit={handleSubmit}>
+          <form className="m-auto w-[max-content] " onSubmit={handleSubmit}>
             <Label className="flex items-center gap-2">
               <Input
                 className="border-none"
@@ -69,7 +64,7 @@ export function NavbarSearchMovie() {
                 onChange={handleChange}
               />
               <Button
-                className="flex min-h-10 min-w-10 items-center  justify-center rounded-sm bg-background p-0 hover:bg-accent"
+                className="pointer-events-none flex min-h-10 min-w-10  items-center justify-center rounded-sm bg-background p-0 hover:bg-transparent"
                 type="submit"
               >
                 {loading ? (
