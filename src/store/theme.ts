@@ -9,7 +9,7 @@ interface PropsTheme {
 export const useTheme = create(
   persist<PropsTheme>(
     (set) => ({
-      theme: "theme-00F5A0",
+      theme: "#00F5A0",
       updateTheme: (newTheme) => {
         set((prev) => ({...prev, theme: newTheme}));
       },

@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import {BlendingModeIcon} from "@radix-ui/react-icons";
 
 import {Button} from "@/components/ui/button";
@@ -10,27 +10,29 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {themes} from "@/lib/themes";
+import {themes as allThemes} from "@/lib/themes";
 import {useTheme} from "@/store/theme";
+import {createThemes} from "@/lib/create-themes";
 
 export function ThemeMode() {
   const {theme, updateTheme} = useTheme();
+  const themes = createThemes(allThemes);
 
-  const handleClick = (cssClass: string) => {
-    const isEmpty = document.documentElement.classList.toString().trim() === "";
-
-    if (!isEmpty) {
-      const classNames = document.documentElement.classList.toString().split(" ");
-
-      document.documentElement.classList.remove(...classNames);
-    }
-
-    updateTheme(cssClass);
+  const handleClick = (key: string) => {
+    updateTheme(key);
   };
 
   useEffect(() => {
-    document.documentElement.classList.add(theme);
-  }, [theme]);
+    const {variables} = themes.find((item) => item.key === theme)!;
+
+    variables.forEach((item) => {
+      if (!item) return;
+
+      const [property, value] = item;
+
+      document.documentElement.style.setProperty(property, value);
+    });
+  }, [theme, themes]);
 
   return (
     <DropdownMenu>
@@ -43,15 +45,11 @@ export function ThemeMode() {
           <BlendingModeIcon className="size-5 fill-none stroke-gradient " />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {themes.map(({hex, cssClass}) => {
+      <DropdownMenuContent className="grid grid-cols-4 gap-1">
+        {themes.map(({key}, index) => {
           return (
-            <DropdownMenuItem
-              key={hex}
-              className="flex items-center justify-between"
-              onClick={() => handleClick(cssClass)}
-            >
-              <span className="size-5 rounded-full" style={{background: hex}} />
+            <DropdownMenuItem key={index} onClick={() => handleClick(key)}>
+              <span className="size-5 rounded-full" data-id={key} style={{background: key}} />
             </DropdownMenuItem>
           );
         })}
@@ -59,8 +57,15 @@ export function ThemeMode() {
     </DropdownMenu>
   );
 }
-/* 
-     // (
-          // 
-        // ))}
-*/
+
+// {themes.map(({hex, cssClass}) => {
+//   return (
+//     <DropdownMenuItem
+//       key={hex}
+//       className="flex items-center justify-between"
+//       onClick={() => handleClick(cssClass)}
+//     >
+//       <span className="size-5 rounded-full" style={{background: hex}} />
+//     </DropdownMenuItem>
+//   );
+// })}
