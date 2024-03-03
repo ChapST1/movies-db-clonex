@@ -5,8 +5,6 @@ import {ThemeMode} from "../theme-mode";
 import {Bookmark} from "../bookmark";
 import {MediaButton} from "../media-button";
 
-import {NavbarSearchMovie} from "./navbar-search-movie";
-
 export function Navbar() {
   return (
     <>
@@ -14,7 +12,7 @@ export function Navbar() {
       <header className="sticky left-0 top-0 z-50 flex  h-16 w-full items-center justify-between gap-2 border-b border-border bg-background/85 px-3 py-3 backdrop-blur-sm">
         <div className="flex gap-3">
           <label htmlFor="menu-hamburguer">
-            <MediaButton>
+            <MediaButton className="peer-checked:border-gradient">
               <HamburgerMenuIcon />
             </MediaButton>
           </label>
@@ -24,8 +22,7 @@ export function Navbar() {
             </h2>
           </Link>
         </div>
-        <div className="hidden items-center gap-3 md:flex">
-          <NavbarSearchMovie />
+        <div className="flex items-center gap-3">
           <Bookmark />
           <ThemeMode />
         </div>
