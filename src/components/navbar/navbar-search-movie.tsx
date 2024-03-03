@@ -2,11 +2,10 @@
 
 import type {DbResponse, Movie, Person, Tv} from "@/types";
 
-import {ReloadIcon} from "@radix-ui/react-icons";
-import {MagnifyingGlassIcon} from "@radix-ui/react-icons";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
+import {Loader, Search} from "lucide-react";
 
 import {useDebounce} from "@/hooks/use-debounce";
 import {searchMultiMedia} from "@/lib/services/search-multi-media";
@@ -54,8 +53,8 @@ export function NavbarSearchMovie() {
   return (
     <>
       {!isInSearchPage && (
-        <div className="group relative m-auto w-full rounded-md border border-border bg-background">
-          <form className="m-auto w-full " onSubmit={handleSubmit}>
+        <div className="group relative m-auto flex w-full flex-col gap-2 bg-background">
+          <form className="m-auto w-full rounded-md border border-border " onSubmit={handleSubmit}>
             <Label className="flex items-center gap-2">
               <Input
                 className="border-none"
@@ -68,16 +67,16 @@ export function NavbarSearchMovie() {
                 type="submit"
               >
                 {loading ? (
-                  <ReloadIcon className="size-5 animate-spin stroke-foreground opacity-50" />
+                  <Loader className="size-5 animate-spin stroke-foreground opacity-50" />
                 ) : (
-                  <MagnifyingGlassIcon className="size-5 stroke-foreground opacity-50" />
+                  <Search className="size-5 stroke-foreground opacity-50" />
                 )}
               </Button>
             </Label>
 
             {/*  */}
           </form>
-          <div className="search-results-container invisible absolute top-14 flex h-96 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-2 opacity-0 duration-300 group-hover:visible group-hover:opacity-100">
+          <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  opacity-0 transition-[height] duration-300 group-hover:h-96 group-hover:opacity-100">
             {movieResults?.results.slice(0, 10).map((item) => {
               const {media_type} = item;
 

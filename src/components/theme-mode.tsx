@@ -1,7 +1,7 @@
 "use client";
 
-import {useEffect, useRef} from "react";
-import {BlendingModeIcon} from "@radix-ui/react-icons";
+import {useEffect} from "react";
+import {Palette} from "lucide-react";
 
 import {Button} from "@/components/ui/button";
 import {
@@ -42,7 +42,8 @@ export function ThemeMode() {
           size="icon"
           variant="outline"
         >
-          <BlendingModeIcon className="size-5 fill-none stroke-gradient " />
+          {/* <BlendingModeIcon className="size-5 fill-none stroke-gradient " /> */}
+          <Palette className="size-5 fill-none stroke-gradient " />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="grid grid-cols-4 gap-1">
@@ -57,15 +58,3 @@ export function ThemeMode() {
     </DropdownMenu>
   );
 }
-
-// {themes.map(({hex, cssClass}) => {
-//   return (
-//     <DropdownMenuItem
-//       key={hex}
-//       className="flex items-center justify-between"
-//       onClick={() => handleClick(cssClass)}
-//     >
-//       <span className="size-5 rounded-full" style={{background: hex}} />
-//     </DropdownMenuItem>
-//   );
-// })}
