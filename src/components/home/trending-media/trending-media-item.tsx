@@ -68,7 +68,7 @@ export function TrendingMediaItem({
 
           <MediaBookmark className="relative left-0 top-0" mediaId={id} />
         </div>
-        <p className="max-h-32 overflow-y-auto pt-4">{overview}</p>
+        <p className="mt-4 max-h-32 overflow-y-auto">{overview}</p>
         <Badge className="mt-4 w-[max-content] scale-110" variant="secondary">
           {original_language === "en" ? "English" : original_language}
         </Badge>
