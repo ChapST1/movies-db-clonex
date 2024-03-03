@@ -25,13 +25,14 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className="m-auto w-full max-w-screen-2xl overflow-x-hidden bg-background">
         <Navbar />
         <main
-          className={`*:duration-200
+          className={`*:transition-transform *:duration-500 *:ease-in-out
         [&>*:nth-child(1)]:translate-x-[-100%]
          peer-checked:[&>*:nth-child(1)]:translate-x-[0%]
         
         peer-checked:[&>*:nth-child(2)]:translate-x-[250px]
+        md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-250px)]
         `}
-          // up md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-250px)]
+          // up
         >
           <nav className="fixed left-0 top-16 z-30 flex h-[calc(100dvh-64px)] w-[250px] flex-col gap-6 bg-background px-2 py-2">
             <NavbarSearchMovie />
