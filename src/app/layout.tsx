@@ -24,11 +24,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className="w-full overflow-x-hidden bg-background">
         <Navbar />
         <main
-          className={`*:transition-transform *:duration-500 *:ease-in-out
-        [&>*:nth-child(1)]:translate-x-[-100%]
-         peer-checked:[&>*:nth-child(1)]:translate-x-[0%]
+          className={`*:transition-[margin_width] *:duration-500
+        [&>*:nth-child(1)]:ml-[-100%]
+         peer-checked:[&>*:nth-child(1)]:ml-[0%]
         
-        peer-checked:[&>*:nth-child(2)]:translate-x-[200px]
+        peer-checked:[&>*:nth-child(2)]:ml-[200px]
         md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-200px)]
         `}
         >
