@@ -14,7 +14,7 @@ export default async function HomePage() {
   const movies = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
 
   return (
-    <section>
+    <>
       <Suspense fallback={<p>Loading...</p>}>
         <TrendingMedia />
       </Suspense>
@@ -29,6 +29,6 @@ export default async function HomePage() {
 
       <MoviesGrid movies={movies.results} />
       <ShadowEffect className="pointer-events-none" />
-    </section>
+    </>
   );
 }

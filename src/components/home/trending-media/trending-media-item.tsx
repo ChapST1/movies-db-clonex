@@ -9,6 +9,7 @@ import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {generateFullPath} from "@/lib/create-full-path";
 import {formatDate} from "@/lib/format-date";
+import {ShadowEffect} from "@/components/shadow-effect";
 
 /**
  * https://github.com/microsoft/TypeScript/issues/25760#issuecomment-405931434
@@ -42,22 +43,23 @@ export function TrendingMediaItem({
 
   return (
     <div
-      className="grid w-full min-w-full grid-cols-1 gap-3 py-3 md:grid-cols-[400px,1fr]"
+      className="grid w-full min-w-full grid-cols-1 gap-3 p-3 md:grid-cols-[280px,1fr]"
       style={{
         backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${backdrop}")`,
         backgroundSize: "cover",
       }}
     >
-      <picture className="flex items-center justify-center">
-        <img alt={title ?? name} className="rounded-md" loading="lazy" src={poster} />
+      <picture>
+        <img
+          alt={title ?? name}
+          className="h-full w-full rounded-md object-cover"
+          loading="lazy"
+          src={poster}
+        />
       </picture>
-      <div className="pt-6">
+      <div className="flex h-full flex-col">
         <h2 className="text-4xl">{title ?? name}</h2>
-        <p className="w-full py-3 xl:w-[70ch]">{overview}</p>
         <time className="block text-sm">{newDate}</time>
-        <Badge className="mt-4 scale-110">
-          {original_language === "en" ? "English" : original_language}
-        </Badge>
 
         <div className="relative flex items-center justify-start gap-2 pt-4">
           <MediaButton>
@@ -66,8 +68,12 @@ export function TrendingMediaItem({
 
           <MediaBookmark className="relative left-0 top-0" mediaId={id} />
         </div>
+        <p className="max-h-32 overflow-y-auto pt-4">{overview}</p>
+        <Badge className="mt-4 w-[max-content] scale-110" variant="secondary">
+          {original_language === "en" ? "English" : original_language}
+        </Badge>
 
-        <Link href={mediaLink}>
+        <Link className="w-[max-content]" href={mediaLink}>
           <Button className="my-4">View more details</Button>
         </Link>
       </div>
