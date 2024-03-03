@@ -23,9 +23,9 @@ export function ThemeMode() {
   };
 
   useEffect(() => {
-    const {variables} = themes.find((item) => item.key === theme)!;
+    const currentTheme = themes.find((item) => item.key === theme);
 
-    variables.forEach((item) => {
+    currentTheme?.variables.forEach((item) => {
       if (!item) return;
 
       const [property, value] = item;
