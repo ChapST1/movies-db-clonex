@@ -6,6 +6,7 @@ import {HomeIcon} from "@radix-ui/react-icons";
 
 import {Navbar} from "@/components/navbar/navbar";
 import {Button} from "@/components/ui/button";
+import {NavbarSearchMovie} from "@/components/navbar/navbar-search-movie";
 
 export const metadata: Metadata = {
   title: "movies-app",
@@ -23,8 +24,18 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <body className="m-auto w-full max-w-screen-2xl overflow-x-hidden bg-background">
         <Navbar />
-        <main className=" grid w-full gap-4 px-3 peer-checked:grid-cols-[200px,1fr] [&>*:nth-child(1)]:hidden peer-checked:[&>*:nth-child(1)]:flex">
-          <nav className="sticky left-0 top-16 flex h-[calc(100dvh-64px)] flex-col gap-6 py-2 duration-300">
+        <main
+          className={`*:duration-200
+        [&>*:nth-child(1)]:translate-x-[-100%]
+         peer-checked:[&>*:nth-child(1)]:translate-x-[0%]
+        
+        peer-checked:[&>*:nth-child(2)]:translate-x-[250px]
+        `}
+          // up md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-250px)]
+        >
+          <nav className="fixed left-0 top-16 z-30 flex h-[calc(100dvh-64px)] w-[250px] flex-col gap-6 bg-background px-2 py-2">
+            <NavbarSearchMovie />
+
             <div className="flex w-full flex-col items-center justify-center gap-2">
               <img
                 alt="user profile"
@@ -51,7 +62,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 
             <Button className="m-auto">Log out</Button>
           </nav>
-          <section className="w-full min-w-full max-w-full">{children}</section>
+          <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto px-2">
+            {children}
+          </section>
         </main>
       </body>
     </html>

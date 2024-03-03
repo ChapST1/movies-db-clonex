@@ -19,15 +19,17 @@ export default async function HomePage() {
         <TrendingMedia />
       </Suspense>
 
-      <Title className="flex items-center justify-between">
-        Trending Movies
-        <Link className="flex items-center gap-1 text-base" href="/">
-          See All
-          <ChevronRightIcon className="size-5" />
-        </Link>
-      </Title>
+      <div className="relative">
+        <Title className="flex items-center justify-between">
+          Trending Movies
+          <Link className="flex items-center gap-1 text-base" href="/">
+            See All
+            <ChevronRightIcon className="size-5" />
+          </Link>
+        </Title>
 
-      <MoviesGrid movies={movies.results} />
+        <MoviesGrid movies={movies.results} />
+      </div>
       <ShadowEffect className="pointer-events-none" />
     </>
   );

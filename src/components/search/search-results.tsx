@@ -36,7 +36,7 @@ export async function SearchResults({
 
   return (
     <section>
-      <Title className="static flex items-center justify-center gap-2">
+      <Title className="static flex items-center justify-center gap-2 ">
         <Badge>{total_results}</Badge>
         Results for {q}
       </Title>
