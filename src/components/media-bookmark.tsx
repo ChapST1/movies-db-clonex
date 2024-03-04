@@ -25,7 +25,7 @@ export function MediaBookmark({mediaId, ...props}: MediaBookmarkProps) {
   return (
     <Tooltip
       className="absolute right-3 top-3"
-      tooltipContent="add to bookmark"
+      tooltipContent="bookmark"
       tooltipPosition="bottom"
       {...props}
     >
