@@ -13,7 +13,7 @@ export function Sidebar() {
           return (
             <li key={index}>
               <Link
-                className="flex items-center justify-start gap-2 rounded-md border-2 border-border bg-background p-2 duration-300 hover:border-gradient hover:pl-3 hover:text-gradient [&>*:nth-child(1)]:size-4"
+                className="flex items-center justify-start gap-2 rounded-md border-2 border-border bg-background p-2 duration-300 hover:border-gradient hover:bg-secondary hover:pl-3 hover:text-gradient [&>*:nth-child(1)]:size-4"
                 href={path}
               >
                 {icon}
