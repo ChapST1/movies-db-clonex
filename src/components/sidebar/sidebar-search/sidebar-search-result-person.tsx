@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import {generateFullPath} from "@/lib/create-full-path";
 import {formatPersonGender} from "@/lib/format-person-gender";
-import {Badge} from "@/components/ui/badge";
 
 export function SidebarSearchResultPerson({person}: {person: Person}) {
   const {profile_path, name, id, gender} = person;
@@ -14,7 +13,7 @@ export function SidebarSearchResultPerson({person}: {person: Person}) {
   return (
     <Link
       key={id}
-      className="search-results-item grid grid-cols-[60px,1fr] gap-3 duration-500"
+      className="search-results-item grid grid-cols-[45px,1fr] gap-2 duration-500"
       href={`/people/${id}`}
     >
       <picture className="overflow-hidden rounded-md">
@@ -22,11 +21,8 @@ export function SidebarSearchResultPerson({person}: {person: Person}) {
       </picture>
 
       <div className="flex flex-col gap-2">
-        <h3 className="line-clamp-1 text-base font-bold">{name}</h3>
+        <h3 className="line-clamp-2 text-xs font-bold">{name}</h3>
         <span className="line-clamp-2 text-xs">{formatGender}</span>
-        <Badge className="w-[max-content]" variant="secondary">
-          Person
-        </Badge>
       </div>
     </Link>
   );

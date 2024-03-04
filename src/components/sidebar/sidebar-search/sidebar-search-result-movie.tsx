@@ -3,17 +3,16 @@ import type {Movie} from "@/types";
 import Link from "next/link";
 
 import {generateFullPath} from "@/lib/create-full-path";
-import {Badge} from "@/components/ui/badge";
 
 export function SidebarSearchResultMovie({movie}: {movie: Movie}) {
-  const {id, poster_path, title, overview} = movie;
+  const {id, poster_path, title} = movie;
 
-  const path = generateFullPath({poster: {path: poster_path, size: "w154"}});
+  const path = generateFullPath({poster: {path: poster_path, size: "w92"}});
 
   return (
     <Link
       key={id}
-      className="search-results-item grid grid-cols-[60px,1fr] gap-3 duration-500"
+      className="search-results-item grid grid-cols-[45px,1fr] gap-2 duration-500"
       href={`/movies/${id}`}
     >
       <picture className="overflow-hidden rounded-md">
@@ -21,11 +20,7 @@ export function SidebarSearchResultMovie({movie}: {movie: Movie}) {
       </picture>
 
       <div className="flex flex-col gap-1">
-        <h3 className="line-clamp-1 text-base font-bold">{title}</h3>
-        <p className="line-clamp-2 text-xs">{overview}</p>
-        <Badge className="w-[max-content]" variant="secondary">
-          Movie
-        </Badge>
+        <h3 className="line-clamp-2 text-xs font-bold">{title}</h3>
       </div>
     </Link>
   );
