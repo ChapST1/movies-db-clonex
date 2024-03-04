@@ -10,17 +10,17 @@ import {Loader, Search} from "lucide-react";
 import {useDebounce} from "@/hooks/use-debounce";
 import {searchMultiMedia} from "@/lib/services/search-multi-media";
 
-import {Input} from "../ui/input";
-import {Label} from "../ui/label";
-import {Button} from "../ui/button";
+import {Input} from "../../ui/input";
+import {Label} from "../../ui/label";
+import {Button} from "../../ui/button";
 
-import {NavbarSearchResultMovie} from "./navbar-search-result-movie";
-import {NavbarSearchResultPerson} from "./navbar-search-result-person";
-import {NavbarSearchResultTv} from "./navbar-search-result-tv";
+import {SidebarSearchResultMovie} from "./sidebar-search-result-movie";
+import {SidebarSearchResultPerson} from "./sidebar-search-result-person";
+import {SidebarSearchResultTv} from "./sidebar-search-result-tv";
 
 const PATH_MOVIE_SEARCH_PAGE = "/search";
 
-export function NavbarSearchMovie() {
+export function SidebarSearchMovie() {
   const [movieResults, setMovieResults] = useState<DbResponse<Movie | Person | Tv>>();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -76,15 +76,15 @@ export function NavbarSearchMovie() {
 
             {/*  */}
           </form>
-          <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  opacity-0 transition-[height] duration-300 group-hover:h-96 group-hover:opacity-100">
+          <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
             {movieResults?.results.slice(0, 10).map((item) => {
               const {media_type} = item;
 
               return (
                 <>
-                  {media_type === "movie" && <NavbarSearchResultMovie movie={item as Movie} />}
-                  {media_type === "person" && <NavbarSearchResultPerson person={item as Person} />}
-                  {media_type === "tv" && <NavbarSearchResultTv tv={item as Tv} />}
+                  {media_type === "movie" && <SidebarSearchResultMovie movie={item as Movie} />}
+                  {media_type === "person" && <SidebarSearchResultPerson person={item as Person} />}
+                  {media_type === "tv" && <SidebarSearchResultTv tv={item as Tv} />}
                 </>
               );
             })}

@@ -3,10 +3,9 @@ import type {Movie} from "@/types";
 import Link from "next/link";
 
 import {generateFullPath} from "@/lib/create-full-path";
+import {Badge} from "@/components/ui/badge";
 
-import {Badge} from "../ui/badge";
-
-export function NavbarSearchResultMovie({movie}: {movie: Movie}) {
+export function SidebarSearchResultMovie({movie}: {movie: Movie}) {
   const {id, poster_path, title, overview} = movie;
 
   const path = generateFullPath({poster: {path: poster_path, size: "w154"}});
