@@ -54,16 +54,19 @@ export function SidebarSearchMovie() {
     <>
       {!isInSearchPage && (
         <div className="group relative m-auto flex w-full flex-col gap-2 bg-background">
-          <form className="m-auto w-full rounded-md border border-border " onSubmit={handleSubmit}>
+          <form
+            className="m-auto w-full rounded-md border-2 border-border duration-300 hover:border-gradient"
+            onSubmit={handleSubmit}
+          >
             <Label className="flex items-center gap-2">
               <Input
-                className="border-none"
+                className="border-none bg-transparent"
                 placeholder="find movies..."
                 type="search"
                 onChange={handleChange}
               />
               <Button
-                className="pointer-events-none flex min-h-10 min-w-10  items-center justify-center rounded-sm bg-background p-0 hover:bg-transparent"
+                className="pointer-events-none flex min-h-10 min-w-10  items-center justify-center rounded-sm bg-transparent p-0"
                 type="submit"
               >
                 {loading ? (
@@ -76,15 +79,19 @@ export function SidebarSearchMovie() {
 
             {/*  */}
           </form>
-          <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
+          <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  p-2 opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
             {movieResults?.results.slice(0, 10).map((item) => {
               const {media_type} = item;
 
               return (
                 <>
-                  {media_type === "movie" && <SidebarSearchResultMovie movie={item as Movie} />}
-                  {media_type === "person" && <SidebarSearchResultPerson person={item as Person} />}
-                  {media_type === "tv" && <SidebarSearchResultTv tv={item as Tv} />}
+                  {media_type === "movie" && (
+                    <SidebarSearchResultMovie key={item.id} movie={item as Movie} />
+                  )}
+                  {media_type === "person" && (
+                    <SidebarSearchResultPerson key={item.id} person={item as Person} />
+                  )}
+                  {media_type === "tv" && <SidebarSearchResultTv key={item.id} tv={item as Tv} />}
                 </>
               );
             })}

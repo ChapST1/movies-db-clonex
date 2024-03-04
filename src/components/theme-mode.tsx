@@ -14,6 +14,8 @@ import {themes as allThemes} from "@/lib/themes";
 import {useTheme} from "@/store/theme";
 import {createThemes} from "@/lib/create-themes";
 
+import {MediaButton} from "./media-button";
+
 export function ThemeMode() {
   const {theme, updateTheme} = useTheme();
   const themes = createThemes(allThemes);
@@ -36,15 +38,10 @@ export function ThemeMode() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          className="rounded-full border-2 border-gradient bg-background p-1 hover:border-border"
-          size="icon"
-          variant="outline"
-        >
-          {/* <BlendingModeIcon className="size-5 fill-none stroke-gradient " /> */}
+      <DropdownMenuTrigger>
+        <MediaButton>
           <Palette className="size-5 fill-none stroke-gradient " />
-        </Button>
+        </MediaButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="grid grid-cols-4 gap-1">
         {themes.map(({key}, index) => {

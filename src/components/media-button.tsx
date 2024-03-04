@@ -4,7 +4,7 @@ export function MediaButton({children, className, ...props}: React.ComponentProp
   return (
     <div
       className={twMerge(
-        "flex size-10 cursor-pointer items-center justify-center rounded-md border-2 border-border/40 bg-background/80 md:backdrop-blur-sm",
+        "flex size-10 cursor-pointer items-center justify-center rounded-md border-2 border-border bg-background/80 duration-300 hover:border-gradient hover:bg-secondary md:backdrop-blur-sm",
         className,
       )}
       {...props}
