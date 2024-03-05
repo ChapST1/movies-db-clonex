@@ -29,13 +29,15 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
                   <picture className="block h-full overflow-hidden rounded-md">
                     <img
                       alt={image}
-                      className="h-full w-full object-cover"
+                      className="aspect-[0.7] h-full w-full object-cover"
                       loading="lazy"
                       src={image}
                     />
                   </picture>
-                  <footer className="absolute bottom-4 left-[50%] line-clamp-1 w-[90%]  translate-x-[-50%] rounded-md bg-background/75 p-2">
-                    {name}
+                  <footer className="absolute bottom-4 left-[50%] w-[90%] translate-x-[-50%] rounded-md bg-background/75 p-2">
+                    <p className="line-clamp-1" title={name}>
+                      {name}
+                    </p>
                   </footer>
                 </Link>
 

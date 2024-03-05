@@ -52,7 +52,7 @@ export function TrendingMediaItem({
       <picture>
         <img
           alt={title ?? name}
-          className="h-full w-full rounded-md object-cover"
+          className="aspect-[2/3] h-full w-full rounded-md object-cover"
           loading="lazy"
           src={poster}
         />

@@ -27,7 +27,7 @@ export function TvItem({tv, isFilter}: {tv: Tv; isFilter?: IsFilterProps}) {
         <picture className="relative block flex-grow overflow-hidden rounded-sm">
           <img
             alt={name}
-            className="h-full w-full object-cover  duration-300 group-hover:scale-105"
+            className="aspect-[0.7] h-full w-full object-cover  duration-300 group-hover:scale-105"
             loading="lazy"
             src={poster}
           />

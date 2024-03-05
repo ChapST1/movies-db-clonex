@@ -16,7 +16,7 @@ export function SidebarSearchResultMovie({movie}: {movie: Movie}) {
       href={`/movies/${id}`}
     >
       <picture className="overflow-hidden rounded-md">
-        <img alt={title} className="h-full w-full" src={path} />
+        <img alt={title} className="aspect-[1/0] h-full w-full" loading="lazy" src={path} />
       </picture>
 
       <div className="flex flex-col gap-1">

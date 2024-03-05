@@ -17,7 +17,7 @@ export function SidebarSearchResultPerson({person}: {person: Person}) {
       href={`/people/${id}`}
     >
       <picture className="overflow-hidden rounded-md">
-        <img alt={name} className="h-full w-full" src={path} />
+        <img alt={name} className="aspect-[1/0] h-full w-full" loading="lazy" src={path} />
       </picture>
 
       <div className="flex flex-col gap-2">

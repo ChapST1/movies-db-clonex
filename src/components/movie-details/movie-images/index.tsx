@@ -21,7 +21,12 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
 
               return (
                 <picture key={file_path} style={{aspectRatio: aspect_ratio}}>
-                  <img alt={file_path} className="w-full rounded-md" loading="lazy" src={image} />
+                  <img
+                    alt={file_path}
+                    className="aspect-[1/0] w-full rounded-md"
+                    loading="lazy"
+                    src={image}
+                  />
                 </picture>
               );
             })}
@@ -38,7 +43,12 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
 
               return (
                 <picture key={file_path + index} style={{aspectRatio: aspect_ratio}}>
-                  <img alt={file_path} className="w-full rounded-md" loading="lazy" src={image} />
+                  <img
+                    alt={file_path}
+                    className="aspect-[1/0] w-full rounded-md"
+                    loading="lazy"
+                    src={image}
+                  />
                 </picture>
               );
             })}

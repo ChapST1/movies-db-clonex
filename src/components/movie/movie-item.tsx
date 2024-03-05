@@ -20,7 +20,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
     block: isFilter && isFilter.enable,
   });
 
-  const poster = generateFullPath({poster: {path: poster_path, size: "w154"}});
+  const poster = generateFullPath({poster: {path: poster_path, size: "w185"}});
   const backdrop = generateFullPath({backdrop: {path: backdrop_path, size: "w300"}});
 
   return (
@@ -31,7 +31,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
         <picture className="relative block flex-grow overflow-hidden rounded-xl">
           <img
             alt={title}
-            className="h-full w-full object-cover  duration-300 group-hover:scale-105"
+            className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"
             loading="lazy"
             src={poster}
           />
