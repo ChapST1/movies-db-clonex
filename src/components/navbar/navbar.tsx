@@ -9,7 +9,7 @@ export function Navbar() {
   return (
     <>
       <input className="peer hidden" id="menu-hamburguer" type="checkbox" />
-      <header className="group sticky left-0 top-0 z-50 flex h-16 w-full items-center justify-between gap-2 border-b border-border bg-background/85 px-3 py-3 backdrop-blur-sm peer-checked:[&>*:nth-child(1)]:[&>*:nth-child(1)]:[&>*:nth-child(1)]:rotate-90">
+      <header className="group sticky left-0 top-0 z-50 flex h-16 w-full items-center justify-between gap-2 border-b border-border px-3 py-3 peer-checked:[&>*:nth-child(1)]:[&>*:nth-child(1)]:[&>*:nth-child(1)]:rotate-90">
         <div className="flex gap-3 peer-checked:bg-red-500">
           <label htmlFor="menu-hamburguer">
             <MediaButton className="duration-150 peer-checked:border-gradient">
