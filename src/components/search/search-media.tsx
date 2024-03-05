@@ -10,7 +10,7 @@ import {Button} from "../ui/button";
 import {Input} from "../ui/input";
 import {Label} from "../ui/label";
 
-export function SearchMovie() {
+export function SearchMedia() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const params = useSearchParams();
