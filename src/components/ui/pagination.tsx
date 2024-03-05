@@ -43,6 +43,7 @@ function PaginationLink({className, isActive, size = "icon", ...props}: Paginati
     <Link
       aria-current={isActive ? "page" : undefined}
       className={cn(
+        "border-2 border-transparent hover:border-gradient",
         buttonVariants({
           variant: isActive ? "outline" : "ghost",
           size,
