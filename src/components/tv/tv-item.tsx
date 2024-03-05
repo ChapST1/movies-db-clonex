@@ -21,19 +21,19 @@ export function TvItem({tv, isFilter}: {tv: Tv; isFilter?: IsFilterProps}) {
 
   return (
     <article
-      className={`group relative z-0 h-[300px] min-h-[300px] overflow-hidden rounded-md ${isFilterMedia}`}
+      className={`group relative z-0 min-h-[200px] min-w-[150px] overflow-hidden ${isFilterMedia}`}
     >
-      <Link className="group flex h-full flex-col gap-1 bg-accent p-1" href={`/tv/${id}`}>
-        <picture className="relative block flex-grow overflow-hidden rounded-sm">
+      <Link className="group" href={`/tv/${id}`}>
+        <picture className="relative block flex-grow overflow-hidden rounded-xl">
           <img
             alt={name}
-            className="aspect-[0.7] h-full w-full object-cover  duration-300 group-hover:scale-105"
+            className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"
             loading="lazy"
             src={poster}
           />
         </picture>
 
-        <footer className="w-full rounded-sm  bg-background p-3">
+        <footer className="w-full rounded-sm bg-background p-2">
           <h3 className="line-clamp-1" title={name}>
             {name}
           </h3>

@@ -1,8 +1,8 @@
 "use client";
 
 import {useEffect, useState} from "react";
-import {MagnifyingGlassIcon, ReloadIcon} from "@radix-ui/react-icons";
 import {useRouter, useSearchParams} from "next/navigation";
+import {Loader, Search} from "lucide-react";
 
 import {useDebounce} from "@/hooks/use-debounce";
 
@@ -43,7 +43,7 @@ export function SearchMedia() {
 
   return (
     <form
-      className="sticky  top-[68px] z-30 w-[max-content] rounded-md border border-border bg-background/80 p-2 backdrop-blur-sm"
+      className="sticky top-0 z-30 w-[max-content] rounded-md border border-border bg-background/80 p-2 backdrop-blur-sm duration-300 hover:border-gradient"
       onSubmit={handleSubmit}
     >
       <Label className="flex items-center gap-2">
@@ -54,13 +54,13 @@ export function SearchMedia() {
           onChange={handleChange}
         />
         <Button
-          className="flex min-h-10 min-w-10 items-center justify-center rounded-sm  border-none bg-transparent p-0 hover:bg-accent"
+          className="pointer-events-none flex min-h-10 min-w-10  items-center justify-center rounded-sm bg-transparent p-0"
           type="submit"
         >
           {loading ? (
-            <ReloadIcon className="size-5 animate-spin stroke-foreground opacity-50" />
+            <Loader className="size-5 animate-spin stroke-foreground opacity-50" />
           ) : (
-            <MagnifyingGlassIcon className="size-5 stroke-foreground opacity-50" />
+            <Search className="size-5 stroke-foreground opacity-50" />
           )}
         </Button>
       </Label>
