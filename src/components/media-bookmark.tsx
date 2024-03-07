@@ -4,7 +4,6 @@ import {BookmarkIcon, BookmarkFilledIcon} from "@radix-ui/react-icons";
 
 import {useBookmark} from "@/store/bookmark";
 
-import {Tooltip} from "./tooltip";
 import {MediaButton} from "./media-button";
 
 interface MediaBookmarkProps extends React.ComponentProps<"div"> {
@@ -23,15 +22,8 @@ export function MediaBookmark({mediaId, ...props}: MediaBookmarkProps) {
   };
 
   return (
-    <Tooltip
-      className="absolute right-3 top-3"
-      tooltipContent="bookmark"
-      tooltipPosition="bottom"
-      {...props}
-    >
-      <MediaButton className=" *:scale-125 " onClick={handleClick}>
-        {bookmarks.includes(mediaId) ? <BookmarkFilledIcon /> : <BookmarkIcon />}
-      </MediaButton>
-    </Tooltip>
+    <MediaButton className=" *:scale-125 " onClick={handleClick} {...props}>
+      {bookmarks.includes(mediaId) ? <BookmarkFilledIcon /> : <BookmarkIcon />}
+    </MediaButton>
   );
 }
