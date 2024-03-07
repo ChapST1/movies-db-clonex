@@ -24,9 +24,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
   const backdrop = generateFullPath({backdrop: {path: backdrop_path, size: "w300"}});
 
   return (
-    <article
-      className={`group relative z-0 min-h-[200px] min-w-[150px] overflow-hidden ${isFilterMedia}`}
-    >
+    <article className={`group relative z-0 overflow-hidden md:min-h-[200px] ${isFilterMedia}`}>
       <Link className="group" href={`/movies/${id}`}>
         <picture className="relative block flex-grow overflow-hidden rounded-xl">
           <img

@@ -1,14 +1,17 @@
 import Link from "next/link";
+import {FolderIcon} from "lucide-react";
 
 import {siteConfig} from "@/lib/constants/site-config";
+
+import {Separator} from "../ui/separator";
 
 import {SidebarSearchMovie} from "./sidebar-search";
 
 export function Sidebar() {
   return (
-    <nav className="fixed left-0 top-16 z-30 flex h-[calc(100dvh-64px)] w-[200px] flex-col gap-6 bg-background px-2 py-2">
+    <nav className="fixed  left-0 top-16 z-30 flex h-[calc(100dvh-64px)] w-[200px] flex-col gap-6 bg-background px-2 py-2">
       <SidebarSearchMovie />
-      <ul className="flex flex-grow flex-col gap-2">
+      <ul className="flex flex-col gap-2">
         {siteConfig.links.map(({name, path, icon}, index) => {
           return (
             <li key={index}>
@@ -23,6 +26,14 @@ export function Sidebar() {
           );
         })}
       </ul>
+      <Separator />
+      <Link
+        className="flex items-center justify-start gap-2 rounded-md border-2 border-border bg-background p-2 duration-300 hover:border-gradient hover:bg-secondary hover:pl-3 hover:text-gradient [&>*:nth-child(1)]:size-4"
+        href="path"
+      >
+        <FolderIcon />
+        Categories
+      </Link>
     </nav>
   );
 }

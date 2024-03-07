@@ -12,7 +12,7 @@ export function MoviesGrid({movies, className, ...props}: MovieGridProps) {
   return (
     <section
       className={twMerge(
-        "grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(170px,1fr))]",
+        "grid grid-cols-3 gap-2 md:grid-cols-[repeat(auto-fit,minmax(170px,1fr))] md:gap-4",
         className,
       )}
       {...props}

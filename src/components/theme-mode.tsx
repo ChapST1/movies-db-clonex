@@ -39,7 +39,7 @@ export function ThemeMode() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <MediaButton>
+        <MediaButton className="bg-secondary/80">
           <Palette className="size-5 fill-none stroke-gradient " />
         </MediaButton>
       </DropdownMenuTrigger>

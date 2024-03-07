@@ -53,7 +53,7 @@ export function SidebarSearchMovie() {
   return (
     <>
       {!isInSearchPage && (
-        <div className="group relative m-auto flex w-full flex-col gap-2 bg-background">
+        <div className="group relative flex w-full flex-col gap-2 bg-background">
           <form
             className="m-auto w-full rounded-md border-2 border-border duration-300 hover:border-gradient"
             onSubmit={handleSubmit}
