@@ -61,7 +61,7 @@ export function CarouselMediaItem({media}: CarouselData) {
 
           <MediaBookmark className="relative left-0 top-0" mediaId={id} />
         </div>
-        <p className="mt-4 w-[80ch] overflow-y-auto text-pretty">{overview}</p>
+        <p className="mt-4 w-full max-w-[80ch] overflow-y-auto text-pretty">{overview}</p>
         <Badge className="mt-4 w-[max-content] scale-110" variant="secondary">
           {original_language === "en" ? "English" : original_language}
         </Badge>
