@@ -8,6 +8,7 @@
     scrollbar-width: thin;
     /* Can be "auto", "thin", or "none" */
     scrollbar-color: var(--gradient) transparent;
+    scroll-behavior: smooth;
     /* Thumb and track color */
   }
 
