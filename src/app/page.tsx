@@ -8,7 +8,7 @@ import {Title} from "@/components/ui/title";
 import {getTrendingMovies} from "@/lib/services/get-trending-movies";
 import {MoviesGrid} from "@/components/movie/movies-grid";
 import {ShadowEffect} from "@/components/shadow-effect";
-import {TrendingMedia} from "@/components/home/trending-media";
+import {CarouselMultiMediaTrending} from "@/components/home/carousel-multi-media-trending";
 
 export default async function HomePage() {
   const movies = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
@@ -16,7 +16,7 @@ export default async function HomePage() {
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
-        <TrendingMedia />
+        <CarouselMultiMediaTrending />
       </Suspense>
 
       <div className="relative">

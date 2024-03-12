@@ -1,27 +1,21 @@
-import type {Movie, Tv} from "@/types";
+import type {Movie, Tv, WithOptional} from "@/types";
 
-import {VideoIcon} from "@radix-ui/react-icons";
+import {VideoIcon} from "lucide-react";
 import Link from "next/link";
 
-import {MediaBookmark} from "@/components/media-bookmark";
-import {MediaButton} from "@/components/media-button";
-import {Badge} from "@/components/ui/badge";
-import {Button} from "@/components/ui/button";
 import {generateFullPath} from "@/lib/create-full-path";
 import {formatDate} from "@/lib/format-date";
-import {ShadowEffect} from "@/components/shadow-effect";
 
-/**
- * https://github.com/microsoft/TypeScript/issues/25760#issuecomment-405931434
- */
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-type WithOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+import {MediaButton} from "../media-button";
+import {MediaBookmark} from "../media-bookmark";
+import {Badge} from "../ui/badge";
+import {Button} from "../ui/button";
 
-export function TrendingMediaItem({
-  media,
-}: {
+interface CarouselData {
   media: WithOptional<Movie, "title" | "release_date"> & Tv;
-}) {
+}
+
+export function CarouselMediaItem({media}: CarouselData) {
   const {
     poster_path,
     backdrop_path,
@@ -38,7 +32,6 @@ export function TrendingMediaItem({
   const backdrop = generateFullPath({backdrop: {path: backdrop_path, size: "w780"}});
   const newDate = formatDate(release_date ?? first_air_date);
 
-  /* 🌝 */
   const mediaLink = title ? `/movies/${id}` : `/tv/${id}`;
 
   return (
@@ -68,7 +61,7 @@ export function TrendingMediaItem({
 
           <MediaBookmark className="relative left-0 top-0" mediaId={id} />
         </div>
-        <p className="mt-4 max-h-32 overflow-y-auto">{overview}</p>
+        <p className="mt-4 w-[80ch] overflow-y-auto text-pretty">{overview}</p>
         <Badge className="mt-4 w-[max-content] scale-110" variant="secondary">
           {original_language === "en" ? "English" : original_language}
         </Badge>
