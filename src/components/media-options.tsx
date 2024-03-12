@@ -33,10 +33,10 @@ export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
   }
 
   return (
-    <footer className="absolute bottom-12 left-[50%] flex w-[max-content] translate-x-[-50%] items-center  justify-center gap-3 duration-200  group-hover:visible group-hover:opacity-100 md:invisible md:bottom-10 md:opacity-0 md:group-hover:bottom-14  ">
+    <footer className="absolute left-[50%] flex w-[max-content] translate-x-[-50%] items-center justify-center  gap-1 opacity-0 duration-200 group-hover:visible  group-hover:bottom-11 group-hover:opacity-100 md:invisible md:bottom-12 md:gap-3  md:group-hover:bottom-14  ">
       <Sheet>
         <SheetTrigger>
-          <MediaButton>
+          <MediaButton className="size-9 md:size-10">
             <ReaderIcon />
           </MediaButton>
         </SheetTrigger>
@@ -69,7 +69,7 @@ export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
           </SheetHeader>
         </SheetContent>
       </Sheet>
-      <MediaButton>
+      <MediaButton className="size-9 md:size-10">
         <VideoIcon />
       </MediaButton>
     </footer>

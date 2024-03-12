@@ -41,7 +41,6 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
           </h3>
         </footer>
       </Link>
-      <MediaBookmark mediaId={id} />
       <MediaOptions
         overviewInfo={{
           backdrop: `${backdrop}`,
@@ -52,6 +51,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
           title,
         }}
       />
+      <MediaBookmark className="absolute right-1 top-1 size-9 md:size-10" mediaId={id} />
     </article>
   );
 }
