@@ -9,6 +9,7 @@ import {MovieImages} from "@/components/movie-details/movie-images";
 import {MovieRecomendations} from "@/components/movie-details/movie-recomendations";
 import {MoviesMediaSkeleton} from "@/components/skeletons/movies-media-skeleton";
 import {MovieDetailSidebar} from "@/components/movie-details/movie-sidebar";
+import {MovieGridSkeleton} from "@/components/skeletons/movie-grid-skeleton";
 
 export default async function MovieDetail({params: {id}}: {params: {id: MovieDetail["id"]}}) {
   const movie = (await getMovieById(id)) as MovieDetail;
@@ -26,7 +27,7 @@ export default async function MovieDetail({params: {id}}: {params: {id: MovieDet
             <MovieImages id={id} />
           </Suspense>
 
-          <Suspense fallback={<MoviesMediaSkeleton />}>
+          <Suspense fallback={<MovieGridSkeleton />}>
             <MovieRecomendations id={id} />
           </Suspense>
         </div>

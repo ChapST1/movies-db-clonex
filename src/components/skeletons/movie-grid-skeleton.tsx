@@ -1,5 +1,7 @@
 import {twMerge} from "tailwind-merge";
 
+import {Skeleton} from "../ui/skeleton";
+
 export function MovieGridSkeleton({className, ...props}: React.ComponentProps<"div">) {
   return (
     <div
@@ -9,14 +11,10 @@ export function MovieGridSkeleton({className, ...props}: React.ComponentProps<"d
       )}
       {...props}
     >
-      {Array(20)
+      {Array(10)
         .fill(null)
         .map((item, index) => {
-          return (
-            <div key={index} className="h-64  w-full animate-pulse rounded-md bg-secondary">
-              {" "}
-            </div>
-          );
+          return <Skeleton key={index} className="h-64  w-full" />;
         })}
     </div>
   );

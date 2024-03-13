@@ -1,9 +1,9 @@
-import {ReloadIcon} from "@radix-ui/react-icons";
+import {Loader} from "lucide-react";
 
 export function MoviesMediaSkeleton() {
   return (
-    <div className="my-4 flex h-96 w-full animate-pulse items-center justify-center rounded-md bg-accent">
-      <ReloadIcon className="size-10 animate-spin" />
+    <div className="my-4 flex h-96 w-full items-center justify-center rounded-md">
+      <Loader className="size-10 animate-spin" />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import {MovieHeroSkeleton} from "@/components/skeletons/movie-hero-skeleton";
+import {CarouselSkeleton} from "@/components/skeletons/carousel";
 
 function MovieLoading() {
-  return <MovieHeroSkeleton />;
+  return <CarouselSkeleton />;
 }
 
 export default MovieLoading;
