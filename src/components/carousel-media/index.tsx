@@ -27,7 +27,7 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
     <div className="relative mt-4">
       <div
         ref={sliderRef}
-        className="relative mb-8 flex w-full snap-x snap-mandatory gap-2 overflow-x-scroll *:snap-center"
+        className="relative mb-8 flex w-full snap-x snap-mandatory gap-2 overflow-x-scroll  *:snap-center"
       >
         {data.map((item) => {
           const {media_type} = item;
@@ -48,7 +48,7 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
 
       <div
         aria-label="carousel-controls"
-        className="absolute bottom-5 right-2 hidden items-center justify-center gap-2 md:flex"
+        className="absolute bottom-5 right-2 z-40 hidden items-center justify-center gap-2 md:flex"
       >
         <MediaButton onClick={prev}>
           <ArrowLeft />
