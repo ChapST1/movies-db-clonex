@@ -519,4 +519,101 @@ export const themes: string[] = [
 
   --ring: 24 64% 73%;
   `,
+
+  `
+  --gradient: #e9d362;
+
+  --background: 53 48.75% 5.2%;
+  --foreground: 53 7.5% 98.25%;
+
+  --muted: 53 37.5% 19.5%;
+  --muted-foreground: 53 7.5% 56.5%;
+
+  --popover: 53 50% 8.450000000000001%;
+  --popover-foreground: 53 7.5% 98.25%;
+
+  --card: 53 50% 8.450000000000001%;
+  --card-foreground: 53 7.5% 98.25%;
+
+  --border: 53 37.5% 19.5%;
+  --input: 53 37.5% 19.5%;
+
+  --primary: 53 75% 65%;
+  --primary-foreground: 53 7.5% 6.5%;
+
+  --secondary: 53 37.5% 19.5%;
+  --secondary-foreground: 53 7.5% 98.25%;
+
+  --accent: 53 37.5% 19.5%;
+  --accent-foreground: 53 7.5% 98.25%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 53 7.5% 98.25%;
+
+  --ring: 53 75% 65%;
+  `,
+  `
+  --gradient: #BBD2C5;
+
+    --background: 155 13% 6.24%;
+    --foreground: 155 2% 98.9%;
+
+    --muted: 155 10% 23.400000000000002%;
+    --muted-foreground: 155 2% 57.8%;
+
+    --popover: 155 61% 10.14%;
+    --popover-foreground: 155 2% 98.9%;
+
+    --card: 155 61% 10.14%;
+    --card-foreground: 155 2% 98.9%;
+
+    --border: 155 10% 23.400000000000002%;
+    --input: 155 10% 23.400000000000002%;
+
+    --primary: 155 20% 78%;
+    --primary-foreground: 155 2% 7.800000000000001%;
+
+    --secondary: 155 10% 23.400000000000002%;
+    --secondary-foreground: 155 2% 98.9%;
+
+    --accent: 155 10% 23.400000000000002%;
+    --accent-foreground: 155 2% 98.9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 155 2% 98.9%;
+
+    --ring: 155 20% 78%;
+  `,
+  `
+  --gradient: #AC32E4;
+
+    --background: 299 50.050000000000004% 4.4%;
+    --foreground: 299 7.7% 97.75%;
+
+    --muted: 299 38.5% 16.5%;
+    --muted-foreground: 299 7.7% 55.5%;
+
+    --popover: 299 49.6% 7.15%;
+    --popover-foreground: 299 7.7% 97.75%;
+
+    --card: 299 49.6% 7.15%;
+    --card-foreground: 299 7.7% 97.75%;
+
+    --border: 299 38.5% 16.5%;
+    --input: 299 38.5% 16.5%;
+
+    --primary: 299 77% 55%;
+    --primary-foreground: 299 7.7% 5.5%;
+
+    --secondary: 299 38.5% 16.5%;
+    --secondary-foreground: 299 7.7% 97.75%;
+
+    --accent: 299 38.5% 16.5%;
+    --accent-foreground: 299 7.7% 97.75%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 299 7.7% 97.75%;
+
+    --ring: 299 77% 55%;
+  `,
 ];
