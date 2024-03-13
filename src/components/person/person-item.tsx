@@ -23,7 +23,7 @@ export function PersonItem({person, isFilter}: {person: Person; isFilter?: IsFil
       className={`group relative z-0 min-h-[200px] min-w-[150px] overflow-hidden ${isFilterMedia}`}
     >
       <Link className="group" href={`/people/${id}`}>
-        <picture className="relative block flex-grow overflow-hidden rounded-xl">
+        <picture className="rounded-media relative block flex-grow overflow-hidden">
           <img
             alt={name}
             className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"
@@ -38,7 +38,10 @@ export function PersonItem({person, isFilter}: {person: Person; isFilter?: IsFil
           </h3>
         </footer>
       </Link>
-      <MediaBookmark mediaId={person.id} />
+      <MediaBookmark
+        className="absolute right-1 top-1 size-9 opacity-0 group-hover:opacity-100 md:size-10"
+        mediaId={person.id}
+      />
       <MediaOptions options={{isPerson: true}} />
       {/* add ts problem */}
     </article>

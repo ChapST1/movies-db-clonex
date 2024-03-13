@@ -26,7 +26,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
   return (
     <article className={`group relative z-0 overflow-hidden md:min-h-[200px] ${isFilterMedia}`}>
       <Link className="group" href={`/movies/${id}`}>
-        <picture className="relative block flex-grow overflow-hidden rounded-xl">
+        <picture className="rounded-media relative block flex-grow overflow-hidden">
           <img
             alt={title}
             className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"
@@ -51,7 +51,10 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
           title,
         }}
       />
-      <MediaBookmark className="absolute right-1 top-1 size-9 md:size-10" mediaId={id} />
+      <MediaBookmark
+        className="absolute right-1 top-1 size-9 opacity-0 group-hover:opacity-100 md:size-10"
+        mediaId={id}
+      />
     </article>
   );
 }

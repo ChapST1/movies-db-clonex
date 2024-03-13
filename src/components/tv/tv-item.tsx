@@ -24,7 +24,7 @@ export function TvItem({tv, isFilter}: {tv: Tv; isFilter?: IsFilterProps}) {
       className={`group relative z-0 min-h-[200px] min-w-[150px] overflow-hidden ${isFilterMedia}`}
     >
       <Link className="group" href={`/tv/${id}`}>
-        <picture className="relative block flex-grow overflow-hidden rounded-xl">
+        <picture className="rounded-media relative block flex-grow overflow-hidden">
           <img
             alt={name}
             className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"
@@ -39,7 +39,10 @@ export function TvItem({tv, isFilter}: {tv: Tv; isFilter?: IsFilterProps}) {
           </h3>
         </footer>
       </Link>
-      <MediaBookmark mediaId={tv.id} />
+      <MediaBookmark
+        className="absolute right-1 top-1 size-9 opacity-0 group-hover:opacity-100 md:size-10"
+        mediaId={tv.id}
+      />
       <MediaOptions
         overviewInfo={{
           backdrop: `${backdrop}`,
