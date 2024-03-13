@@ -36,16 +36,25 @@ export function CarouselMediaItem({media}: CarouselData) {
 
   return (
     <div
-      className="grid w-full min-w-full grid-cols-1 gap-3 bg-center bg-no-repeat object-top p-3 md:grid-cols-[400px,1fr] md:bg-top"
+      className="grid w-full min-w-full grid-cols-1 gap-3 bg-center bg-no-repeat object-top p-3 py-5 md:grid-cols-[380px,1fr] md:bg-top"
       style={{
         backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${backdrop}")`,
         backgroundSize: "cover",
       }}
     >
-      <picture>
+      <picture className="relative">
         <img
           alt={title ?? name}
-          className="m-auto aspect-[2/3] w-44 rounded-md object-cover md:h-full md:w-full"
+          className="relative z-10 m-auto aspect-[2/3] w-44 rounded-md object-cover md:h-full md:w-full"
+          loading="lazy"
+          src={poster}
+        />
+
+        {/* Blur shadow effect */}
+        <img
+          aria-hidden
+          alt={title ?? name}
+          className="absolute left-0 top-0 aspect-[2/3] w-44 rounded-md object-cover opacity-95 blur-md md:h-full md:w-full"
           loading="lazy"
           src={poster}
         />
