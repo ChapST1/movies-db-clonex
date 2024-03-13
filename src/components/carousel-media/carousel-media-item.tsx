@@ -54,7 +54,7 @@ export function CarouselMediaItem({media}: CarouselData) {
         <img
           aria-hidden
           alt={title ?? name}
-          className="absolute left-0 top-0 aspect-[2/3] w-44 rounded-md object-cover opacity-95 blur-md md:h-full md:w-full"
+          className="absolute left-0 top-0 hidden aspect-[2/3] w-44 rounded-md object-cover opacity-95 blur-md md:block md:h-full md:w-full"
           loading="lazy"
           src={poster}
         />
