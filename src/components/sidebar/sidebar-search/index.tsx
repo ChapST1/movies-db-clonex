@@ -51,61 +51,59 @@ export function SidebarSearchMovie() {
   }, [query]);
 
   return (
-    <>
-      {!isInSearchPage && (
-        <div className="group relative flex w-full flex-col gap-2 bg-background">
-          <form
-            className="m-auto w-full rounded-md border-2 border-border duration-300 hover:border-gradient"
-            onSubmit={handleSubmit}
+    <div
+      className={`group relative flex w-full flex-col gap-2 bg-background ${isInSearchPage && "pointer-events-none cursor-not-allowed select-none opacity-70"}`}
+    >
+      <form
+        className="m-auto w-full rounded-md border-2 border-border duration-300 hover:border-gradient"
+        onSubmit={handleSubmit}
+      >
+        <Label className="flex items-center gap-2">
+          <Input
+            className="border-none bg-transparent"
+            placeholder="find movies..."
+            type="search"
+            onChange={handleChange}
+          />
+          <Button
+            className="pointer-events-none flex min-h-10 min-w-10  items-center justify-center rounded-sm bg-transparent p-0"
+            type="submit"
           >
-            <Label className="flex items-center gap-2">
-              <Input
-                className="border-none bg-transparent"
-                placeholder="find movies..."
-                type="search"
-                onChange={handleChange}
-              />
-              <Button
-                className="pointer-events-none flex min-h-10 min-w-10  items-center justify-center rounded-sm bg-transparent p-0"
-                type="submit"
-              >
-                {loading ? (
-                  <Loader className="size-5 animate-spin stroke-foreground opacity-50" />
-                ) : (
-                  <Search className="size-5 stroke-foreground opacity-50" />
-                )}
-              </Button>
-            </Label>
-
-            {/*  */}
-          </form>
-          <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  p-2 opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
-            {movieResults?.results.slice(0, 10).map((item) => {
-              const {media_type} = item;
-
-              return (
-                <>
-                  {media_type === "movie" && (
-                    <SidebarSearchResultMovie key={item.id} movie={item as Movie} />
-                  )}
-                  {media_type === "person" && (
-                    <SidebarSearchResultPerson key={item.id} person={item as Person} />
-                  )}
-                  {media_type === "tv" && <SidebarSearchResultTv key={item.id} tv={item as Tv} />}
-                </>
-              );
-            })}
-
-            {(movieResults?.results.length ?? 0) > 10 && (
-              <Link href={`/search?q=${debounceValue}`}>
-                <Button className="m-auto my-3 block text-xs" size="sm" variant="outline">
-                  Show more results
-                </Button>
-              </Link>
+            {loading ? (
+              <Loader className="size-5 animate-spin stroke-foreground opacity-50" />
+            ) : (
+              <Search className="size-5 stroke-foreground opacity-50" />
             )}
-          </div>
-        </div>
-      )}
-    </>
+          </Button>
+        </Label>
+
+        {/*  */}
+      </form>
+      <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  p-2 opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
+        {movieResults?.results.slice(0, 10).map((item) => {
+          const {media_type} = item;
+
+          return (
+            <>
+              {media_type === "movie" && (
+                <SidebarSearchResultMovie key={item.id} movie={item as Movie} />
+              )}
+              {media_type === "person" && (
+                <SidebarSearchResultPerson key={item.id} person={item as Person} />
+              )}
+              {media_type === "tv" && <SidebarSearchResultTv key={item.id} tv={item as Tv} />}
+            </>
+          );
+        })}
+
+        {(movieResults?.results.length ?? 0) > 10 && (
+          <Link href={`/search?q=${debounceValue}`}>
+            <Button className="m-auto my-3 block text-xs" size="sm" variant="outline">
+              Show more results
+            </Button>
+          </Link>
+        )}
+      </div>
+    </div>
   );
 }
