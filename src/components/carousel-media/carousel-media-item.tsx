@@ -28,15 +28,15 @@ export function CarouselMediaItem({media}: CarouselData) {
     first_air_date,
   } = media;
 
-  const poster = generateFullPath({poster: {path: poster_path, size: "w342"}});
-  const backdrop = generateFullPath({backdrop: {path: backdrop_path, size: "w780"}});
+  const poster = generateFullPath({poster: {path: poster_path, size: "w500"}});
+  const backdrop = generateFullPath({backdrop: {path: backdrop_path, size: "w1280"}});
   const newDate = formatDate(release_date ?? first_air_date);
 
   const mediaLink = title ? `/movies/${id}` : `/tv/${id}`;
 
   return (
     <div
-      className="grid w-full min-w-full grid-cols-1 gap-3 p-3 md:grid-cols-[280px,1fr]"
+      className="grid w-full min-w-full grid-cols-1 gap-3 bg-center bg-no-repeat object-top p-3 md:grid-cols-[400px,1fr] md:bg-top"
       style={{
         backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${backdrop}")`,
         backgroundSize: "cover",
@@ -45,7 +45,7 @@ export function CarouselMediaItem({media}: CarouselData) {
       <picture>
         <img
           alt={title ?? name}
-          className="aspect-[2/3] h-full w-full rounded-md object-cover"
+          className="m-auto aspect-[2/3] w-44 rounded-md object-cover md:h-full md:w-full"
           loading="lazy"
           src={poster}
         />
