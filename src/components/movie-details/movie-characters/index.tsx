@@ -40,10 +40,6 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
                     </p>
                   </footer>
                 </Link>
-
-                <MediaButton className="absolute right-2 top-2">
-                  <CornersIcon />
-                </MediaButton>
               </article>
             );
           })}
