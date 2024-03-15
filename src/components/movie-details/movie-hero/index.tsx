@@ -1,14 +1,22 @@
 import type {MovieDetail} from "@/types";
 
 import {generateFullPath} from "@/lib/create-full-path";
-
-import {MovieHeroPicture} from "./movie-hero-picture";
-import {MovieHeroInfo} from "./movie-hero-info";
-import {MovieHeroInfoGenders} from "./movie-hero-info-genders";
-import {MovieHeroInfoHeader} from "./movie-hero-info-header";
-import {MovieHeroInfoFooter} from "./movie-hero-info-footer";
-import {MovieHeroUserScore} from "./movie-hero-user-score";
-import {MovieHeroInfoOverview} from "./movie-hero-info-overview";
+import {
+  MediaDetailsHero,
+  MediaDetailsHeroContent,
+  MediaDetailsHeroContentFooter,
+  MediaDetailsHeroContentGendersContainer,
+  MediaDetailsHeroContentHeader,
+  MediaDetailsHeroContentHeaderTitle,
+  MediaDetailsHeroContentOverview,
+  MediaDetailsHeroContentRuntime,
+  MediaDetailsHeroPicture,
+} from "@/components/media-details";
+import {Badge} from "@/components/ui/badge";
+import {formatMediaRuntime} from "@/lib/format-media-runtime";
+import {MediaButton} from "@/components/media-button";
+import {MediaBookmark} from "@/components/media-bookmark";
+import {Button} from "@/components/ui/button";
 
 export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
   const {
@@ -17,13 +25,10 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
     title,
     overview,
     genres,
-    original_title,
     adult,
     release_date,
     runtime,
-    vote_average,
     status,
-    tagline,
     id,
   } = movieDetail;
 
@@ -32,27 +37,37 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
   const year = new Date(release_date).getFullYear();
 
   return (
-    <section
-      className="relative mt-4 grid w-full px-2 py-7 md:grid-cols-[400px,1fr] md:px-0"
-      style={{
-        backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${backdropPath}")`,
-        backgroundSize: "cover",
-      }}
-    >
-      <MovieHeroPicture posterPath={`${posterPath}`} title={title} />
-      <MovieHeroInfo>
-        <MovieHeroInfoHeader
-          original_title={original_title}
-          runtime={runtime}
-          status={status}
-          year={`${year}`}
-        />
-        <MovieHeroInfoGenders genres={genres} />
-        <MovieHeroUserScore vote_average={vote_average} />
-        <MovieHeroInfoOverview overview={overview} tagline={tagline} />
-        <MovieHeroInfoFooter adult={adult} id={id} />
-      </MovieHeroInfo>
-    </section>
+    <MediaDetailsHero heroImage={`${backdropPath}`}>
+      <MediaDetailsHeroPicture posterPath={`${posterPath}`} title={title} />
+
+      <MediaDetailsHeroContent>
+        <MediaDetailsHeroContentHeader>
+          <MediaDetailsHeroContentHeaderTitle className="flex items-center gap-2">
+            {title}
+            <span className="italic opacity-70"> {year}</span>
+            <Badge>{status}</Badge>
+          </MediaDetailsHeroContentHeaderTitle>
+
+          <MediaDetailsHeroContentRuntime>
+            {formatMediaRuntime(runtime)}
+          </MediaDetailsHeroContentRuntime>
+        </MediaDetailsHeroContentHeader>
+
+        <MediaDetailsHeroContentGendersContainer>
+          {genres.map((item) => (
+            <Badge key={item.id}>{item.name}</Badge>
+          ))}
+        </MediaDetailsHeroContentGendersContainer>
+
+        <MediaDetailsHeroContentOverview>{overview}</MediaDetailsHeroContentOverview>
+        <MediaDetailsHeroContentFooter>
+          <div className="flex gap-2">
+            <MediaButton>{adult ? "+18" : ":)"}</MediaButton>
+            <MediaBookmark className="flex items-center justify-center" mediaId={id} />
+          </div>
+          <Button className="w-full md:w-[max-content]">Watch triller</Button>
+        </MediaDetailsHeroContentFooter>
+      </MediaDetailsHeroContent>
+    </MediaDetailsHero>
   );
 }
-//124972
