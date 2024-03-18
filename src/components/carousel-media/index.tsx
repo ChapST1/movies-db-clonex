@@ -24,7 +24,7 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
   };
 
   return (
-    <div className="relative mt-4">
+    <div className="relative mt-4 overflow-hidden rounded-xl">
       <div
         ref={sliderRef}
         className="relative mb-8 flex w-full snap-x snap-mandatory gap-2 overflow-x-scroll  *:snap-center"
