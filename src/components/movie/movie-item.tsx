@@ -26,7 +26,7 @@ export function MovieItem({movie, isFilter}: {movie: Movie; isFilter?: IsFilterP
   return (
     <article className={`group relative z-0 overflow-hidden md:min-h-[200px] ${isFilterMedia}`}>
       <Link className="group" href={`/movies/${id}`}>
-        <picture className="rounded-media relative block flex-grow overflow-hidden">
+        <picture className="relative block flex-grow overflow-hidden rounded-media">
           <img
             alt={title}
             className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"

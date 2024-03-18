@@ -29,8 +29,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         [&>*:nth-child(1)]:ml-[-100%]
          peer-checked:[&>*:nth-child(1)]:ml-[0%]
         
-        peer-checked:[&>*:nth-child(2)]:ml-[200px]
-        md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-200px)]
+        peer-checked:[&>*:nth-child(2)]:ml-[250px]
+        md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-250px)]
         `}
         >
           <Sidebar />
