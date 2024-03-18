@@ -1,4 +1,4 @@
-import {ReaderIcon, VideoIcon} from "@radix-ui/react-icons";
+import {ReaderIcon} from "@radix-ui/react-icons";
 import Link from "next/link";
 
 import {
@@ -12,6 +12,7 @@ import {
 
 import {Button} from "./ui/button";
 import {MediaButton} from "./media-button";
+import {MediaBookmark} from "./media-bookmark";
 
 interface MediaOptionsProps {
   overviewInfo?: {
@@ -22,18 +23,11 @@ interface MediaOptionsProps {
     id: number;
     date: string;
   };
-  options?: {
-    isPerson: boolean;
-  };
 }
 
-export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
-  if (options?.isPerson) {
-    return null;
-  }
-
+export function MediaOptions({overviewInfo}: MediaOptionsProps) {
   return (
-    <footer className="absolute left-[50%] flex w-[max-content] translate-x-[-50%] items-center justify-center  gap-1 opacity-0 duration-200 group-hover:visible  group-hover:bottom-11 group-hover:opacity-100 md:invisible md:bottom-12 md:gap-3  md:group-hover:bottom-14  ">
+    <footer className="absolute right-1 top-1 flex h-[max-content] w-[max-content] -translate-y-7 items-center justify-center gap-1 p-1 opacity-0 duration-200 group-hover:visible group-hover:-translate-y-0 group-hover:opacity-100 md:invisible md:group-hover:bottom-14  ">
       <Sheet>
         <SheetTrigger>
           <MediaButton className="size-9 md:size-10">
@@ -69,9 +63,7 @@ export function MediaOptions({overviewInfo, options}: MediaOptionsProps) {
           </SheetHeader>
         </SheetContent>
       </Sheet>
-      <MediaButton className="size-9 md:size-10">
-        <VideoIcon />
-      </MediaButton>
+      <MediaBookmark className="size-9 md:size-10" mediaId={Number(overviewInfo?.id)} />
     </footer>
   );
 }
