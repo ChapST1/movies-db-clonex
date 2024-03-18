@@ -16,7 +16,7 @@ const poppins = Poppins({
   subsets: ["latin"],
   style: "normal",
   display: "swap",
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "200"],
 });
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
@@ -29,11 +29,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         [&>*:nth-child(1)]:ml-[-100%]
          peer-checked:[&>*:nth-child(1)]:ml-[0%]
         
-        peer-checked:[&>*:nth-child(2)]:ml-[250px]
-        md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-250px)]
+        peer-checked:[&>*:nth-child(2)]:ml-[200px]
+        md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-200px)]
         `}
         >
-          <Sidebar />
+          <Sidebar className="w-[200px]" />
           <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto px-2">
             {children}
           </section>
