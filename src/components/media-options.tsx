@@ -27,7 +27,7 @@ interface MediaOptionsProps {
 
 export function MediaOptions({overviewInfo}: MediaOptionsProps) {
   return (
-    <footer className="absolute right-1 top-1 flex h-[max-content] w-[max-content] -translate-y-7 items-center justify-center gap-1 p-1 opacity-0 duration-200 group-hover:visible group-hover:-translate-y-0 group-hover:opacity-100 md:invisible md:group-hover:bottom-14  ">
+    <footer className="invisible absolute right-1 top-1 flex h-[max-content] w-[max-content] -translate-y-7 items-center justify-center gap-1 p-1 opacity-0 duration-200 group-hover:visible group-hover:-translate-y-0 group-hover:opacity-100">
       <Sheet>
         <SheetTrigger>
           <MediaButton className="size-9 md:size-10">
