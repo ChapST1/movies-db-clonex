@@ -1,29 +1,27 @@
 import type {Person} from "@/types";
-import type {IsFilterProps} from "../movie/movie-item";
 
 import Link from "next/link";
-import clsx from "clsx";
+import {twMerge} from "tailwind-merge";
 
 import {generateFullPath} from "@/lib/create-full-path";
 
 import {MediaBookmark} from "../media-bookmark";
-import {MediaOptions} from "../media-options";
+import {MediaPicture} from "../media/media-picture";
+import {MediaFooter} from "../media/media-footer";
+import {MediaFooterName} from "../media/media-footer-name";
 
-export function PersonItem({person, isFilter}: {person: Person; isFilter?: IsFilterProps}) {
+interface MediaProps extends React.ComponentProps<"picture"> {
+  person: Person;
+}
+
+export function PersonItem({person, className, ...props}: MediaProps) {
   const {profile_path, name, id} = person;
   const path = generateFullPath({profile: {path: profile_path, size: "w185"}});
 
-  const isFilterMedia = clsx({
-    hidden: isFilter && !isFilter.enable,
-    block: isFilter && isFilter.enable,
-  });
-
   return (
-    <article
-      className={`group relative z-0 min-h-[200px] min-w-[150px] overflow-hidden ${isFilterMedia}`}
-    >
+    <MediaPicture className={twMerge("group", className)} {...props}>
       <Link className="group" href={`/people/${id}`}>
-        <picture className="rounded-media relative block flex-grow overflow-hidden">
+        <picture className="relative block flex-grow overflow-hidden rounded-media">
           <img
             alt={name}
             className="aspect-[0.7] h-full w-full  object-cover duration-300 group-hover:scale-105"
@@ -32,18 +30,14 @@ export function PersonItem({person, isFilter}: {person: Person; isFilter?: IsFil
           />
         </picture>
 
-        <footer className="w-full rounded-sm bg-background p-2">
-          <h3 className="line-clamp-1" title={name}>
-            {name}
-          </h3>
-        </footer>
+        <MediaFooter>
+          <MediaFooterName title={name}>{name}</MediaFooterName>
+        </MediaFooter>
       </Link>
       <MediaBookmark
-        className="absolute right-1 top-1 size-9 opacity-0 group-hover:opacity-100 md:size-10"
+        className="absolute right-1 top-2 size-9 -translate-y-7 opacity-0 duration-200 group-hover:visible group-hover:-translate-y-0 group-hover:opacity-100 md:size-10"
         mediaId={person.id}
       />
-      <MediaOptions options={{isPerson: true}} />
-      {/* add ts problem */}
-    </article>
+    </MediaPicture>
   );
 }
