@@ -6,6 +6,7 @@ import {Poppins} from "next/font/google";
 
 import {Navbar} from "@/components/navbar/navbar";
 import {Sidebar} from "@/components/sidebar";
+import {Toaster} from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "movies-app",
@@ -38,6 +39,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             {children}
           </section>
         </main>
+
+        <Toaster />
       </body>
     </html>
   );
