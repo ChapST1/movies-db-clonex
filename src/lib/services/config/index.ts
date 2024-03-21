@@ -39,6 +39,18 @@ export const generateMovieRecomendationsApiUrl = (id: number) => {
   return `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`;
 };
 
+export const generateSearchTvApiUrl = ({query}: {query: string}) => {
+  return `https://api.themoviedb.org/3/search/tv?query=${query}&api_key=${CLIENT_API_KEY}`;
+};
+
+export const generateSearchPersonApiUrl = ({query}: {query: string}) => {
+  return `https://api.themoviedb.org/3/search/person?query=${query}&api_key=${CLIENT_API_KEY}`;
+};
+
+export const generateSearchSearchApiUrl = ({query}: {query: string}) => {
+  return `https://api.themoviedb.org/3/search/person?query=${query}&api_key=${CLIENT_API_KEY}`;
+};
+
 export const generateSearchMovieApiUrl = ({query}: {query: string}) => {
   return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${CLIENT_API_KEY}`;
 };
