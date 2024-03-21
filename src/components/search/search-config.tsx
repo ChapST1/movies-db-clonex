@@ -1,20 +1,41 @@
 "use client";
 
+import type {SearchPreference} from "@/types";
+
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
+
 import {Label} from "@/components/ui/label";
-import {useSearchPreference, type SearchPreference} from "@/store/search-config";
+import {useSearchPreference} from "@/store/search-config";
 
 import {Switch} from "../ui/switch";
 import {useToast} from "../ui/use-toast";
+import {Button} from "../ui/button";
 
 export function SearchConfig() {
   const {toast} = useToast();
+  const params = new URLSearchParams(useSearchParams().toString());
+  const pathname = usePathname();
+  const router = useRouter();
   const {searchPreference, updateSearchPreference} = useSearchPreference();
+
+  /**
+   * Disable button
+   */
+
+  const buttonIsDisable = params.get("by") === searchPreference;
 
   const handleChange = (id: SearchPreference, isChecked: boolean) => {
     if (isChecked) {
       updateSearchPreference(id);
       toast({description: `the ${id.toUpperCase()} option is enable.`});
     }
+  };
+
+  const handleApply = () => {
+    params.set("by", searchPreference);
+    const newUrl = `${pathname}?${params.toString()}`;
+
+    router.push(newUrl);
   };
 
   return (
@@ -71,6 +92,10 @@ export function SearchConfig() {
           onCheckedChange={(e) => handleChange("person", e)}
         />
       </div>
+
+      <Button className="select-none" disabled={buttonIsDisable} onClick={handleApply}>
+        Apply changes
+      </Button>
     </div>
   );
 }
