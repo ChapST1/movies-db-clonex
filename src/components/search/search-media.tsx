@@ -5,6 +5,7 @@ import {useRouter, useSearchParams} from "next/navigation";
 import {Loader, Search} from "lucide-react";
 
 import {useDebounce} from "@/hooks/use-debounce";
+import {useSearchPreference} from "@/store/search-config";
 
 import {Button} from "../ui/button";
 import {Input} from "../ui/input";
@@ -16,6 +17,7 @@ export function SearchMedia() {
   const params = useSearchParams();
   const debounceValue = useDebounce(query, 2000);
   const router = useRouter();
+  const {searchPreference} = useSearchPreference();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => e.preventDefault();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,11 +31,12 @@ export function SearchMedia() {
 
       newParams.delete("page");
       newParams.set("q", debounceValue);
+      newParams.set("by", searchPreference); // * by = by search
       setLoading(false);
       router.push(`/search?${newParams.toString()}`);
     }
     /**
-     * Don't add the dependency "params"  in the effect: BADD
+     * !Don't add the dependency "params" in the effect: BADD
      */
   }, [debounceValue, router]);// eslint-disable-line
 
