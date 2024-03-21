@@ -9,6 +9,7 @@ import {Loader, Search} from "lucide-react";
 
 import {useDebounce} from "@/hooks/use-debounce";
 import {searchMultiMedia} from "@/lib/services/search-multi-media";
+import {useSearchPreference} from "@/store/search-config";
 
 import {Input} from "../../ui/input";
 import {Label} from "../../ui/label";
@@ -27,6 +28,7 @@ export function SidebarSearchMovie() {
   const debounceValue = useDebounce(query, 2000);
   const path = usePathname();
   const isInSearchPage = path === PATH_MOVIE_SEARCH_PAGE;
+  const {searchPreference} = useSearchPreference();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => e.preventDefault();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +54,7 @@ export function SidebarSearchMovie() {
 
   return (
     <div
-      className={`group relative flex w-full flex-col gap-2 bg-background ${isInSearchPage && "pointer-events-none cursor-not-allowed select-none opacity-70"}`}
+      className={`group relative flex w-full flex-col gap-2 bg-background py-2 ${isInSearchPage && "pointer-events-none cursor-not-allowed select-none opacity-70"}`}
     >
       <form
         className="m-auto w-full rounded-md border-2 border-border duration-300 hover:border-gradient"
@@ -63,6 +65,7 @@ export function SidebarSearchMovie() {
             className="border-none bg-transparent"
             placeholder="find movies..."
             type="search"
+            value={isInSearchPage ? "" : query}
             onChange={handleChange}
           />
           <Button
@@ -79,7 +82,7 @@ export function SidebarSearchMovie() {
 
         {/*  */}
       </form>
-      <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-0  p-2 opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
+      <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-2 opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
         {movieResults?.results.slice(0, 10).map((item) => {
           const {media_type} = item;
 
@@ -97,7 +100,7 @@ export function SidebarSearchMovie() {
         })}
 
         {(movieResults?.results.length ?? 0) > 10 && (
-          <Link href={`/search?q=${debounceValue}`}>
+          <Link href={`/search?q=${debounceValue}&by=${searchPreference}`}>
             <Button className="m-auto my-3 block text-xs" size="sm" variant="outline">
               Show more results
             </Button>
