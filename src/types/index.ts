@@ -287,3 +287,7 @@ export interface Genre {
   id: number;
   name: string;
 }
+
+// search preference
+
+export type SearchPreference = "all" | "movie" | "tv" | "person";
