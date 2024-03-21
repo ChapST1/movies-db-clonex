@@ -1,53 +1,47 @@
-import type {DbResponse, Movie, Person, Tv} from "@/types";
+import type {DbResponse, Movie, Person, SearchPreference, Tv} from "@/types";
 
 import {searchMultiMedia} from "@/lib/services/search-multi-media";
+import {searchMovies} from "@/lib/services/search-movies";
+import {searchTv} from "@/lib/services/search-tv";
+import {searchPerson} from "@/lib/services/search-person";
 
-import {Title} from "../ui/title";
-import {MovieItem} from "../movie/movie-item";
-import {TvItem} from "../tv/tv-item";
-import {PersonItem} from "../person/person-item";
-import {Badge} from "../ui/badge";
-
-import {SearchPagination} from "./search-pagination";
+import {SearchResultsMulti} from "./search-results-multi";
+import {SearchResultsMovies} from "./search-results-movies";
+import {SearchResultsTv} from "./search-results-tv";
+import {SearchResultsPerson} from "./search-results-person";
 
 export async function SearchResults({
   page,
   q,
+  by,
 }: {
   page: string;
   q: string;
-  tv: string;
-  movie: string;
-  people: string;
+  by: SearchPreference;
 }) {
-  const {results, total_pages, total_results} = (await searchMultiMedia({
-    query: q,
-    page,
-  })) as DbResponse<Movie | Tv | Person>;
+  if (by === "all") {
+    const response = (await searchMultiMedia({
+      query: q,
+      page,
+    })) as DbResponse<Movie | Tv | Person>;
 
-  return (
-    <section>
-      <Title className="static flex items-center justify-center gap-2 ">
-        <Badge>{total_results}</Badge>
-        Results for {q}
-      </Title>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
-        {results.map((item) => {
-          const {media_type} = item;
+    return <SearchResultsMulti page={page} q={q} response={response} />;
+  }
 
-          return (
-            <>
-              {media_type === "movie" && <MovieItem movie={item as Movie} />}
+  if (by === "movie") {
+    const response = (await searchMovies({query: q})) as DbResponse<Movie>;
 
-              {media_type === "tv" && <TvItem tv={item as Tv} />}
+    return <SearchResultsMovies page={page} q={q} response={response} />;
+  }
 
-              {media_type === "person" && <PersonItem person={item as Person} />}
-            </>
-          );
-        })}
-      </div>
+  if (by === "tv") {
+    const response = (await searchTv({query: q})) as DbResponse<Tv>;
 
-      <SearchPagination current={Number(page)} totalPages={total_pages} />
-    </section>
-  );
+    return <SearchResultsTv page={page} q={q} response={response} />;
+  }
+
+  // if (by === "person") {
+  const response = (await searchPerson({query: q})) as DbResponse<Person>;
+
+  return <SearchResultsPerson page={page} q={q} response={response} />;
 }
