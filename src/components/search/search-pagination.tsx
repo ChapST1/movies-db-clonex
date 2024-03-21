@@ -56,7 +56,7 @@ export function SearchPagination({current, totalPages}: {current: number; totalP
 
           return (
             <PaginationItem key={item}>
-              <PaginationLink href={newUrl} isActive={current === item}>
+              <PaginationLink scroll href={newUrl} isActive={current === item}>
                 {item}
               </PaginationLink>
             </PaginationItem>
