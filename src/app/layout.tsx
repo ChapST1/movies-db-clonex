@@ -31,11 +31,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
          peer-checked:[&>*:nth-child(1)]:ml-[0%]
         
         peer-checked:[&>*:nth-child(2)]:ml-[200px]
+        peer-checked:[&>*:nth-child(2)]:px-0
         md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-200px)]
         `}
         >
           <Sidebar className="w-[200px]" />
-          <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto">
+          <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto px-4">
             {children}
           </section>
         </main>
