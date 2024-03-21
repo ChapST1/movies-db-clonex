@@ -1,7 +1,7 @@
+import type {SearchPreference} from "@/types";
+
 import {create} from "zustand";
 import {persist} from "zustand/middleware";
-
-export type SearchPreference = "all" | "movie" | "tv" | "person";
 
 interface SearchConfig {
   searchPreference: SearchPreference;
