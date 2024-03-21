@@ -35,7 +35,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         `}
         >
           <Sidebar className="w-[200px]" />
-          <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto px-2">
+          <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto">
             {children}
           </section>
         </main>
