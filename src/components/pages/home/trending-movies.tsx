@@ -5,10 +5,11 @@ import {ChevronRightIcon} from "lucide-react";
 
 import {getTrendingMovies} from "@/lib/services/get-trending-movies";
 import {Title} from "@/components/ui/title";
-import {MoviesGrid} from "@/components/movie/movies-grid";
+import {MediaGrid} from "@/components/media-grid";
+import {MovieItem} from "@/components/movie/movie-item";
 
 export async function TrendingMovies() {
-  const movies = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
+  const {results} = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
 
   return (
     <div className="relative">
@@ -19,8 +20,11 @@ export async function TrendingMovies() {
           <ChevronRightIcon className="size-5" />
         </Link>
       </Title>
-
-      <MoviesGrid movies={movies.results} />
+      <MediaGrid>
+        {results.map((item) => {
+          return <MovieItem key={item.id} movie={item} />;
+        })}
+      </MediaGrid>
     </div>
   );
 }

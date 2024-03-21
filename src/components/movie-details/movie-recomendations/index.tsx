@@ -2,7 +2,8 @@ import type {DbResponse, Movie, Recomendations} from "@/types";
 
 import {getMovieRecomendations} from "@/lib/services/get-movie-recomendations";
 import {MediaContainer} from "@/components/ui/media-container";
-import {MoviesGrid} from "@/components/movie/movies-grid";
+import {MediaGrid} from "@/components/media-grid";
+import {MovieItem} from "@/components/movie/movie-item";
 
 export async function MovieRecomendations({id}: {id: Movie["id"]}) {
   const {results} = (await getMovieRecomendations(id)) as DbResponse<Recomendations>;
@@ -10,7 +11,11 @@ export async function MovieRecomendations({id}: {id: Movie["id"]}) {
   return (
     <MediaContainer mediaLength={results.length}>
       <h2 className="my-5 py-3 text-2xl">Recomendations</h2>
-      <MoviesGrid className="md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]" movies={results} />
+      <MediaGrid>
+        {results.map((item) => {
+          return <MovieItem key={item.id} movie={item} />;
+        })}
+      </MediaGrid>
     </MediaContainer>
   );
 }
