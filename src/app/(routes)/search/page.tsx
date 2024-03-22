@@ -14,8 +14,12 @@ async function SearchPage({
     by: SearchPreference;
   };
 }) {
+  if (!q) {
+    return null;
+  }
+
   return (
-    <Suspense key={`${q}${page}`} fallback={<MovieGridSkeleton />}>
+    <Suspense key={`${q}${page}${by}`} fallback={<MovieGridSkeleton />}>
       <SearchResults by={by} page={page} q={q} />
     </Suspense>
   );
