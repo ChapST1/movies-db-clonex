@@ -36,7 +36,7 @@ export function CarouselMediaItem({media}: CarouselData) {
 
   return (
     <div
-      className="grid w-full min-w-full grid-cols-1 gap-3 bg-center bg-no-repeat object-top p-3 py-5 md:grid-cols-[380px,1fr] md:bg-top"
+      className="grid w-full min-w-full grid-cols-1 gap-3 bg-center bg-no-repeat object-top p-3 py-5 md:grid-cols-[300px,1fr] md:bg-top"
       style={{
         backgroundImage: `linear-gradient(to top, hsl(var(--background)), 80%, rgba(0, 0, 255, 0.057)), url("${backdrop}")`,
         backgroundSize: "cover",
@@ -49,18 +49,17 @@ export function CarouselMediaItem({media}: CarouselData) {
           loading="lazy"
           src={poster}
         />
-
-        {/* Blur shadow effect */}
+        {/* shadow blur effect */}
         <img
           aria-hidden
           alt={title ?? name}
-          className="absolute left-0 top-0 hidden aspect-[2/3] w-44 rounded-md object-cover opacity-95 blur-md md:block md:h-full md:w-full"
+          className="absolute left-0 top-0 hidden aspect-[2/3] w-44 rounded-md object-cover opacity-85 blur-md md:block md:h-full md:w-full"
           loading="lazy"
           src={poster}
         />
       </picture>
       <div className="flex h-full flex-col">
-        <h2 className="text-4xl">{title ?? name}</h2>
+        <h2 className="overflow-y-auto text-4xl">{title ?? name}</h2>
         <time className="block text-sm">{newDate}</time>
 
         <div className="relative flex items-center justify-start gap-2 pt-4">
@@ -70,7 +69,7 @@ export function CarouselMediaItem({media}: CarouselData) {
 
           <MediaBookmark className="relative left-0 top-0" mediaId={id} />
         </div>
-        <p className="mt-4 w-full max-w-[80ch] overflow-y-auto text-pretty">{overview}</p>
+        <p className="mt-4 max-h-28 w-full max-w-[80ch] overflow-y-auto text-pretty">{overview}</p>
         <Badge className="mt-4 w-[max-content] scale-110" variant="secondary">
           {original_language === "en" ? "English" : original_language}
         </Badge>
