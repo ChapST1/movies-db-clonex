@@ -25,20 +25,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html className={poppins.className} lang="en">
       <body className="w-full overflow-x-hidden bg-background">
         <Navbar />
-        <main
-          className={`*:transition-[margin_width] *:duration-500
-        [&>*:nth-child(1)]:ml-[-100%]
-         peer-checked:[&>*:nth-child(1)]:ml-[0%]
-        
-        peer-checked:[&>*:nth-child(2)]:ml-[200px]
-        peer-checked:[&>*:nth-child(2)]:px-0
-        md:peer-checked:[&>*:nth-child(2)]:w-[calc(100vw-200px)]
-        `}
-        >
-          <Sidebar className="w-[200px]" />
-          <section className="fixed top-16 h-[calc(100dvh-64px)] w-full overflow-auto px-4">
-            {children}
-          </section>
+        {/**
+         * TODO: Create a mobile navbar
+         */}
+        <main className="grid w-full grid-cols-1 md:grid-cols-[200px,1fr]">
+          <Sidebar className="hidden md:flex" />
+          <section className=" relative min-w-full  px-3  md:p-0 md:pr-2">{children}</section>
         </main>
 
         <Toaster />
