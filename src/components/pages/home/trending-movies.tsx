@@ -12,7 +12,7 @@ export async function TrendingMovies() {
   const {results} = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Title className="flex items-center justify-between">
         Trending Movies
         <Link className="flex items-center gap-1 text-base" href="/">
