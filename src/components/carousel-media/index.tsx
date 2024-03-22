@@ -14,12 +14,18 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
 
   const next = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft += 1000;
+      const translate = (sliderRef.current.firstElementChild?.clientWidth ?? 0) / 2;
+      const value = translate + translate * 2;
+
+      sliderRef.current.scrollLeft += value;
     }
   };
   const prev = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft -= 1000;
+      const translate = (sliderRef.current.firstElementChild?.clientWidth ?? 0) / 2;
+      const value = translate + translate * 2;
+
+      sliderRef.current.scrollLeft -= value;
     }
   };
 
@@ -27,7 +33,7 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
     <div className="relative mt-4 overflow-hidden rounded-xl">
       <div
         ref={sliderRef}
-        className="relative mb-8 flex w-full snap-x snap-mandatory gap-2 overflow-x-scroll  *:snap-center"
+        className="relative flex h-full w-full snap-x snap-mandatory gap-2 overflow-y-auto *:h-full *:snap-center"
       >
         {data.map((item) => {
           const {media_type} = item;
@@ -46,10 +52,7 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
         })}
       </div>
 
-      <div
-        aria-label="carousel-controls"
-        className="absolute bottom-5 right-2 z-40 hidden items-center justify-center gap-2 md:flex"
-      >
+      <div aria-label="carousel-controls" className="flex items-center  justify-end gap-2">
         <MediaButton onClick={prev}>
           <ArrowLeft />
         </MediaButton>
