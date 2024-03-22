@@ -7,7 +7,7 @@ export function Sidebar({className, ...props}: React.ComponentProps<"nav">) {
   return (
     <nav
       className={twMerge(
-        "fixed left-0 top-16 z-30 flex h-[calc(100dvh-64px)] flex-col gap-6 overflow-y-auto bg-background p-4",
+        "sticky top-16 flex h-[calc(100dvh-64px)] flex-col gap-6 overflow-y-auto bg-background p-3",
         className,
       )}
       {...props}
