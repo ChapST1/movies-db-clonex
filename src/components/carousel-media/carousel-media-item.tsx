@@ -59,7 +59,7 @@ export function CarouselMediaItem({media}: CarouselData) {
         />
       </picture>
       <div className="flex h-full flex-col">
-        <h2 className="overflow-y-auto text-4xl">{title ?? name}</h2>
+        <h2 className="text-4xl">{title ?? name}</h2>
         <time className="block text-sm">{newDate}</time>
 
         <div className="relative flex items-center justify-start gap-2 pt-4">
@@ -69,13 +69,19 @@ export function CarouselMediaItem({media}: CarouselData) {
 
           <MediaBookmark className="relative left-0 top-0" mediaId={id} />
         </div>
-        <p className="mt-4 max-h-28 w-full max-w-[80ch] overflow-y-auto text-pretty">{overview}</p>
         <Badge className="mt-4 w-[max-content] scale-110" variant="secondary">
-          {original_language === "en" ? "English" : original_language}
+          {original_language}
         </Badge>
-
-        <Link className="w-[max-content]" href={mediaLink}>
-          <Button className="my-4">View more details</Button>
+        <p
+          className="mt-4 max-h-28 w-full max-w-[80ch] overflow-y-auto text-pretty pb-8 "
+          style={{
+            maskImage: "linear-gradient( black 50%, transparent)",
+          }}
+        >
+          {overview}
+        </p>
+        <Link className="w-full md:w-[max-content]" href={mediaLink}>
+          <Button className="my-4 w-full">View more details</Button>
         </Link>
       </div>
     </div>
