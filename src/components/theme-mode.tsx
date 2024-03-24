@@ -39,11 +39,11 @@ export function ThemeMode() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <MediaButton className="bg-secondary/80">
-          <Palette className="size-5 fill-none stroke-gradient " />
+        <MediaButton className="bg-background">
+          <Palette className="size-5 fill-none stroke-gradient" />
         </MediaButton>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="grid grid-cols-4 gap-1">
+      <DropdownMenuContent className="grid grid-cols-6 gap-1">
         {themes.map(({key}, index) => {
           return (
             <DropdownMenuItem key={index} onClick={() => handleClick(key)}>

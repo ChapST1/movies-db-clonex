@@ -20,8 +20,8 @@ export function Bookmark() {
   return (
     <Dialog>
       <DialogTrigger>
-        <MediaButton className="border-border bg-secondary/80 hover:bg-accent">
-          <BookmarkIcon className="size-5" />
+        <MediaButton className="border-border bg-background hover:bg-accent">
+          <BookmarkIcon className="size-5 fill-none stroke-gradient" />
         </MediaButton>
       </DialogTrigger>
       <DialogContent>
