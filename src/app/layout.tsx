@@ -25,9 +25,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html className={poppins.className} lang="en">
       <body className="w-full overflow-x-hidden bg-background">
         <Navbar />
-        {/**
-         * TODO: Create a mobile navbar
-         */}
         <main className="grid w-full grid-cols-1 md:grid-cols-[200px,1fr]">
           <Sidebar className="hidden md:flex" />
           <section className=" relative min-w-full  px-3  md:p-0 md:pr-2">{children}</section>
