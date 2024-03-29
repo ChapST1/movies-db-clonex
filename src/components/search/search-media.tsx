@@ -46,7 +46,7 @@ export function SearchMedia() {
 
   return (
     <form
-      className="sticky top-0 z-30 w-[max-content] rounded-md border border-border bg-background/80 p-2 backdrop-blur-sm duration-300 hover:border-gradient"
+      className="sticky top-0 z-30 w-[90%] rounded-md border border-border bg-background/80 p-2 backdrop-blur-sm duration-300 hover:border-gradient md:w-[max-content]"
       onSubmit={handleSubmit}
     >
       <Label className="flex items-center gap-2">
