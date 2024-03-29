@@ -35,11 +35,11 @@ export function NavbarMobileContent({onToggle, isOpen}: {onToggle: () => void; i
   return (
     <nav
       ref={navbarRef}
-      className={`fixed left-0 top-0 z-20 flex h-dvh w-full items-center justify-end overflow-hidden bg-background/95 duration-300 ${navbarStyle}`}
+      className={`fixed left-0 top-16 z-20 flex h-[calc(100dvh-64px)] w-full items-center justify-end overflow-hidden bg-background/95 duration-300 ${navbarStyle}`}
       onClick={handleClose}
     >
       <ul
-        className={` flex h-full w-[70%] flex-col justify-center gap-2  bg-background p-3 duration-300 ${navbarUlStyle}`}
+        className={` flex h-full w-[70%] flex-col  gap-2 border-l border-border  bg-background p-3 duration-300 ${navbarUlStyle}`}
       >
         {primaryLinks.map(({name, path, icon}) => {
           const activeStyles = clsx({
