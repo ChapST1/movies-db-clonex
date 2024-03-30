@@ -4,8 +4,7 @@ import {getMovieImages} from "@/lib/services/get-movie-images";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
 import {Title} from "@/components/ui/title";
-
-import {MovieImagesGrid} from "./movie-images-grid";
+import {MediaGrid} from "@/components/media-grid";
 
 export async function MovieImages({id}: {id: Movie["id"]}) {
   const {backdrops, posters} = (await getMovieImages(id)) as MovieImages;
@@ -15,7 +14,7 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
       <article>
         <Title className="my-5 text-2xl">Top Backdrops</Title>
         <MediaContainer mediaLength={backdrops.length}>
-          <MovieImagesGrid className="grid-cols-2">
+          <MediaGrid className="grid-cols-2">
             {backdrops.map(({file_path, aspect_ratio}) => {
               const image = generateFullPath({backdrop: {path: file_path, size: "w300"}});
 
@@ -30,14 +29,14 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
                 </picture>
               );
             })}
-          </MovieImagesGrid>
+          </MediaGrid>
         </MediaContainer>
       </article>
 
       <article>
         <Title className="my-5 text-2xl">Top Posters</Title>
         <MediaContainer mediaLength={posters.length}>
-          <MovieImagesGrid>
+          <MediaGrid>
             {posters.map(({file_path, aspect_ratio}, index) => {
               const image = generateFullPath({poster: {path: file_path, size: "w500"}});
 
@@ -52,7 +51,7 @@ export async function MovieImages({id}: {id: Movie["id"]}) {
                 </picture>
               );
             })}
-          </MovieImagesGrid>
+          </MediaGrid>
         </MediaContainer>
       </article>
     </section>
