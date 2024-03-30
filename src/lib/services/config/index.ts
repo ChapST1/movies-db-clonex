@@ -23,12 +23,24 @@ export const generateMovieByIdApiUrl = (id: number) => {
   return `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
 };
 
+export const generateTvByIdApiUrl = (id: number) => {
+  return `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`;
+};
+
 export const generateMoviesCastApiUrl = (id: number) => {
   return `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
 };
 
+export const generateTvCastApiUrl = (id: number) => {
+  return `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${API_KEY}`;
+};
+
 export const generateMoviesImagesApiUrl = (id: number) => {
   return `https://api.themoviedb.org/3/movie/${id}/images?api_key=${API_KEY}`;
+};
+
+export const generateTvImagesApiUrl = (id: number) => {
+  return `https://api.themoviedb.org/3/tv/${id}/images?api_key=${API_KEY}`;
 };
 
 export const generateMoviesKeywordsApiUrl = (id: number) => {
@@ -37,6 +49,10 @@ export const generateMoviesKeywordsApiUrl = (id: number) => {
 
 export const generateMovieRecomendationsApiUrl = (id: number) => {
   return `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`;
+};
+
+export const generateTvRecomendationsApiUrl = (id: number) => {
+  return `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${API_KEY}`;
 };
 
 export const generateSearchTvApiUrl = ({query}: {query: string}) => {

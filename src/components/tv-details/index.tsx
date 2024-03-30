@@ -1,0 +1,45 @@
+import type {TvDetails} from "@/types";
+
+import {Suspense} from "react";
+
+import {MoviesMediaSkeleton} from "../skeletons/movies-media-skeleton";
+import {MovieGridSkeleton} from "../skeletons/movie-grid-skeleton";
+
+import {TvDetailHero} from "./tv-hero";
+import {TvCharacters} from "./tv-characters";
+import {TvImages} from "./tv-images";
+import {TvRecomendations} from "./tv-recomendations";
+
+export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
+  const {id} = tvDetails;
+
+  return (
+    <div>
+      <TvDetailHero tvDetail={tvDetails} />
+      <section className="grid gap-4 md:grid-cols-[1fr,300px]">
+        <div>
+          <Suspense fallback={<MoviesMediaSkeleton />}>
+            <TvCharacters id={id} />
+          </Suspense>
+
+          <Suspense fallback={<MoviesMediaSkeleton />}>
+            <TvImages id={id} />
+          </Suspense>
+
+          <Suspense fallback={<MovieGridSkeleton />}>
+            <TvRecomendations id={id} />
+          </Suspense>
+        </div>
+      </section>
+      {/* <MovieDetailHero movieDetail={movie} />
+      <section className="grid gap-4 md:grid-cols-[1fr,300px]">
+        <div>
+
+
+       
+        </div>
+        <MovieDetailSidebar info={movie} />
+      </section> */}
+    </div>
+  );
+}
