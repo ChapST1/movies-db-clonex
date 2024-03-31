@@ -1,4 +1,4 @@
-import type {DbResponse, Person} from "@/types";
+import type {ServiceResponse, Person} from "@/types";
 
 import {Title} from "../ui/title";
 import {Badge} from "../ui/badge";
@@ -10,7 +10,7 @@ import {SearchPagination} from "./search-pagination";
 interface CurrentProps {
   page: string;
   q: string;
-  response: DbResponse<Person>;
+  response: ServiceResponse<Person>;
 }
 
 export function SearchResultsPerson({page, q, response}: CurrentProps) {

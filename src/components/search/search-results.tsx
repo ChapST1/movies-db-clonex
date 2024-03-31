@@ -1,9 +1,9 @@
-import type {DbResponse, Movie, Person, SearchPreference, Tv} from "@/types";
+import type {ServiceResponse, Movie, Person, SearchPreference, Tv} from "@/types";
 
-import {searchMultiMedia} from "@/lib/services/search-multi-media";
-import {searchMovies} from "@/lib/services/search-movies";
-import {searchTv} from "@/lib/services/search-tv";
-import {searchPerson} from "@/lib/services/search-person";
+import {searchMultiMedia} from "@/lib/services/search/search-multi-media";
+import {searchMovies} from "@/lib/services/search/search-movies";
+import {searchTv} from "@/lib/services/search/search-tv";
+import {searchPerson} from "@/lib/services/search/search-person";
 
 import {SearchResultsMulti} from "./search-results-multi";
 import {SearchResultsMovies} from "./search-results-movies";
@@ -19,29 +19,31 @@ export async function SearchResults({
   q: string;
   by: SearchPreference;
 }) {
+  const pageToNumber = Number(page) || 1;
+
   if (by === "all") {
     const response = (await searchMultiMedia({
       query: q,
-      page,
-    })) as DbResponse<Movie | Tv | Person>;
+      page: pageToNumber,
+    })) as ServiceResponse<Movie | Tv | Person>;
 
     return <SearchResultsMulti page={page} q={q} response={response} />;
   }
 
   if (by === "movie") {
-    const response = (await searchMovies({query: q})) as DbResponse<Movie>;
+    const response = (await searchMovies({query: q, page: pageToNumber})) as ServiceResponse<Movie>;
 
     return <SearchResultsMovies page={page} q={q} response={response} />;
   }
 
   if (by === "tv") {
-    const response = (await searchTv({query: q})) as DbResponse<Tv>;
+    const response = (await searchTv({query: q, page: pageToNumber})) as ServiceResponse<Tv>;
 
     return <SearchResultsTv page={page} q={q} response={response} />;
   }
 
   // if (by === "person") {
-  const response = (await searchPerson({query: q})) as DbResponse<Person>;
+  const response = (await searchPerson({query: q, page: pageToNumber})) as ServiceResponse<Person>;
 
   return <SearchResultsPerson page={page} q={q} response={response} />;
 }

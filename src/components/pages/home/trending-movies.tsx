@@ -1,15 +1,18 @@
-import type {DbResponse, MovieTrend} from "@/types";
+import type {MovieTrend, ServiceResponse} from "@/types";
 
 import Link from "next/link";
 import {ChevronRightIcon} from "lucide-react";
 
-import {getTrendingMovies} from "@/lib/services/get-trending-movies";
 import {Title} from "@/components/ui/title";
 import {MediaGrid} from "@/components/media-grid";
 import {MovieItem} from "@/components/movie/movie-item";
+import {getTrendingMovies} from "@/lib/services/movie/get-trending-movies";
 
 export async function TrendingMovies() {
-  const {results} = (await getTrendingMovies({time: "day"})) as DbResponse<MovieTrend>;
+  const {results} = (await getTrendingMovies({
+    time: "day",
+    page: 1,
+  })) as ServiceResponse<MovieTrend>;
 
   return (
     <div className="relative w-full">

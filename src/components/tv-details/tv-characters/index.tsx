@@ -5,7 +5,7 @@ import Link from "next/link";
 import {Title} from "@/components/ui/title";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
-import {getTvCast} from "@/lib/services/get-tv-cast";
+import {getTvCast} from "@/lib/services/tv/get-tv-cast";
 
 export async function TvCharacters({id}: {id: Tv["id"]}) {
   const movie = (await getTvCast(id)) as TvCast;

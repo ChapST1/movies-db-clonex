@@ -7,7 +7,7 @@ import {MovieGridSkeleton} from "../skeletons/movie-grid-skeleton";
 
 import {MovieDetailHero} from "./movie-hero";
 import {MovieCharacters} from "./movie-characters";
-import {MovieImages} from "./movie-images";
+import {MovieGallery} from "./movie-gallery";
 import {MovieRecomendations} from "./movie-recomendations";
 import {MovieDetailSidebar} from "./movie-sidebar";
 
@@ -24,7 +24,7 @@ export function MovieDetail({movie}: {movie: MovieDetail}) {
           </Suspense>
 
           <Suspense fallback={<MoviesMediaSkeleton />}>
-            <MovieImages id={id} />
+            <MovieGallery id={id} />
           </Suspense>
 
           <Suspense fallback={<MovieGridSkeleton />}>

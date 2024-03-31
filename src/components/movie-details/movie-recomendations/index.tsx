@@ -1,12 +1,12 @@
-import type {DbResponse, Movie, Recomendations} from "@/types";
+import type {ServiceResponse, Movie, Recommendations} from "@/types";
 
-import {getMovieRecomendations} from "@/lib/services/get-movie-recomendations";
+import {getMovieRecomendations} from "@/lib/services/movie/get-movie-recomendations";
 import {MediaContainer} from "@/components/ui/media-container";
 import {MediaGrid} from "@/components/media-grid";
 import {MovieItem} from "@/components/movie/movie-item";
 
 export async function MovieRecomendations({id}: {id: Movie["id"]}) {
-  const {results} = (await getMovieRecomendations(id)) as DbResponse<Recomendations>;
+  const {results} = (await getMovieRecomendations(id)) as ServiceResponse<Recommendations>;
 
   return (
     <MediaContainer mediaLength={results.length}>

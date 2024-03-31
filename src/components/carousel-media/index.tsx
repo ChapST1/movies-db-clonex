@@ -20,6 +20,7 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
       sliderRef.current.scrollLeft += value;
     }
   };
+
   const prev = () => {
     if (sliderRef.current) {
       const translate = (sliderRef.current.firstElementChild?.clientWidth ?? 0) / 2;

@@ -7,7 +7,7 @@ import {MovieGridSkeleton} from "../skeletons/movie-grid-skeleton";
 
 import {TvDetailHero} from "./tv-hero";
 import {TvCharacters} from "./tv-characters";
-import {TvImages} from "./tv-images";
+import {TvGallery} from "./tv-gallery";
 import {TvRecomendations} from "./tv-recomendations";
 
 export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
@@ -23,7 +23,7 @@ export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
           </Suspense>
 
           <Suspense fallback={<MoviesMediaSkeleton />}>
-            <TvImages id={id} />
+            <TvGallery id={id} />
           </Suspense>
 
           <Suspense fallback={<MovieGridSkeleton />}>
@@ -31,15 +31,6 @@ export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
           </Suspense>
         </div>
       </section>
-      {/* <MovieDetailHero movieDetail={movie} />
-      <section className="grid gap-4 md:grid-cols-[1fr,300px]">
-        <div>
-
-
-       
-        </div>
-        <MovieDetailSidebar info={movie} />
-      </section> */}
     </div>
   );
 }

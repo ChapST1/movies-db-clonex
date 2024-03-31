@@ -1,4 +1,4 @@
-import type {DbResponse, Tv} from "@/types";
+import type {ServiceResponse, Tv} from "@/types";
 
 import {Title} from "../ui/title";
 import {Badge} from "../ui/badge";
@@ -10,7 +10,7 @@ import {SearchPagination} from "./search-pagination";
 interface CurrentProps {
   page: string;
   q: string;
-  response: DbResponse<Tv>;
+  response: ServiceResponse<Tv>;
 }
 
 export function SearchResultsTv({page, q, response}: CurrentProps) {

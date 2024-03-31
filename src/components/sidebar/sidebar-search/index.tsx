@@ -1,6 +1,6 @@
 "use client";
 
-import type {DbResponse, Movie, Person, Tv} from "@/types";
+import type {ServiceResponse, Movie, Person, Tv} from "@/types";
 
 import {useEffect, useState} from "react";
 import Link from "next/link";
@@ -8,8 +8,8 @@ import {usePathname} from "next/navigation";
 import {Loader, Search} from "lucide-react";
 
 import {useDebounce} from "@/hooks/use-debounce";
-import {searchMultiMedia} from "@/lib/services/search-multi-media";
 import {useSearchPreference} from "@/store/search-config";
+import {searchMultiMedia} from "@/lib/services/search/search-multi-media";
 
 import {Input} from "../../ui/input";
 import {Label} from "../../ui/label";
@@ -22,7 +22,7 @@ import {SidebarSearchResultTv} from "./sidebar-search-result-tv";
 const PATH_MOVIE_SEARCH_PAGE = "/search";
 
 export function SidebarSearchMovie() {
-  const [movieResults, setMovieResults] = useState<DbResponse<Movie | Person | Tv>>();
+  const [movieResults, setMovieResults] = useState<ServiceResponse<Movie | Person | Tv>>();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const debounceValue = useDebounce(query, 2000);
@@ -40,7 +40,7 @@ export function SidebarSearchMovie() {
     if (debounceValue.trim() !== "") {
       // get results
       searchMultiMedia({query: debounceValue})
-        .then((data) => setMovieResults(data as DbResponse<Movie | Person | Tv>))
+        .then((data) => setMovieResults(data as ServiceResponse<Movie | Person | Tv>))
         .finally(() => setLoading(false));
     }
   }, [debounceValue]);

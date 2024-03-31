@@ -1,7 +1,7 @@
 import type {Movie, MovieKeywords} from "@/types";
 
 import {Badge} from "@/components/ui/badge";
-import {getMovieKeywords} from "@/lib/services/get-movie-keywords";
+import {getMovieKeywords} from "@/lib/services/movie/get-movie-keywords";
 
 export async function MovieSidebarKeywords({id}: {id: Movie["id"]}) {
   const {keywords} = (await getMovieKeywords(id)) as MovieKeywords;

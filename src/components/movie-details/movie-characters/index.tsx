@@ -1,12 +1,11 @@
 import type {Movie, MovieCast} from "@/types";
 
-import {CornersIcon} from "@radix-ui/react-icons";
 import Link from "next/link";
 
-import {getMovieCast} from "@/lib/services/get-movie-cast";
 import {Title} from "@/components/ui/title";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
+import {getMovieCast} from "@/lib/services/movie/get-movie-cast";
 
 export async function MovieCharacters({id}: {id: Movie["id"]}) {
   const movie = (await getMovieCast(id)) as MovieCast;

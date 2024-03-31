@@ -1,4 +1,4 @@
-import type {DbResponse, Movie} from "@/types";
+import type {ServiceResponse, Movie} from "@/types";
 
 import {Title} from "../ui/title";
 import {MovieItem} from "../movie/movie-item";
@@ -10,7 +10,7 @@ import {SearchPagination} from "./search-pagination";
 interface CurrentProps {
   page: string;
   q: string;
-  response: DbResponse<Movie>;
+  response: ServiceResponse<Movie>;
 }
 
 export function SearchResultsMovies({page, q, response}: CurrentProps) {

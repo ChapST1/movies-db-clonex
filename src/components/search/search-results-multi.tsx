@@ -1,4 +1,4 @@
-import type {DbResponse, Movie, Person, Tv} from "@/types";
+import type {Movie, Person, ServiceResponse, Tv} from "@/types";
 
 import {Title} from "../ui/title";
 import {MovieItem} from "../movie/movie-item";
@@ -12,7 +12,7 @@ import {SearchPagination} from "./search-pagination";
 interface CurrentProps {
   page: string;
   q: string;
-  response: DbResponse<Movie | Tv | Person>;
+  response: ServiceResponse<Movie | Tv | Person>;
 }
 
 export function SearchResultsMulti({response, page, q}: CurrentProps) {
