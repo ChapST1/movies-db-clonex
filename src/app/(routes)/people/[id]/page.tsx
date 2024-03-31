@@ -1,6 +1,6 @@
 import type {Person as PersonType} from "@/types";
 
-import {getPersonInfo} from "@/lib/services/get-person-info";
+import {getPersonInfo} from "@/lib/services/person/get-person-info";
 import {Person} from "@/components/person";
 
 export default async function PeoplePage({params: {id}}: {params: {id: PersonType["id"]}}) {

@@ -1,12 +1,12 @@
 import type {Person, PersonProfiles} from "@/types";
 
 import {Title} from "@/components/ui/title";
-import {getPersonImages} from "@/lib/services/get-person-images";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
+import {getPersonGallery} from "@/lib/services/person/get-person-gallery";
 
 export async function PersonContentImages({id, owner}: {id: Person["id"]; owner: Person["name"]}) {
-  const {profiles} = (await getPersonImages({id})) as PersonProfiles;
+  const {profiles} = (await getPersonGallery({id})) as PersonProfiles;
 
   return (
     <div>
