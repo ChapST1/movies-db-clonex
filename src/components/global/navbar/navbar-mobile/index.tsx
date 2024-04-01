@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {MenuIcon, X} from "lucide-react";
 
-import {MediaButton} from "../../media-button";
+import {MediaButton} from "@/components/media-button";
 
 import {NavbarMobileContent} from "./navbar-mobile-content";
 

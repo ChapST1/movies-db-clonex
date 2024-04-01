@@ -2,8 +2,8 @@ import type {MovieDetail} from "@/types";
 
 import {Suspense} from "react";
 
-import {MoviesMediaSkeleton} from "../skeletons/movies-media-skeleton";
-import {MovieGridSkeleton} from "../skeletons/movie-grid-skeleton";
+import {MoviesMediaSkeleton} from "../../skeletons/movies-media-skeleton";
+import {MovieGridSkeleton} from "../../skeletons/movie-grid-skeleton";
 
 import {MovieDetailHero} from "./movie-hero";
 import {MovieCharacters} from "./movie-characters";

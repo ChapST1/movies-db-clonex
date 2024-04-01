@@ -5,7 +5,7 @@ import type {Movie, Tv, WithOptional} from "@/types";
 import {useRef} from "react";
 import {ArrowLeft, ArrowRight} from "lucide-react";
 
-import {MediaButton} from "../media-button";
+import {MediaButton} from "@/components/media-button";
 
 import {CarouselMediaItem} from "./carousel-media-item";
 

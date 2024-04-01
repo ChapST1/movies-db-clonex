@@ -1,7 +1,7 @@
 import type {Person} from "@/types";
 
-import PersonSidebar from "./person-sidebar";
 import {PersonContent} from "./person-content";
+import {PersonSidebar} from "./person-sidebar";
 
 export function Person({person}: {person: Person}) {
   return (

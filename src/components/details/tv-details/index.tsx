@@ -2,8 +2,8 @@ import type {TvDetails} from "@/types";
 
 import {Suspense} from "react";
 
-import {MoviesMediaSkeleton} from "../skeletons/movies-media-skeleton";
-import {MovieGridSkeleton} from "../skeletons/movie-grid-skeleton";
+import {MoviesMediaSkeleton} from "@/components/skeletons/movies-media-skeleton";
+import {MovieGridSkeleton} from "@/components/skeletons/movie-grid-skeleton";
 
 import {TvDetailHero} from "./tv-hero";
 import {TvCharacters} from "./tv-characters";

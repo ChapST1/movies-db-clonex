@@ -4,8 +4,8 @@ import "./globals.css";
 
 import {Poppins} from "next/font/google";
 
-import {Navbar} from "@/components/navbar/navbar";
-import {Sidebar} from "@/components/sidebar";
+import {Navbar} from "@/components/global/navbar";
+import {Sidebar} from "@/components/global/sidebar";
 import {Toaster} from "@/components/ui/toaster";
 
 export const metadata: Metadata = {

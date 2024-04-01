@@ -6,10 +6,10 @@ import Link from "next/link";
 import {generateFullPath} from "@/lib/create-full-path";
 import {formatDate} from "@/lib/format-date";
 
-import {MediaButton} from "../media-button";
-import {MediaBookmark} from "../media-bookmark";
-import {Badge} from "../ui/badge";
-import {Button} from "../ui/button";
+import {MediaButton} from "../../media-button";
+import {MediaBookmark} from "../../media-bookmark";
+import {Badge} from "../../ui/badge";
+import {Button} from "../../ui/button";
 
 interface CarouselData {
   media: WithOptional<Movie, "title" | "release_date"> & Tv;

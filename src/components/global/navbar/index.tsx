@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import {ThemeMode} from "../theme-mode";
-import {Bookmark} from "../bookmark";
+import {ThemeMode} from "@/components/theme-mode";
+import {Bookmark} from "@/components/bookmark";
 
 import {NavbarMobile} from "./navbar-mobile";
 

@@ -10,10 +10,9 @@ import {Loader, Search} from "lucide-react";
 import {useDebounce} from "@/hooks/use-debounce";
 import {useSearchPreference} from "@/store/search-config";
 import {searchMultiMedia} from "@/lib/services/search/search-multi-media";
-
-import {Input} from "../../ui/input";
-import {Label} from "../../ui/label";
-import {Button} from "../../ui/button";
+import {Input} from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
+import {Button} from "@/components/ui/button";
 
 import {SidebarSearchResultMovie} from "./sidebar-search-result-movie";
 import {SidebarSearchResultPerson} from "./sidebar-search-result-person";
@@ -39,7 +38,7 @@ export function SidebarSearchMovie() {
   useEffect(() => {
     if (debounceValue.trim() !== "") {
       // get results
-      searchMultiMedia({query: debounceValue})
+      searchMultiMedia({query: debounceValue, page: 1})
         .then((data) => setMovieResults(data as ServiceResponse<Movie | Person | Tv>))
         .finally(() => setLoading(false));
     }
@@ -79,8 +78,6 @@ export function SidebarSearchMovie() {
             )}
           </Button>
         </Label>
-
-        {/*  */}
       </form>
       <div className="search-results-container top-14 flex h-0 w-full flex-col gap-2 overflow-y-auto rounded-md border border-border bg-background p-2 opacity-0 transition-[height] duration-300 group-hover:h-60 group-hover:opacity-100">
         {movieResults?.results.slice(0, 10).map((item) => {

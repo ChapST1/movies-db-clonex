@@ -3,9 +3,9 @@ import type {Person} from "@/types";
 import {generateFullPath} from "@/lib/create-full-path";
 import {formatPersonGender} from "@/lib/format-person-gender";
 
-import {Badge} from "../ui/badge";
+import {Badge} from "../../ui/badge";
 
-export default function PersonSidebar({person}: {person: Person}) {
+export function PersonSidebar({person}: {person: Person}) {
   const {profile_path, gender, birthday, place_of_birth, deathday, also_known_as, name} = person;
 
   const profilePath = generateFullPath({profile: {path: profile_path, size: "w185"}});

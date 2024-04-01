@@ -1,4 +1,4 @@
-import type {MovieDetail} from "@/types";
+import type {TvDetails} from "@/types";
 
 import {generateFullPath} from "@/lib/create-full-path";
 import {
@@ -9,48 +9,32 @@ import {
   MediaDetailsHeroContentHeader,
   MediaDetailsHeroContentHeaderTitle,
   MediaDetailsHeroContentOverview,
-  MediaDetailsHeroContentRuntime,
   MediaDetailsHeroPicture,
-} from "@/components/media-details";
+} from "@/components/ui/media-details";
 import {Badge} from "@/components/ui/badge";
-import {formatMediaRuntime} from "@/lib/format-media-runtime";
 import {MediaButton} from "@/components/media-button";
 import {MediaBookmark} from "@/components/media-bookmark";
 import {Button} from "@/components/ui/button";
 
-export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
-  const {
-    backdrop_path,
-    poster_path,
-    title,
-    overview,
-    genres,
-    adult,
-    release_date,
-    runtime,
-    status,
-    id,
-  } = movieDetail;
+export function TvDetailHero({tvDetail}: {tvDetail: TvDetails}) {
+  const {backdrop_path, poster_path, name, overview, genres, adult, first_air_date, status, id} =
+    tvDetail;
 
   const backdropPath = generateFullPath({backdrop: {path: backdrop_path, size: "w1280"}});
   const posterPath = generateFullPath({poster: {path: poster_path, size: "w342"}});
-  const year = new Date(release_date).getFullYear();
+  const year = new Date(first_air_date).getFullYear();
 
   return (
     <MediaDetailsHero heroImage={`${backdropPath}`}>
-      <MediaDetailsHeroPicture posterPath={`${posterPath}`} title={title} />
+      <MediaDetailsHeroPicture posterPath={`${posterPath}`} title={name} />
 
       <MediaDetailsHeroContent>
         <MediaDetailsHeroContentHeader>
           <MediaDetailsHeroContentHeaderTitle className="flex items-center gap-2">
-            {title}
+            {name}
             <span className="italic opacity-70"> {year}</span>
             <Badge>{status}</Badge>
           </MediaDetailsHeroContentHeaderTitle>
-
-          <MediaDetailsHeroContentRuntime>
-            {formatMediaRuntime(runtime)}
-          </MediaDetailsHeroContentRuntime>
         </MediaDetailsHeroContentHeader>
 
         <MediaDetailsHeroContentGendersContainer>

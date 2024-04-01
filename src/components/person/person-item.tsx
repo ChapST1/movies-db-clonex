@@ -6,9 +6,9 @@ import {twMerge} from "tailwind-merge";
 import {generateFullPath} from "@/lib/create-full-path";
 
 import {MediaBookmark} from "../media-bookmark";
-import {MediaPicture} from "../media/media-picture";
-import {MediaFooter} from "../media/media-footer";
-import {MediaFooterName} from "../media/media-footer-name";
+import {MediaPicture} from "../ui/media/media-picture";
+import {MediaFooter} from "../ui/media/media-footer";
+import {MediaFooterName} from "../ui/media/media-footer-name";
 
 interface MediaProps extends React.ComponentProps<"picture"> {
   person: Person;
