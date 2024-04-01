@@ -4,6 +4,7 @@ import {Title} from "@/components/ui/title";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
 import {getPersonGallery} from "@/lib/services/person/get-person-gallery";
+import {MediaGrid} from "@/components/media-grid";
 
 export async function PersonContentImages({id, owner}: {id: Person["id"]; owner: Person["name"]}) {
   const {profiles} = (await getPersonGallery({id})) as PersonProfiles;
@@ -13,7 +14,7 @@ export async function PersonContentImages({id, owner}: {id: Person["id"]; owner:
       <Title>Profiles</Title>
 
       <MediaContainer mediaLength={profiles.length}>
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
+        <MediaGrid>
           {profiles.map(({file_path}, index) => {
             const path = generateFullPath({profile: {path: file_path, size: "w185"}});
 
@@ -23,7 +24,7 @@ export async function PersonContentImages({id, owner}: {id: Person["id"]; owner:
               </picture>
             );
           })}
-        </div>
+        </MediaGrid>
       </MediaContainer>
     </div>
   );

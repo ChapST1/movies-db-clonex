@@ -14,7 +14,14 @@ export function PersonContent({person}: {person: Person}) {
   return (
     <div>
       <h1 className="py-2 text-4xl font-semibold">{name}</h1>
-      <p className="text-pretty md:w-[80%]">{biography}</p>
+      <p
+        className="max-h-56 overflow-y-auto text-pretty pb-14"
+        style={{
+          maskImage: "linear-gradient(black, 80%, transparent)",
+        }}
+      >
+        {biography}
+      </p>
 
       <Suspense fallback={<MovieGridSkeleton />}>
         <PersonContentMovies id={id} />
