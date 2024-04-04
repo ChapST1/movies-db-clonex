@@ -6,7 +6,7 @@ interface CurrentProps extends React.ComponentProps<"h1"> {
 
 export function MediaDetailsHeroContentHeaderTitle({children, className, ...props}: CurrentProps) {
   return (
-    <h1 {...props} className={twMerge("text-3xl font-bold", className)}>
+    <h1 {...props} className={twMerge("text-xl font-bold md:text-3xl", className)}>
       {children}
     </h1>
   );
