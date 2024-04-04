@@ -6,6 +6,7 @@ import type {
   MovieDetail,
   MovieTrend,
   MovieGallery,
+  MovieKeywords,
 } from "./movie";
 import type {Person, PersonMovieCredits, PersonProfiles, Profile} from "./person";
 import type {SearchPreference} from "./search";
@@ -33,4 +34,5 @@ export type {
   ServiceResponse,
   WithOptional,
   Gallery,
+  MovieKeywords,
 };
