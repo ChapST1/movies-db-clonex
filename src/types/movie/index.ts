@@ -5,5 +5,15 @@ import type {MovieDetail} from "./movie-detail";
 import type {Keyword} from "./movie-keywords";
 import type {MovieTrend} from "./movie-trend";
 import type {MovieGallery} from "./movie-gallery";
+import type {MovieKeywords} from "./movie-keywords";
 
-export type {Movie, MovieCast, Keyword, MovieCategories, MovieDetail, MovieTrend, MovieGallery};
+export type {
+  Movie,
+  MovieCast,
+  Keyword,
+  MovieKeywords,
+  MovieCategories,
+  MovieDetail,
+  MovieTrend,
+  MovieGallery,
+};
