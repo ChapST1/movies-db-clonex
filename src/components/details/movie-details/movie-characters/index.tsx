@@ -13,7 +13,7 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
 
   return (
     <div>
-      <Title className="my-5 text-2xl">Top Billed Cast</Title>
+      <Title className="my-5 text-sm md:text-xl">Top Billed Cast</Title>
       <MediaContainer mediaLength={cast.length}>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
           {cast.map((item) => { // eslint-disable-line

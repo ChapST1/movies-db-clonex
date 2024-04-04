@@ -9,6 +9,10 @@ import {getMovieGallery} from "@/lib/services/movie/get-movie-gallery";
 export async function MovieGallery({id}: {id: Movie["id"]}) {
   const {backdrops, posters} = (await getMovieGallery(id)) as MovieGallery;
 
+  if (backdrops.length === 0 || posters.length === 0) {
+    return null;
+  }
+
   return (
     <section>
       <article>
