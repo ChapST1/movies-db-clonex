@@ -10,7 +10,7 @@ export function MediaDetailsHeroContentGendersContainer({
   ...props
 }: CurrentProps) {
   return (
-    <div className={twMerge("flex gap-3 py-1", className)} {...props}>
+    <div className={twMerge("flex flex-wrap gap-3 py-1", className)} {...props}>
       {children}
     </div>
   );
