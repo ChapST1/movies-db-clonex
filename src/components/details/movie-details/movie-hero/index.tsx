@@ -42,7 +42,7 @@ export function MovieDetailHero({movieDetail}: {movieDetail: MovieDetail}) {
 
       <MediaDetailsHeroContent>
         <MediaDetailsHeroContentHeader>
-          <MediaDetailsHeroContentHeaderTitle className="flex flex-wrap items-center gap-2">
+          <MediaDetailsHeroContentHeaderTitle className="flex flex-col items-center gap-2 md:flex-row">
             {title}
             <span className="italic opacity-70"> {year}</span>
             <Badge>{status}</Badge>

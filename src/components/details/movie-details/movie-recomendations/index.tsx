@@ -4,6 +4,7 @@ import {getMovieRecomendations} from "@/lib/services/movie/get-movie-recomendati
 import {MediaContainer} from "@/components/ui/media-container";
 import {MediaGrid} from "@/components/media-grid";
 import {MovieItem} from "@/components/movie/movie-item";
+import {Title} from "@/components/ui/title";
 
 export async function MovieRecomendations({id}: {id: Movie["id"]}) {
   const {results} = (await getMovieRecomendations(id)) as ServiceResponse<Recommendations>;
@@ -13,13 +14,15 @@ export async function MovieRecomendations({id}: {id: Movie["id"]}) {
   }
 
   return (
-    <MediaContainer mediaLength={results.length}>
-      <h2 className="my-5 py-3 text-sm md:text-xl">Recomendations</h2>
-      <MediaGrid>
-        {results.map((item) => {
-          return <MovieItem key={item.id} movie={item} />;
-        })}
-      </MediaGrid>
-    </MediaContainer>
+    <>
+      <Title>Recomendations</Title>
+      <MediaContainer mediaLength={results.length}>
+        <MediaGrid>
+          {results.map((item) => {
+            return <MovieItem key={item.id} movie={item} />;
+          })}
+        </MediaGrid>
+      </MediaContainer>
+    </>
   );
 }
