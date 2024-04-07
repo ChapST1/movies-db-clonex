@@ -1,5 +1,4 @@
 import type {
-  Keyword,
   Movie,
   MovieCast,
   MovieCategories,
@@ -14,7 +13,6 @@ import type {Tv, TvCast, TvDetails, TvGallery, TvKeywords} from "./tv";
 import type {Recommendations, ServiceResponse, WithOptional, Gallery} from "./shared";
 
 export type {
-  Keyword,
   Movie,
   MovieCast,
   MovieCategories,
