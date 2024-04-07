@@ -17,3 +17,7 @@ export const tvGalleryApiUrl = ({id}: {id: Tv["id"]}) => {
 export const tvRecomendationsApiUrl = ({id}: {id: Tv["id"]}) => {
   return `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${API_KEY}`;
 };
+
+export const tvKeywordsApiUrl = ({id}: {id: Tv["id"]}) => {
+  return `https://api.themoviedb.org/3/tv/${id}/keywords?api_key=${API_KEY}`;
+};
