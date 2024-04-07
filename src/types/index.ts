@@ -10,7 +10,7 @@ import type {
 } from "./movie";
 import type {Person, PersonMovieCredits, PersonProfiles, Profile} from "./person";
 import type {SearchPreference} from "./search";
-import type {Tv, TvCast, TvDetails, TvGallery} from "./tv";
+import type {Tv, TvCast, TvDetails, TvGallery, TvKeywords} from "./tv";
 import type {Recommendations, ServiceResponse, WithOptional, Gallery} from "./shared";
 
 export type {
@@ -30,6 +30,7 @@ export type {
   TvCast,
   TvDetails,
   TvGallery,
+  TvKeywords,
   Recommendations,
   ServiceResponse,
   WithOptional,
