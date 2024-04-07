@@ -13,7 +13,7 @@ export async function TvCharacters({id}: {id: Tv["id"]}) {
 
   return (
     <div>
-      <Title className="my-5 text-2xl">Top Billed Cast</Title>
+      <Title>Top Billed Cast</Title>
       <MediaContainer mediaLength={cast?.length ?? 0}>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
           {cast?.map((item) => {

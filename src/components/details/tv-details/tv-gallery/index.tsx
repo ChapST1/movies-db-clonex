@@ -12,7 +12,7 @@ export async function TvGallery({id}: {id: Tv["id"]}) {
   return (
     <section>
       <article>
-        <Title className="my-5 text-2xl">Top Backdrops</Title>
+        <Title>Top Backdrops</Title>
         <MediaContainer mediaLength={backdrops.length}>
           <MediaGrid className="grid-cols-2">
             {backdrops.map(({file_path, aspect_ratio}) => {
@@ -34,7 +34,7 @@ export async function TvGallery({id}: {id: Tv["id"]}) {
       </article>
 
       <article>
-        <Title className="my-5 text-2xl">Top Posters</Title>
+        <Title>Top Posters</Title>
         <MediaContainer mediaLength={posters.length}>
           <MediaGrid>
             {posters.map(({file_path, aspect_ratio}, index) => {

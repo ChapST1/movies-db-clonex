@@ -30,7 +30,7 @@ export function TvDetailHero({tvDetail}: {tvDetail: TvDetails}) {
 
       <MediaDetailsHeroContent>
         <MediaDetailsHeroContentHeader>
-          <MediaDetailsHeroContentHeaderTitle className="flex items-center gap-2">
+          <MediaDetailsHeroContentHeaderTitle className="flex flex-col items-center gap-2 md:flex-row">
             {name}
             <span className="italic opacity-70"> {year}</span>
             <Badge>{status}</Badge>
@@ -39,7 +39,9 @@ export function TvDetailHero({tvDetail}: {tvDetail: TvDetails}) {
 
         <MediaDetailsHeroContentGendersContainer>
           {genres.map((item) => (
-            <Badge key={item.id}>{item.name}</Badge>
+            <Badge key={item.id} variant="secondary">
+              {item.name}
+            </Badge>
           ))}
         </MediaDetailsHeroContentGendersContainer>
 

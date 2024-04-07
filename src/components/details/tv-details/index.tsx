@@ -9,6 +9,8 @@ import {TvDetailHero} from "./tv-hero";
 import {TvCharacters} from "./tv-characters";
 import {TvGallery} from "./tv-gallery";
 import {TvRecomendations} from "./tv-recomendations";
+import {TvDetailSidebar} from "./tv-sidebar";
+import {TvSeasons} from "./tv-seasons";
 
 export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
   const {id} = tvDetails;
@@ -26,10 +28,14 @@ export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
             <TvGallery id={id} />
           </Suspense>
 
+          <TvSeasons info={tvDetails} />
+
           <Suspense fallback={<MovieGridSkeleton />}>
             <TvRecomendations id={id} />
           </Suspense>
         </div>
+
+        <TvDetailSidebar info={tvDetails} />
       </section>
     </div>
   );
