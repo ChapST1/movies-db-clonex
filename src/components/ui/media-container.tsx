@@ -18,7 +18,7 @@ export function MediaContainer({children, className, mediaLength, ...props}: Med
 
   const height = clsx({
     "h-[470px] overflow-hidden": !expand,
-    "h-[max-content] pb-[80px]": expand || !(mediaLength > 10),
+    "h-[max-content]": expand || !(mediaLength > 10),
   });
 
   const footerHeight = clsx({
