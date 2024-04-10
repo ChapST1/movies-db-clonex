@@ -6,6 +6,7 @@ import {Title} from "@/components/ui/title";
 import {generateFullPath} from "@/lib/create-full-path";
 import {MediaContainer} from "@/components/ui/media-container";
 import {getMovieCast} from "@/lib/services/movie/get-movie-cast";
+import {MediaGrid} from "@/components/media-grid";
 
 export async function MovieCharacters({id}: {id: Movie["id"]}) {
   const movie = (await getMovieCast(id)) as MovieCast;
@@ -15,7 +16,7 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
     <div>
       <Title>Top Billed Cast</Title>
       <MediaContainer mediaLength={cast.length}>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
+        <MediaGrid>
           {cast.map((item) => { // eslint-disable-line
             const {id, cast_id, profile_path, name} = item;
             const profilePath = profile_path ?? "";
@@ -41,7 +42,7 @@ export async function MovieCharacters({id}: {id: Movie["id"]}) {
               </article>
             );
           })}
-        </div>
+        </MediaGrid>
       </MediaContainer>
     </div>
   );
