@@ -18,7 +18,7 @@ export async function MovieGallery({id}: {id: Movie["id"]}) {
       <article>
         <Title>Top Backdrops</Title>
         <MediaContainer mediaLength={backdrops.length}>
-          <MediaGrid className="grid-cols-2">
+          <MediaGrid>
             {backdrops.map(({file_path, aspect_ratio}) => {
               const image = generateFullPath({backdrop: {path: file_path, size: "w300"}});
 
