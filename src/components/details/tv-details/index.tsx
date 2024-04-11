@@ -1,9 +1,11 @@
 import type {TvDetails} from "@/types";
 
 import {Suspense} from "react";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 
 import {MoviesMediaSkeleton} from "@/components/skeletons/movies-media-skeleton";
 import {MovieGridSkeleton} from "@/components/skeletons/movie-grid-skeleton";
+import {Error} from "@/components/error";
 
 import {TvDetailHero} from "./tv-hero";
 import {TvCharacters} from "./tv-characters";
@@ -20,19 +22,25 @@ export function TvDetail({tvDetails}: {tvDetails: TvDetails}) {
       <TvDetailHero tvDetail={tvDetails} />
       <section className="grid gap-4 md:grid-cols-[1fr,300px]">
         <div>
-          <Suspense fallback={<MoviesMediaSkeleton />}>
-            <TvCharacters id={id} />
-          </Suspense>
+          <ErrorBoundary errorComponent={Error}>
+            <Suspense fallback={<MoviesMediaSkeleton />}>
+              <TvCharacters id={id} />
+            </Suspense>
+          </ErrorBoundary>
 
-          <Suspense fallback={<MoviesMediaSkeleton />}>
-            <TvGallery id={id} />
-          </Suspense>
+          <ErrorBoundary errorComponent={Error}>
+            <Suspense fallback={<MoviesMediaSkeleton />}>
+              <TvGallery id={id} />
+            </Suspense>
+          </ErrorBoundary>
 
           <TvSeasons info={tvDetails} />
 
-          <Suspense fallback={<MovieGridSkeleton />}>
-            <TvRecomendations id={id} />
-          </Suspense>
+          <ErrorBoundary errorComponent={Error}>
+            <Suspense fallback={<MovieGridSkeleton />}>
+              <TvRecomendations id={id} />
+            </Suspense>
+          </ErrorBoundary>
         </div>
 
         <TvDetailSidebar info={tvDetails} />

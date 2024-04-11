@@ -1,9 +1,11 @@
 import type {MovieDetail} from "@/types";
 
 import {Suspense} from "react";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 
 import {MovieDetailsSidebarKeywordsSkeleton} from "@/components/skeletons/movie-details-sidebar-keywords-skeleton";
 import {formatPrice} from "@/lib/format-price";
+import {Error} from "@/components/error";
 
 import {MovieSidebarKeywords} from "./movie-sidebar-keywords";
 
@@ -34,9 +36,12 @@ export function MovieDetailSidebar({info}: {info: MovieDetail}) {
         <span className="font-bold">Revenue</span>
         {formatRevenue}
       </p>
-      <Suspense fallback={<MovieDetailsSidebarKeywordsSkeleton />}>
-        <MovieSidebarKeywords id={id} />
-      </Suspense>
+
+      <ErrorBoundary errorComponent={Error}>
+        <Suspense fallback={<MovieDetailsSidebarKeywordsSkeleton />}>
+          <MovieSidebarKeywords id={id} />
+        </Suspense>
+      </ErrorBoundary>
     </nav>
   );
 }

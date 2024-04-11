@@ -1,8 +1,10 @@
 import type {TvDetails} from "@/types";
 
 import {Suspense} from "react";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 
 import {MovieDetailsSidebarKeywordsSkeleton} from "@/components/skeletons/movie-details-sidebar-keywords-skeleton";
+import {Error} from "@/components/error";
 
 import {TvSidebarKeywords} from "./tv-sidebar-keywords";
 
@@ -37,9 +39,12 @@ export function TvDetailSidebar({info}: {info: TvDetails}) {
         <span className="font-bold">Seasons</span>
         {number_of_seasons}
       </p>
-      <Suspense fallback={<MovieDetailsSidebarKeywordsSkeleton />}>
-        <TvSidebarKeywords id={id} />
-      </Suspense>
+
+      <ErrorBoundary errorComponent={Error}>
+        <Suspense fallback={<MovieDetailsSidebarKeywordsSkeleton />}>
+          <TvSidebarKeywords id={id} />
+        </Suspense>
+      </ErrorBoundary>
     </nav>
   );
 }

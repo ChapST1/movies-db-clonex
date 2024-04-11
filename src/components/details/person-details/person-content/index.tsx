@@ -1,9 +1,11 @@
 import type {Person} from "@/types";
 
 import {Suspense} from "react";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 
 import {MovieGridSkeleton} from "@/components/skeletons/movie-grid-skeleton";
 import {MoviesMediaSkeleton} from "@/components/skeletons/movies-media-skeleton";
+import {Error} from "@/components/error";
 
 import {PersonContentMovies} from "./person-content-movies";
 import {PersonContentImages} from "./person-content-images";
@@ -23,13 +25,17 @@ export function PersonContent({person}: {person: Person}) {
         {biography}
       </p>
 
-      <Suspense fallback={<MovieGridSkeleton />}>
-        <PersonContentMovies id={id} />
-      </Suspense>
+      <ErrorBoundary errorComponent={Error}>
+        <Suspense fallback={<MovieGridSkeleton />}>
+          <PersonContentMovies id={id} />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<MoviesMediaSkeleton />}>
-        <PersonContentImages id={id} owner={name} />
-      </Suspense>
+      <ErrorBoundary errorComponent={Error}>
+        <Suspense fallback={<MoviesMediaSkeleton />}>
+          <PersonContentImages id={id} owner={name} />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
