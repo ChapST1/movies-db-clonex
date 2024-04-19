@@ -23,7 +23,7 @@ export async function TvCharacters({id}: {id: Tv["id"]}) {
 
             return (
               <article key={cast_id} className="relative aspect-[185/278]">
-                <Link href={`/people/${id}`}>
+                <Link href={`/person/${id}`}>
                   <picture className="block h-full overflow-hidden rounded-md">
                     <img
                       alt={image}

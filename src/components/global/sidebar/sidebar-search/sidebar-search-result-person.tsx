@@ -14,7 +14,7 @@ export function SidebarSearchResultPerson({person}: {person: Person}) {
     <Link
       key={id}
       className="search-results-item grid grid-cols-[45px,1fr] gap-2 duration-500"
-      href={`/people/${id}`}
+      href={`/person/${id}`}
     >
       <picture className="overflow-hidden rounded-md">
         <img alt={name} className="aspect-[1/0] h-full w-full" loading="lazy" src={path} />

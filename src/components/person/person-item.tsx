@@ -20,7 +20,7 @@ export function PersonItem({person, className, ...props}: MediaProps) {
 
   return (
     <MediaPicture className={twMerge("group", className)} {...props}>
-      <Link className="group" href={`/people/${id}`}>
+      <Link className="group" href={`/person/${id}`}>
         <picture className="relative block flex-grow overflow-hidden rounded-media">
           <img
             alt={name}

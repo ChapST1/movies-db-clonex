@@ -8,7 +8,7 @@ const primaryLinks = [
   {name: "Home", path: "/", icon: <Home />},
   {name: "Movies", path: "/movies", icon: <Clapperboard />},
   {name: "Tv Series", path: "/tv", icon: <Tv />},
-  {name: "People", path: "/people", icon: <UserRound />},
+  {name: "People", path: "/person", icon: <UserRound />},
 ];
 
 const secondaryLinks = [
