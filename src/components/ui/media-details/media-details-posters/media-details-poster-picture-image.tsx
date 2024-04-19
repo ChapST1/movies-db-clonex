@@ -1,8 +1,6 @@
 import {twMerge} from "tailwind-merge";
 
-interface CurrentProps extends React.ComponentProps<"img"> {
-  children: React.ReactNode;
-}
+type CurrentProps = React.ComponentProps<"img">;
 
 export function MediaDetailsPosterPictureImage({alt, className, ...props}: CurrentProps) {
   return (
