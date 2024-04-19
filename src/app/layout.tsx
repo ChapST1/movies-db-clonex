@@ -20,17 +20,26 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "200"],
 });
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+  modal,
+}: {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}) {
   return (
     <html className={poppins.className} lang="en">
       <body className="w-full overflow-x-hidden bg-background">
         <Navbar />
         <main className="grid w-full grid-cols-1 gap-3 md:grid-cols-[200px,1fr]">
           <Sidebar className="hidden md:flex" />
-          <section className=" relative min-w-full  px-3  md:p-0 md:pr-2">{children}</section>
+          <section className=" relative min-w-full  px-3  md:p-0 md:pr-2">
+            {children}
+            {modal}
+          </section>
         </main>
-
         <Toaster />
+        <div className="fixed" id="modal-root" />
       </body>
     </html>
   );
