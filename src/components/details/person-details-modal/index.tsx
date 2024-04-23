@@ -12,7 +12,7 @@ export async function PersonDetailModal({id}: {id: PersonType["id"]}) {
   return (
     <ModalContent>
       <section className="grid grid-cols-1 gap-3 px-2 md:grid-cols-[300px,1fr]">
-        <ModalContentSidebar className="md:border-l-0 md:border-r *:md:top-0 *:md:h-[calc(100dvh-64px)]">
+        <ModalContentSidebar className="md:border-l-0 md:border-r *:md:top-0 *:md:h-max *:md:max-h-[90dvh]">
           <PersonSidebar person={personInfo} />
         </ModalContentSidebar>
         <PersonContent person={personInfo} />
