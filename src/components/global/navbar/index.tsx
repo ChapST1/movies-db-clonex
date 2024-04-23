@@ -7,7 +7,7 @@ import {NavbarMobile} from "./navbar-mobile";
 
 export function Navbar() {
   return (
-    <header className="group sticky left-0 top-0 z-[70] flex h-16 w-full items-center justify-between gap-2 border-b border-border bg-background/85 px-3 py-3 backdrop-blur-sm">
+    <header className="group sticky left-0 top-0 z-50 flex h-16 w-full items-center justify-between gap-2 border-b border-border bg-background/85 px-3 py-3 backdrop-blur-sm">
       <Link href="/">
         <h2 className="text-2xl font-semibold text-gradient md:text-3xl md:font-bold">
           Movies DBX
