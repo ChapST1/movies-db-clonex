@@ -40,15 +40,11 @@ export function CarouselMedia({data}: {data: WithOptional<Movie, "release_date" 
           const {media_type} = item;
 
           return (
-            <>
-              {media_type === "movie" && (
-                <CarouselMediaItem key={item.id} media={item as Movie & Tv} />
-              )}
-              {media_type === "tv" && (
-                <CarouselMediaItem key={item.id} media={item as Movie & Tv} />
-              )}
+            <div key={item.id} className="min-w-full">
+              {media_type === "movie" && <CarouselMediaItem media={item as Movie & Tv} />}
+              {media_type === "tv" && <CarouselMediaItem media={item as Movie & Tv} />}
               {media_type === "person" && null}
-            </>
+            </div>
           );
         })}
       </div>
